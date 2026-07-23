@@ -1,0 +1,205 @@
+/* ============================================================
+   ESTILOS DEL WIDGET — los colores se toman de config.js
+   vía las variables --cbn-primario y --cbn-secundario.
+   ============================================================ */
+
+#cbn-raiz {
+  position: fixed;
+  bottom: 24px;
+  z-index: 99999;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+/* Burbuja flotante */
+#cbn-burbuja {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-size: 30px;
+  background: linear-gradient(135deg, var(--cbn-primario), var(--cbn-secundario));
+  box-shadow: 0 6px 24px rgba(0, 0, 0, .28);
+  transition: transform .2s;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#cbn-burbuja:hover { transform: scale(1.08); }
+
+#cbn-punto {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #2ecc71;
+  border: 2px solid #fff;
+}
+
+/* Panel del chat */
+#cbn-panel {
+  position: absolute;
+  bottom: 80px;
+  width: 372px;
+  max-width: calc(100vw - 32px);
+  height: 540px;
+  max-height: calc(100vh - 120px);
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, .30);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: cbn-aparecer .25s ease;
+}
+@keyframes cbn-aparecer {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.cbn-oculto { display: none !important; }
+
+/* Cabecera */
+#cbn-cabecera {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: linear-gradient(135deg, var(--cbn-primario), var(--cbn-secundario));
+  color: #fff;
+}
+#cbn-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+#cbn-titulo { font-weight: 700; font-size: 16px; }
+#cbn-subtitulo { font-size: 12px; opacity: .9; }
+#cbn-cerrar {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  opacity: .85;
+}
+#cbn-cerrar:hover { opacity: 1; }
+
+/* Mensajes */
+#cbn-mensajes {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 14px;
+  background: #f5f6f8;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.cbn-msg {
+  max-width: 82%;
+  padding: 10px 14px;
+  border-radius: 16px;
+  font-size: 14px;
+  line-height: 1.45;
+  white-space: pre-line;
+  word-wrap: break-word;
+}
+.cbn-bot {
+  background: #fff;
+  color: #222;
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .08);
+}
+.cbn-usuario {
+  background: linear-gradient(135deg, var(--cbn-primario), var(--cbn-secundario));
+  color: #fff;
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+}
+.cbn-escribiendo { letter-spacing: 3px; animation: cbn-pulso 1s infinite; }
+@keyframes cbn-pulso { 50% { opacity: .4; } }
+
+/* Chips de sugerencia */
+.cbn-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-self: flex-start;
+}
+.cbn-chip {
+  border: 1.5px solid var(--cbn-primario);
+  color: var(--cbn-primario);
+  background: #fff;
+  border-radius: 999px;
+  padding: 7px 14px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all .15s;
+}
+.cbn-chip:hover {
+  background: var(--cbn-primario);
+  color: #fff;
+}
+.cbn-enlace {
+  align-self: flex-start;
+  text-decoration: none;
+  background: #25D366;
+  border-color: #25D366;
+  color: #fff;
+  font-weight: 700;
+}
+.cbn-enlace:hover { background: #1EBE5A; border-color: #1EBE5A; }
+
+/* Barra de entrada */
+#cbn-entrada {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  background: #fff;
+  border-top: 1px solid #eee;
+}
+#cbn-texto {
+  flex: 1;
+  border: 1.5px solid #ddd;
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-size: 14px;
+  outline: none;
+}
+#cbn-texto:focus { border-color: var(--cbn-primario); }
+#cbn-enviar, #cbn-mic {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-size: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .15s;
+}
+#cbn-enviar {
+  background: linear-gradient(135deg, var(--cbn-primario), var(--cbn-secundario));
+  color: #fff;
+}
+#cbn-mic { background: #eef0f3; }
+#cbn-enviar:hover, #cbn-mic:hover { transform: scale(1.08); }
+#cbn-mic.cbn-grabando {
+  background: #e74c3c;
+  animation: cbn-pulso .8s infinite;
+}
+
+@media (max-width: 480px) {
+  #cbn-panel { width: calc(100vw - 32px); height: 70vh; }
+}

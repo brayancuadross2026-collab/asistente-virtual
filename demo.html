@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Brasa Dorada — Parrilla de autor en Malasaña, Madrid</title>
+  <meta name="description" content="Parrilla y brasa de encina en Malasaña. Reserva mesa en 30 segundos con nuestro asistente virtual.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%94%A5%3C/text%3E%3C/svg%3E">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="La Brasa Dorada — Reserva con nuestro asistente virtual">
+  <meta property="og:description" content="Mira una web con asistente que reserva mesa solo. ¿La quieres para tu negocio?">
+  <!-- OG_IMAGE_DEMO -->
+  <style>
+    :root {
+      --rojo: #C0392B;
+      --ambar: #E67E22;
+      --espresso: #14100d;
+      --carbon: #1c1512;
+      --crema: #f8f2e8;
+      --oro: #d4a24e;
+      --oro-claro: #e8c988;
+      --texto: #2b211b;
+      --gris-calido: #6b5d52;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: var(--texto); background: var(--crema); }
+    h1, h2, h3 { font-family: 'Playfair Display', Georgia, 'Times New Roman', serif; font-weight: 700; }
+    a { color: inherit; }
+    img { max-width: 100%; }
+    .contenedor { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+    /* Barra de progreso de scroll */
+    #progreso { position: fixed; top: 0; left: 0; height: 3px; width: 0%; z-index: 9998;
+      background: linear-gradient(90deg, var(--rojo), var(--oro)); transition: width .1s linear; }
+
+    /* Preloader */
+    #preloader { position: fixed; inset: 0; background: var(--espresso); z-index: 10000;
+      display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 16px;
+      transition: opacity .6s ease, visibility .6s; }
+    #preloader.oculto { opacity: 0; visibility: hidden; }
+    #preloader .fuego { font-size: 60px; animation: latir 1s ease-in-out infinite; }
+    #preloader .nombre-pre { color: var(--oro); font-family: 'Playfair Display', Georgia, serif; font-size: 24px; letter-spacing: 2px; opacity: 0; animation: aparecer-pre .8s ease .3s forwards; }
+    @keyframes latir { 0%,100% { transform: scale(1); } 50% { transform: scale(1.18); } }
+    @keyframes aparecer-pre { to { opacity: 1; } }
+
+    /* Aviso demo */
+    .aviso-demo { background: linear-gradient(90deg, #1a1a2e, #2a1a3e); color: #ffd966;
+      font-size: 13px; text-align: center; padding: 8px 14px; position: relative; z-index: 500; }
+    .aviso-demo a { color: #7fffb2; font-weight: 700; text-decoration: none; }
+    .aviso-demo a:hover { text-decoration: underline; }
+
+    /* Nav */
+    nav { background: rgba(20,16,13,.8); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      position: sticky; top: 0; z-index: 400; border-bottom: 1px solid rgba(212,162,78,.2);
+      transition: background .3s, padding .3s; }
+    nav.compacta { background: rgba(20,16,13,.97); }
+    nav .contenedor { display: flex; align-items: center; justify-content: space-between; height: 70px; }
+    .marca { color: #fff; font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 700; display: flex; align-items: center; gap: 9px; }
+    .marca .llama { font-size: 24px; animation: parpadeo-llama 2.5s ease-in-out infinite; transform-origin: center bottom; }
+    @keyframes parpadeo-llama { 0%,100% { transform: scale(1) rotate(-2deg); } 50% { transform: scale(1.08) rotate(2deg); } }
+    nav ul { list-style: none; display: flex; gap: 28px; }
+    nav ul a { color: #e8ddd0; text-decoration: none; font-size: 15px; position: relative; transition: color .2s; }
+    nav ul a::after { content: ""; position: absolute; left: 0; bottom: -5px; width: 0; height: 2px; background: var(--oro); transition: width .25s; }
+    nav ul a:hover { color: var(--oro-claro); }
+    nav ul a:hover::after { width: 100%; }
+    nav .reservar-nav { background: linear-gradient(135deg, var(--rojo), var(--ambar)); color: #fff;
+      padding: 10px 22px; border-radius: 999px; font-weight: 700; font-size: 14px; border: none; cursor: pointer;
+      box-shadow: 0 4px 16px rgba(192,57,43,.4); transition: transform .18s, box-shadow .18s; }
+    .reservar-nav:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(192,57,43,.55); }
+    @media (max-width: 820px) { nav ul { display: none; } }
+
+    /* Hero */
+    header.hero { position: relative; color: #fff; text-align: center; padding: 120px 24px 130px; overflow: hidden;
+      background: radial-gradient(ellipse at 50% 130%, rgba(230,126,34,.32), transparent 55%),
+                  linear-gradient(180deg, rgba(20,16,13,.74), rgba(20,16,13,.9)),
+                  url('img/hero.jpg') center/cover no-repeat; }
+    .chispas { position: absolute; inset: 0; pointer-events: none; }
+    .hero-inner { position: relative; z-index: 2; opacity: 0; transform: translateY(30px); animation: hero-in 1s ease .3s forwards; }
+    @keyframes hero-in { to { opacity: 1; transform: translateY(0); } }
+    .estrella-mich { display: inline-flex; align-items: center; gap: 8px; background: rgba(212,162,78,.15);
+      border: 1px solid rgba(212,162,78,.5); color: var(--oro-claro); padding: 7px 18px; border-radius: 999px;
+      font-size: 13px; letter-spacing: .05em; margin-bottom: 26px; position: relative; overflow: hidden; }
+    .estrella-mich::after { content: ""; position: absolute; top: 0; left: -100%; width: 60%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.35), transparent); animation: brillo 3.5s ease-in-out infinite; }
+    @keyframes brillo { 0% { left: -100%; } 40%,100% { left: 160%; } }
+    .hero h1 { font-size: clamp(40px, 8vw, 76px); line-height: 1.02; margin-bottom: 18px; text-wrap: balance; letter-spacing: -1px; }
+    .hero h1 .dorada { background: linear-gradient(135deg, var(--oro-claro), var(--oro)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; font-style: italic; }
+    .hero p.sub { font-size: clamp(17px, 2.4vw, 22px); color: #eaded0; max-width: 640px; margin: 0 auto 36px; line-height: 1.55; }
+    .hero-cta { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-primario { background: linear-gradient(135deg, var(--rojo), var(--ambar)); color: #fff; padding: 17px 38px;
+      border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; border: none; cursor: pointer;
+      box-shadow: 0 10px 30px rgba(192,57,43,.5); transition: transform .18s, box-shadow .18s; }
+    .btn-primario:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 16px 40px rgba(230,126,34,.6); }
+    .btn-fantasma { background: rgba(255,255,255,.06); color: #fff; padding: 17px 32px; border-radius: 999px;
+      font-size: 17px; font-weight: 600; text-decoration: none; border: 1.5px solid rgba(255,255,255,.35); transition: all .2s; }
+    .btn-fantasma:hover { border-color: var(--oro); background: rgba(212,162,78,.12); }
+    .hero-stats { display: flex; gap: 48px; justify-content: center; margin-top: 60px; flex-wrap: wrap; }
+    .hero-stats .num { font-family: 'Playfair Display', Georgia, serif; font-size: 34px; color: var(--oro-claro); font-variant-numeric: tabular-nums; }
+    .hero-stats .lab { font-size: 13px; color: #cdbfae; letter-spacing: .04em; margin-top: 2px; }
+    .scroll-hint { position: absolute; bottom: 26px; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,.5); font-size: 22px; animation: rebote 2s ease-in-out infinite; z-index: 2; }
+    @keyframes rebote { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
+
+    /* Banda venta */
+    .banda-venta { background: linear-gradient(135deg, var(--rojo), var(--ambar)); color: #fff; text-align: center; padding: 26px 24px; }
+    .banda-venta b { font-size: 17px; }
+    .banda-venta a { display: inline-block; margin-top: 10px; background: #fff; color: var(--rojo); padding: 11px 26px; border-radius: 999px; font-weight: 700; text-decoration: none; transition: transform .16s; }
+    .banda-venta a:hover { transform: scale(1.05); }
+
+    /* Secciones */
+    section { padding: 92px 0; }
+    .eyebrow { text-align: center; text-transform: uppercase; letter-spacing: .2em; font-size: 12px; font-weight: 700; color: var(--ambar); margin-bottom: 12px; }
+    .titulo-seccion { text-align: center; font-size: clamp(30px, 4.5vw, 44px); margin-bottom: 14px; color: var(--carbon); text-wrap: balance; letter-spacing: -.5px; }
+    .intro-seccion { text-align: center; max-width: 640px; margin: 0 auto 52px; color: var(--gris-calido); font-size: 17px; line-height: 1.6; }
+
+    /* Reveal on scroll */
+    .reveal { opacity: 0; transform: translateY(38px); transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+    .reveal.in { opacity: 1; transform: none; }
+
+    /* Historia */
+    .historia { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+    .historia .foto { aspect-ratio: 4/3; border-radius: 20px; overflow: hidden; position: relative;
+      box-shadow: 0 26px 60px rgba(20,16,13,.35); }
+    .historia .foto img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s; }
+    .historia .foto:hover img { transform: scale(1.06); }
+    .historia .foto .glow { position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, transparent 55%, rgba(20,16,13,.35)); pointer-events: none; }
+    .historia h2 { font-size: 34px; margin-bottom: 18px; color: var(--carbon); }
+    .historia p { color: #5f5248; line-height: 1.75; margin-bottom: 15px; font-size: 16.5px; }
+    .firma { font-family: 'Playfair Display', Georgia, serif; font-style: italic; color: var(--rojo); font-size: 20px; margin-top: 10px; }
+    @media (max-width: 760px) { .historia { grid-template-columns: 1fr; gap: 30px; } }
+
+    /* Carta */
+    .carta-seccion { background: #fff; }
+    .categorias { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 44px; }
+    .cat-pill { background: var(--crema); border: 1.5px solid #e6dccd; padding: 9px 20px; border-radius: 999px;
+      font-size: 14px; color: var(--gris-calido); cursor: pointer; transition: all .2s; font-weight: 600; }
+    .cat-pill:hover { border-color: var(--ambar); color: var(--ambar); }
+    .cat-pill.activa { background: linear-gradient(135deg, var(--rojo), var(--ambar)); color: #fff; border-color: transparent; box-shadow: 0 6px 16px rgba(192,57,43,.3); }
+    .platos-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px 44px; }
+    @media (max-width: 760px) { .platos-grid { grid-template-columns: 1fr; } }
+    .plato { display: flex; gap: 16px; align-items: flex-start; padding: 14px; border-radius: 14px;
+      transition: background .25s, transform .25s; }
+    .plato:hover { background: var(--crema); transform: translateX(4px); }
+    .plato.ocultar { display: none; }
+    .plato .icono { width: 84px; height: 84px; border-radius: 13px; object-fit: cover; flex-shrink: 0;
+      box-shadow: 0 6px 16px rgba(20,16,13,.22); transition: transform .25s; }
+    .plato:hover .icono { transform: scale(1.06); }
+    @media (max-width: 400px) { .plato .icono { width: 68px; height: 68px; } }
+    .plato .info { flex: 1; }
+    .plato .nombre-precio { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+    .plato .nombre { font-weight: 700; font-size: 16.5px; color: var(--carbon); }
+    .plato .precio { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; color: var(--rojo); font-size: 18px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+    .plato .desc { color: #857567; font-size: 14px; margin-top: 4px; line-height: 1.45; }
+    .plato .etq { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 9px; border-radius: 999px; margin-top: 7px; }
+    .etq.top { background: #fbe9c9; color: #9a6a12; }
+    .etq.veg { background: #ddf2d8; color: #3d7a2e; }
+    .menu-dia { margin-top: 48px; background: linear-gradient(135deg, var(--carbon), #3a271c); color: #fff;
+      border-radius: 20px; padding: 40px; text-align: center; position: relative; overflow: hidden; }
+    .menu-dia::before { content: "🔥"; position: absolute; font-size: 200px; opacity: .05; right: -20px; top: -40px; }
+    .menu-dia h3 { color: var(--oro-claro); font-size: 25px; margin-bottom: 8px; }
+    .menu-dia .precio-grande { font-family: 'Playfair Display', Georgia, serif; font-size: 52px; color: #fff; margin: 6px 0; }
+    .menu-dia p { color: #d8cabb; font-size: 15px; }
+
+    /* Galería */
+    .galeria-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    @media (max-width: 760px) { .galeria-grid { grid-template-columns: repeat(2, 1fr); } }
+    .gal { aspect-ratio: 1; border-radius: 16px; position: relative; overflow: hidden; cursor: pointer; box-shadow: 0 10px 26px rgba(20,16,13,.18); }
+    .gal img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .45s; }
+    .gal:hover img { transform: scale(1.12); }
+    .gal .cap { position: absolute; bottom: 0; left: 0; right: 0; z-index: 3; padding: 12px 12px 11px; font-size: 12.5px; font-weight: 700;
+      color: #fff; background: linear-gradient(transparent, rgba(0,0,0,.8)); font-family: 'Segoe UI', sans-serif;
+      transform: translateY(101%); transition: transform .3s; }
+    .gal:hover .cap { transform: translateY(0); }
+
+    /* Opiniones */
+    .opiniones-seccion { background: linear-gradient(180deg, #fff, var(--crema)); }
+    .rating-top { text-align: center; margin-bottom: 48px; }
+    .rating-top .estrellas { color: var(--oro); font-size: 32px; letter-spacing: 5px; }
+    .rating-top .nota { font-family: 'Playfair Display', Georgia, serif; font-size: 48px; color: var(--carbon); }
+    .rating-top .fuente { color: #857567; font-size: 14px; }
+    .opiniones-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    @media (max-width: 760px) { .opiniones-grid { grid-template-columns: 1fr; } }
+    .opinion { background: #fff; border: 1px solid #eee2d2; border-radius: 18px; padding: 26px; box-shadow: 0 8px 22px rgba(20,16,13,.06); transition: transform .25s, box-shadow .25s; }
+    .opinion:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(20,16,13,.12); }
+    .opinion .est { color: var(--oro); font-size: 15px; letter-spacing: 2px; margin-bottom: 12px; }
+    .opinion p { color: #5f5248; font-size: 15px; line-height: 1.65; font-style: italic; margin-bottom: 18px; }
+    .opinion .autor { display: flex; align-items: center; gap: 11px; }
+    .opinion .avatar { width: 42px; height: 42px; border-radius: 50%; background: linear-gradient(135deg, var(--rojo), var(--ambar)); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; }
+    .opinion .autor b { font-size: 14.5px; color: var(--carbon); }
+    .opinion .autor small { display: block; color: #9a8b7d; font-size: 12.5px; }
+
+    /* Ubicación */
+    .ubicacion-seccion { background: var(--espresso); color: #fff; }
+    .ubicacion-seccion .titulo-seccion { color: #fff; }
+    .ubicacion-seccion .eyebrow { color: var(--oro); }
+    .ubi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items: stretch; }
+    @media (max-width: 760px) { .ubi-grid { grid-template-columns: 1fr; } }
+    .mapa { border-radius: 20px; overflow: hidden; min-height: 320px; position: relative; border: 1px solid rgba(212,162,78,.3); }
+    .info-contacto { display: flex; flex-direction: column; gap: 24px; justify-content: center; }
+    .info-item { display: flex; gap: 16px; align-items: flex-start; }
+    .info-item .ico { font-size: 26px; }
+    .info-item b { display: block; color: var(--oro); font-size: 15px; margin-bottom: 3px; }
+    .info-item span, .info-item a { color: #d8cabb; font-size: 15px; line-height: 1.5; text-decoration: none; }
+    .info-item a:hover { color: #fff; }
+
+    /* Footer */
+    footer { background: #0e0908; color: #9a8b7d; text-align: center; padding: 44px 24px; font-size: 14px; }
+    footer .marca { justify-content: center; margin-bottom: 12px; }
+    .redes { display: flex; gap: 16px; justify-content: center; margin: 14px 0; font-size: 22px; }
+    .redes a { text-decoration: none; transition: transform .2s; display: inline-block; }
+    .redes a:hover { transform: scale(1.25); }
+
+    /* Aviso flotante que invita a probar el chat */
+    #cta-chat { position: fixed; right: 24px; bottom: 100px; z-index: 9990; max-width: 220px;
+      background: #fff; color: var(--carbon); padding: 12px 16px; border-radius: 14px 14px 4px 14px;
+      box-shadow: 0 12px 34px rgba(0,0,0,.28); font-size: 14px; font-weight: 600; line-height: 1.35;
+      opacity: 0; transform: translateY(10px) scale(.9); transition: opacity .4s, transform .4s; pointer-events: none;
+      border: 1px solid #eee; }
+    #cta-chat.ver { opacity: 1; transform: none; pointer-events: auto; }
+    #cta-chat .cerrar { position: absolute; top: 4px; right: 8px; color: #bbb; cursor: pointer; font-size: 14px; }
+    #cta-chat b { color: var(--rojo); }
+    #cta-chat::after { content: ""; position: absolute; bottom: -7px; right: 22px; width: 14px; height: 14px; background: #fff; border-right: 1px solid #eee; border-bottom: 1px solid #eee; transform: rotate(45deg); }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="preloader"><div class="fuego">🔥</div><div class="nombre-pre">LA BRASA DORADA</div></div>
+  <div id="progreso"></div>
+
+  <div class="aviso-demo">
+    🔧 PÁGINA DE DEMOSTRACIÓN — Ejemplo de web con asistente virtual instalado. ¿La quieres para tu negocio?
+    <a href="https://wa.me/34603621660?text=Hola%2C%20vi%20la%20demo%20y%20quiero%20un%20asistente%20virtual%20para%20mi%20negocio" target="_blank" rel="noopener noreferrer">📲 Escríbeme: +34 603 621 660</a>
+  </div>
+
+  <nav id="nav">
+    <div class="contenedor">
+      <div class="marca"><span class="llama">🔥</span> La Brasa Dorada</div>
+      <ul>
+        <li><a href="#historia">Nosotros</a></li>
+        <li><a href="#carta">Carta</a></li>
+        <li><a href="#galeria">Galería</a></li>
+        <li><a href="#opiniones">Opiniones</a></li>
+        <li><a href="#ubicacion">Dónde estamos</a></li>
+      </ul>
+      <button class="reservar-nav" onclick="abrirChat()">Reservar mesa</button>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <svg class="chispas" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <g fill="#E67E22">
+        <circle cx="120" cy="600" r="2.5"><animate attributeName="cy" values="620;100" dur="6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;0" dur="6s" repeatCount="indefinite"/></circle>
+        <circle cx="300" cy="580" r="2"><animate attributeName="cy" values="600;80" dur="7s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;.9;0" dur="7s" repeatCount="indefinite"/></circle>
+        <circle cx="520" cy="620" r="3"><animate attributeName="cy" values="640;120" dur="5.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;0" dur="5.5s" repeatCount="indefinite"/></circle>
+        <circle cx="700" cy="600" r="2"><animate attributeName="cy" values="620;90" dur="6.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;.8;0" dur="6.8s" repeatCount="indefinite"/></circle>
+        <circle cx="880" cy="590" r="2.5"><animate attributeName="cy" values="610;110" dur="6.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;0" dur="6.2s" repeatCount="indefinite"/></circle>
+        <circle cx="1050" cy="610" r="2"><animate attributeName="cy" values="630;130" dur="7.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;.9;0" dur="7.4s" repeatCount="indefinite"/></circle>
+        <circle cx="1150" cy="600" r="3"><animate attributeName="cy" values="620;100" dur="5.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;0" dur="5.8s" repeatCount="indefinite"/></circle>
+      </g>
+    </svg>
+    <div class="contenedor hero-inner">
+      <div class="estrella-mich">⭐ Recomendado en la Guía Gastronómica de Madrid 2025</div>
+      <h1>Carne a la brasa<br>como en <span class="dorada">ninguna parte</span></h1>
+      <p class="sub">En el corazón de Malasaña maduramos nuestras carnes 40 días y las hacemos a fuego de encina. Sabor auténtico, ambiente de barrio.</p>
+      <div class="hero-cta">
+        <button class="btn-primario" onclick="abrirChat()">📅 Reservar mesa en 30 seg</button>
+        <a class="btn-fantasma" href="#carta">Ver la carta</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="num" data-contador="4.8" data-decimal="1" data-sufijo="★">0★</div><div class="lab">+1.200 opiniones</div></div>
+        <div><div class="num" data-contador="40" data-sufijo=" días">0 días</div><div class="lab">de maduración</div></div>
+        <div><div class="num" data-contador="10" data-sufijo=" años">0 años</div><div class="lab">en Malasaña</div></div>
+      </div>
+    </div>
+    <div class="scroll-hint">⌄</div>
+  </header>
+
+  <div class="banda-venta">
+    <b>👀 Esto que ves es una DEMO.</b> Así de profesional puede quedar la web de tu negocio, con asistente que reserva solo.
+    <br><a href="https://wa.me/34603621660?text=Hola%2C%20quiero%20una%20web%20con%20asistente%20como%20la%20demo" target="_blank" rel="noopener noreferrer">Quiero una igual para mi negocio →</a>
+  </div>
+
+  <section id="historia">
+    <div class="contenedor">
+      <div class="historia">
+        <div class="foto reveal"><div class="glow"></div><img src="img/historia.jpg" alt="Chuletón madurado a la brasa de encina"></div>
+        <div class="reveal">
+          <div class="eyebrow" style="text-align:left">Nuestra historia</div>
+          <h2>Diez años defendiendo la brasa de verdad</h2>
+          <p>Abrimos en 2015 con una idea sencilla: recuperar el sabor de la carne hecha a fuego lento, sin prisas y sin atajos. Trabajamos con ganaderías nacionales y maduramos cada pieza en nuestra cámara durante 40 días.</p>
+          <p>Nuestra parrilla de encina es el alma de la casa. Cada chuletón pasa por ella el tiempo justo para sellar el jugo por fuera y quedar rosado por dentro. Eso no se improvisa.</p>
+          <div class="firma">— Familia Herrero, fundadores</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="carta" class="carta-seccion">
+    <div class="contenedor">
+      <div class="eyebrow reveal">La carta</div>
+      <h2 class="titulo-seccion reveal">Nuestras especialidades</h2>
+      <p class="intro-seccion reveal">Producto de temporada, brasa de encina y precios de barrio. Filtra por categoría y elige tu favorito.</p>
+
+      <div class="categorias reveal">
+        <span class="cat-pill activa" data-filtro="todas">✨ Todas</span>
+        <span class="cat-pill" data-filtro="brasa">🔥 A la brasa</span>
+        <span class="cat-pill" data-filtro="compartir">🥘 Para compartir</span>
+        <span class="cat-pill" data-filtro="mar">🐟 Del mar</span>
+        <span class="cat-pill" data-filtro="verduras">🥗 Verduras</span>
+        <span class="cat-pill" data-filtro="postres">🍰 Postres</span>
+      </div>
+
+      <div class="platos-grid reveal">
+        <div class="plato" data-cat="brasa">
+          <img class="icono" src="img/d-chuleton.jpg" alt="Chuletón de vaca madurada">
+          <div class="info">
+            <div class="nombre-precio"><span class="nombre">Chuletón de vaca madurada (300g)</span><span class="precio">24,00 €</span></div>
+            <div class="desc">Vaca rubia gallega, 40 días de maduración, a la brasa de encina con sal en escamas.</div>
+            <span class="etq top">★ El más pedido</span>
+          </div>
+        </div>
+        <div class="plato" data-cat="brasa">
+          <img class="icono" src="img/d-entrecot.jpg" alt="Entrecot a la brasa">
+          <div class="info">
+            <div class="nombre-precio"><span class="nombre">Entrecot a la brasa</span><span class="precio">18,50 €</span></div>
+            <div class="desc">Corte jugoso al punto que prefieras, con patatas panadera y pimientos del padrón.</div>
+          </div>
+        </div>
+        <div class="plato" data-cat="compartir">
+          <img class="icono" src="img/d-parrillada.jpg" alt="Parrillada para compartir">
+          <div class="info">
+            <div class="nombre-precio"><span class="nombre">Parrillada para compartir (2 pers.)</span><span class="precio">39,00 €</span></div>
+            <div class="desc">Entrecot, secreto ibérico, chorizo, morcilla y verduras a la brasa. Nuestra estrella para dos.</div>
+            <span class="etq top">★ Ideal en pareja</span>
+          </div>
+        </div>
+        <div class="plato" data-cat="mar">
+          <img class="icono" src="img/d-salmon.jpg" alt="Salmón a la brasa">
+          <div class="info">
+            <div class="nombre-precio"><span class="nombre">Salmón a la brasa</span><span class="precio">19,50 €</span></div>
+            <div class="desc">Lomo de salmón sellado a la brasa sobre crema de guisantes y pimentón de la Vera.</div>
+          </div>
+        </div>
+        <div class="plato" data-cat="mar">
+          <img class="icono" src="img/d-gambon.jpg" alt="Gambón rojo a la parrilla">
+          <div class="info">
+            <div class="nombre-precio"><span class="nombre">Gambón rojo a la parrilla</span><span class="precio">16,00 €</span></div>
+            <div class="desc">Media docena de gambones al fuego con ajo y perejil. Para mojar pan.</div>
+          </div>
+        </div>
+        <div class="plato" data-cat="verduras">
+          <img class="icono" src="img/d-verduras.jpg" alt="Verduras de temporada a la brasa">
+          <div class="info">
+            <div class="nombre-precio"><span class="nombre">Verduras de temporada a la brasa</span><span class="precio">11,50 €</span></div>
+            <div class="desc">Espárragos, calabacín, pimiento y cebolleta con vinagreta de miel.</div>
+            <span class="etq veg">🌱 Vegano</span>
+          </div>
+        </div>
+        <div class="plato" data-cat="verduras">
+          <img class="icono" src="img/d-provolone.jpg" alt="Provolone fundido a la brasa">
+          <div class="info">
+            <div class="nombre-precio"><span class="nombre">Provolone fundido a la brasa</span><span class="precio">9,50 €</span></div>
+            <div class="desc">Con orégano, tomate seco y tostas de pan de pueblo.</div>
+            <span class="etq veg">🌱 Vegetariano</span>
+          </div>
+        </div>
+        <div class="plato" data-cat="postres">
+          <img class="icono" src="img/d-tarta.jpg" alt="Tarta de queso">
+          <div class="info">
+            <div class="nombre-precio"><span class="nombre">Tarta de queso al horno</span><span class="precio">6,50 €</span></div>
+            <div class="desc">Cremosa por dentro, tostada por fuera, con mermelada de arándanos. Receta de la casa.</div>
+            <span class="etq top">★ Se agota</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-dia reveal">
+        <h3>🍽️ Menú del día</h3>
+        <div class="precio-grande">13,50 €</div>
+        <p>De lunes a viernes al mediodía · Primero + Segundo + Postre + Bebida · Pan y café incluidos</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="galeria">
+    <div class="contenedor">
+      <div class="eyebrow reveal">Galería</div>
+      <h2 class="titulo-seccion reveal">Un vistazo a la casa</h2>
+      <p class="intro-seccion reveal">Ambiente cálido, brasa a la vista y platos que entran por los ojos.</p>
+      <div class="galeria-grid reveal">
+        <div class="gal"><img src="img/g-interior.jpg" alt="Sala del restaurante"><div class="cap">Sala con encanto de barrio</div></div>
+        <div class="gal"><img src="img/g-brasa.jpg" alt="Chuletón madurado"><div class="cap">Chuletón madurado 40 días</div></div>
+        <div class="gal"><img src="img/g-vino.jpg" alt="Carta de vinos"><div class="cap">Carta de vinos D.O.</div></div>
+        <div class="gal"><img src="img/d-parrillada.jpg" alt="Parrillada"><div class="cap">Parrillada para compartir</div></div>
+        <div class="gal"><img src="img/g-marisco.jpg" alt="Gambones al fuego"><div class="cap">Gambón rojo al fuego</div></div>
+        <div class="gal"><img src="img/d-verduras.jpg" alt="Verduras a la brasa"><div class="cap">Verduras a la brasa</div></div>
+        <div class="gal"><img src="img/d-entrecot.jpg" alt="Entrecot"><div class="cap">Entrecot en su punto</div></div>
+        <div class="gal"><img src="img/d-tarta.jpg" alt="Tarta de queso"><div class="cap">Postres caseros</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="opiniones" class="opiniones-seccion">
+    <div class="contenedor">
+      <div class="eyebrow reveal">Opiniones</div>
+      <h2 class="titulo-seccion reveal">Lo que dicen nuestros clientes</h2>
+      <div class="rating-top reveal">
+        <div class="estrellas">★★★★★</div>
+        <div class="nota">4,8 / 5</div>
+        <div class="fuente">Basado en +1.200 reseñas en Google y TripAdvisor</div>
+      </div>
+      <div class="opiniones-grid">
+        <div class="opinion reveal">
+          <div class="est">★★★★★</div>
+          <p>"El mejor chuletón que he comido en Madrid. La carne se deshace en la boca y el trato es de diez. Repetiremos seguro."</p>
+          <div class="autor"><div class="avatar">L</div><div><b>Laura Giménez</b><small>Hace 2 semanas · Google</small></div></div>
+        </div>
+        <div class="opinion reveal">
+          <div class="est">★★★★★</div>
+          <p>"Reservé por el chat de la web en 30 segundos, sin llamar. Llegamos y la mesa lista. La parrillada para dos, brutal."</p>
+          <div class="autor"><div class="avatar">M</div><div><b>Marcos Ruiz</b><small>Hace 1 mes · TripAdvisor</small></div></div>
+        </div>
+        <div class="opinion reveal">
+          <div class="est">★★★★★</div>
+          <p>"Ambiente de Malasaña auténtico, precios muy razonables para la calidad. El pulpo a la brasa es espectacular."</p>
+          <div class="autor"><div class="avatar">N</div><div><b>Nadia El Amrani</b><small>Hace 3 semanas · Google</small></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ubicacion" class="ubicacion-seccion">
+    <div class="contenedor">
+      <div class="eyebrow reveal">Dónde estamos</div>
+      <h2 class="titulo-seccion reveal">Ven a visitarnos</h2>
+      <div class="ubi-grid reveal">
+        <div class="mapa">
+          <svg viewBox="0 0 400 320" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Mapa de ubicación en Malasaña">
+            <rect width="400" height="320" fill="#20304a"/>
+            <g stroke="#33455f" stroke-width="6">
+              <line x1="0" y1="90" x2="400" y2="70"/><line x1="0" y1="200" x2="400" y2="220"/>
+              <line x1="120" y1="0" x2="140" y2="320"/><line x1="270" y1="0" x2="250" y2="320"/>
+            </g>
+            <g stroke="#3d5170" stroke-width="3">
+              <line x1="0" y1="150" x2="400" y2="145"/><line x1="190" y1="0" x2="200" y2="320"/>
+            </g>
+            <rect x="150" y="100" width="90" height="70" fill="#2a3c58"/>
+            <rect x="30" y="30" width="70" height="45" fill="#2a3c58"/>
+            <rect x="300" y="230" width="70" height="55" fill="#2a3c58"/>
+            <circle cx="200" cy="150" r="13" fill="#C0392B"><animate attributeName="r" values="13;17;13" dur="2s" repeatCount="indefinite"/></circle>
+            <circle cx="200" cy="150" r="26" fill="none" stroke="#C0392B" stroke-width="3" opacity="0.5"><animate attributeName="r" values="20;34;20" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values=".6;0;.6" dur="2s" repeatCount="indefinite"/></circle>
+            <text x="200" y="196" fill="#fff" font-size="13" font-family="sans-serif" text-anchor="middle" font-weight="bold">La Brasa Dorada</text>
+            <text x="200" y="213" fill="#d4a24e" font-size="10" font-family="sans-serif" text-anchor="middle">Calle de Fuencarral 78</text>
+          </svg>
+        </div>
+        <div class="info-contacto">
+          <div class="info-item"><span class="ico">📍</span><div><b>Dirección</b><span>Calle de Fuencarral 78<br>Malasaña, 28004 Madrid</span></div></div>
+          <div class="info-item"><span class="ico">🚇</span><div><b>Cómo llegar</b><span>Metro Tribunal (L1, L10) a 3 min<br>Parking Tribunal a 2 min</span></div></div>
+          <div class="info-item"><span class="ico">🕐</span><div><b>Horario</b><span>Lun–Jue: 13:00–23:30<br>Vie–Sáb: 13:00–01:00<br>Dom: 13:00–17:00</span></div></div>
+          <div class="info-item"><span class="ico">📱</span><div><b>Reservas y contacto</b><a href="https://wa.me/34603621660" target="_blank" rel="noopener noreferrer">+34 603 621 660</a></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="marca" style="color:#fff"><span class="llama">🔥</span> La Brasa Dorada</div>
+    <p>Parrilla y brasa de encina en Malasaña · Madrid</p>
+    <div class="redes">
+      <a href="#" onclick="return false" title="Instagram">📷</a>
+      <a href="#" onclick="return false" title="Facebook">👍</a>
+      <a href="https://wa.me/34603621660" target="_blank" rel="noopener noreferrer" title="WhatsApp">💬</a>
+    </div>
+    <p style="margin-top:16px;opacity:.7">© 2026 La Brasa Dorada · Página de demostración del asistente virtual para negocios</p>
+  </footer>
+
+  <!-- Aviso flotante que invita a probar el asistente -->
+  <div id="cta-chat">
+    <span class="cerrar" onclick="document.getElementById('cta-chat').classList.remove('ver')">✕</span>
+    👋 <b>¿Reservamos mesa?</b><br>Pruébame: reservo en 30 segundos.
+  </div>
+
+  <script>
+    // Abre el chat de forma segura (aunque el widget aún no haya cargado)
+    function abrirChat() {
+      const b = document.getElementById("cbn-burbuja");
+      if (b) b.click();
+    }
+    window.abrirChat = abrirChat;
+
+    // ---- Preloader ----
+    window.addEventListener("load", () => {
+      const pre = document.getElementById("preloader");
+      if (pre) setTimeout(() => pre.classList.add("oculto"), 600);
+    });
+
+    // ---- Barra de progreso + nav compacta ----
+    const nav = document.getElementById("nav");
+    const prog = document.getElementById("progreso");
+    window.addEventListener("scroll", () => {
+      const h = document.documentElement;
+      const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+      prog.style.width = pct + "%";
+      nav.classList.toggle("compacta", h.scrollTop > 40);
+    });
+
+    // ---- Reveal on scroll ----
+    const io = new IntersectionObserver((entradas) => {
+      entradas.forEach((e, i) => {
+        if (e.isIntersecting) {
+          const hermanos = [...e.target.parentElement.querySelectorAll(":scope > .reveal")];
+          const idx = hermanos.indexOf(e.target);
+          e.target.style.transitionDelay = (idx > 0 ? idx * 0.08 : 0) + "s";
+          e.target.classList.add("in");
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+
+    // ---- Contadores animados ----
+    const animarContador = (el) => {
+      const fin = parseFloat(el.dataset.contador);
+      const dec = parseInt(el.dataset.decimal || "0");
+      const suf = el.dataset.sufijo || "";
+      const dur = 1400; const t0 = performance.now();
+      const paso = (t) => {
+        const p = Math.min((t - t0) / dur, 1);
+        const val = (fin * (1 - Math.pow(1 - p, 3)));
+        el.textContent = val.toFixed(dec).replace(".", ",") + suf;
+        if (p < 1) requestAnimationFrame(paso);
+      };
+      requestAnimationFrame(paso);
+    };
+    const ioNum = new IntersectionObserver((entradas) => {
+      entradas.forEach((e) => { if (e.isIntersecting) { animarContador(e.target); ioNum.unobserve(e.target); } });
+    }, { threshold: 0.5 });
+    document.querySelectorAll("[data-contador]").forEach((el) => ioNum.observe(el));
+
+    // ---- Filtro de la carta ----
+    document.querySelectorAll(".cat-pill").forEach((pill) => {
+      pill.addEventListener("click", () => {
+        document.querySelectorAll(".cat-pill").forEach((p) => p.classList.remove("activa"));
+        pill.classList.add("activa");
+        const filtro = pill.dataset.filtro;
+        document.querySelectorAll(".plato").forEach((plato) => {
+          const mostrar = filtro === "todas" || plato.dataset.cat === filtro;
+          plato.classList.toggle("ocultar", !mostrar);
+        });
+      });
+    });
+
+    // ---- Aviso flotante del chat (aparece a los 4s, se oculta al abrir el chat) ----
+    setTimeout(() => {
+      const cta = document.getElementById("cta-chat");
+      if (cta && !document.querySelector("#cbn-panel:not(.cbn-oculto)")) cta.classList.add("ver");
+    }, 4000);
+    document.addEventListener("click", (e) => {
+      if (e.target.closest("#cbn-burbuja") || e.target.closest("#cta-chat")) {
+        const cta = document.getElementById("cta-chat");
+        if (cta) cta.classList.remove("ver");
+        if (e.target.closest("#cta-chat") && !e.target.closest(".cerrar")) {
+          abrirChat();
+        }
+      }
+    });
+  </script>
+
+  <!-- ============================================
+       INSTALACIÓN DEL CHATBOT: solo estas 3 líneas
+       se agregan a la web del cliente.
+       ============================================ -->
+  <link rel="stylesheet" href="widget.css">
+  <script src="config.js"></script>
+  <script src="widget.js"></script>
+
+</body>
+</html>

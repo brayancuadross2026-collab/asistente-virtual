@@ -1,0 +1,368 @@
+<meta charset="UTF-8">
+<title>Asistente Virtual para tu Negocio — Vende más sin trabajar más</title>
+<meta name="description" content="Un asistente virtual que responde y reserva por ti 24/7. Cada reserva a tu WhatsApp. Planes desde 19 €/mes. Pide tu demo gratis.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A4%96%3C/text%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Asistente Virtual para tu Negocio">
+<meta property="og:description" content="Responde y reserva por ti 24/7. Cada reserva a tu WhatsApp. Pide tu demo gratis.">
+<!-- OG_IMAGE_BOOK -->
+<style>
+  :root {
+    --bg:      #12100E;
+    --bg-2:    #1A1512;
+    --card:    #201A15;
+    --card-2:  #262019;
+    --text:    #F4EEE4;
+    --muted:   #A99E8E;
+    --ember1:  #FF6A35;
+    --ember2:  #FFB23A;
+    --gold:    #E4B663;
+    --green:   #35D6A0;
+    --line:    rgba(228,182,99,.16);
+    --rojo:    #E5533D;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; line-height: 1.6; overflow-x: hidden; }
+  h1, h2, h3 { font-family: Georgia, 'Times New Roman', serif; font-weight: 700; letter-spacing: -.4px; }
+  a { color: inherit; }
+
+  #progreso { position: fixed; top: 0; left: 0; height: 3px; width: 0%; z-index: 9999; background: linear-gradient(90deg, var(--ember1), var(--ember2)); transition: width .1s linear; }
+
+  .wrap { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+  .grad { background: linear-gradient(135deg, var(--ember1), var(--ember2)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+
+  .eyebrow { text-transform: uppercase; letter-spacing: .2em; font-size: 12px; font-weight: 800; color: var(--gold); }
+
+  /* Botones */
+  .btn-wa { display: inline-flex; align-items: center; gap: 9px; background: #25D366; color: #06301b; text-decoration: none; font-weight: 800; padding: 15px 30px; border-radius: 999px; font-size: 16.5px; box-shadow: 0 10px 30px rgba(37,211,102,.32); transition: transform .18s, box-shadow .18s; }
+  .btn-wa:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 16px 40px rgba(37,211,102,.45); }
+  .btn-wa:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+  .tel-linea { margin-top: 12px; font-size: 14px; color: var(--muted); }
+  .tel-linea a { color: var(--gold); font-weight: 700; text-decoration: none; }
+
+  /* HERO */
+  header.hero { position: relative; text-align: center; padding: 84px 24px 74px; overflow: hidden;
+    background: radial-gradient(ellipse at 50% -10%, rgba(255,106,53,.22), transparent 60%), var(--bg); }
+  .hero .eyebrow { display: inline-block; margin-bottom: 18px; }
+  .hero h1 { font-size: clamp(34px, 6.4vw, 60px); line-height: 1.06; text-wrap: balance; margin-bottom: 18px; }
+  .hero p.lead { font-size: clamp(17px, 2.4vw, 20px); color: var(--muted); max-width: 60ch; margin: 0 auto 30px; }
+
+  /* Mockup de chat animado */
+  .chat-demo { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 18px; max-width: 420px; margin: 0 auto 22px; box-shadow: 0 30px 60px rgba(0,0,0,.45); text-align: left; }
+  .chat-cab { display: flex; align-items: center; gap: 10px; padding-bottom: 12px; margin-bottom: 12px; border-bottom: 1px solid var(--line); }
+  .chat-cab .av { width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(135deg, var(--ember1), var(--ember2)); display: flex; align-items: center; justify-content: center; font-size: 19px; }
+  .chat-cab b { font-size: 14.5px; display: block; }
+  .chat-cab small { color: var(--muted); font-size: 12.5px; }
+  .punto { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--green); margin-right: 5px; box-shadow: 0 0 0 3px rgba(53,214,160,.2); animation: lat 2s infinite; }
+  @keyframes lat { 50% { box-shadow: 0 0 0 6px rgba(53,214,160,.05); } }
+  .burb { padding: 10px 14px; border-radius: 15px; font-size: 14.5px; margin-bottom: 9px; max-width: 82%; opacity: 0; transform: translateY(8px); animation: bin .5s ease forwards; }
+  .burb.cli { background: linear-gradient(135deg, var(--ember1), var(--ember2)); color: #2a1403; margin-left: auto; border-bottom-right-radius: 4px; font-weight: 600; }
+  .burb.bot { background: var(--card-2); border-bottom-left-radius: 4px; }
+  .b1 { animation-delay: .4s } .b2 { animation-delay: 1.3s } .b3 { animation-delay: 2.2s } .b4 { animation-delay: 3.1s }
+  @keyframes bin { to { opacity: 1; transform: none; } }
+
+  .badges { display: flex; flex-wrap: wrap; gap: 9px; justify-content: center; margin: 20px 0 26px; }
+  .badge { background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 7px 15px; font-size: 13px; color: var(--muted); }
+  .badge b { color: var(--text); }
+
+  /* Secciones */
+  section { padding: 74px 0; position: relative; }
+  .sec-oscura { background: var(--bg); }
+  .sec-panel { background: var(--bg-2); }
+  h2.tit { font-size: clamp(27px, 4vw, 39px); text-wrap: balance; margin: 10px 0 14px; }
+  .sub { color: var(--muted); font-size: 17px; max-width: 62ch; margin-bottom: 30px; }
+
+  /* Rejilla de tarjetas */
+  .rejilla { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+  .tarjeta { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 24px; transition: transform .22s, box-shadow .22s, border-color .22s; }
+  .tarjeta:hover { transform: translateY(-5px); border-color: rgba(228,182,99,.4); box-shadow: 0 20px 40px rgba(0,0,0,.4); }
+  .tarjeta strong { display: block; font-size: 16.5px; margin-bottom: 7px; }
+  .tarjeta p { color: var(--muted); font-size: 14.5px; margin: 0; }
+  .cifra { font-family: Georgia, serif; font-size: 40px; line-height: 1; margin-bottom: 12px; font-variant-numeric: tabular-nums;
+    background: linear-gradient(135deg, var(--ember1), var(--ember2)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+
+  /* Planes */
+  .planes { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; }
+  .plan { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 28px 24px; display: flex; flex-direction: column; position: relative; transition: transform .22s; }
+  .plan:hover { transform: translateY(-5px); }
+  .plan.destacado { border: 2px solid transparent; background:
+      linear-gradient(var(--card), var(--card)) padding-box,
+      linear-gradient(135deg, var(--ember1), var(--ember2)) border-box; box-shadow: 0 24px 50px rgba(255,106,53,.18); }
+  .plan.destacado::before { content: "★ El más elegido"; position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, var(--ember1), var(--ember2)); color: #2a1403; font-size: 11.5px; font-weight: 800; letter-spacing: .04em; padding: 4px 16px; border-radius: 999px; white-space: nowrap; }
+  .plan h3 { font-size: 19px; }
+  .precio { font-family: Georgia, serif; font-size: 32px; margin: 12px 0 0; font-variant-numeric: tabular-nums; }
+  .precio small { font-size: 13.5px; color: var(--muted); font-family: 'Segoe UI', sans-serif; font-weight: 400; }
+  .precio.mes { font-size: 21px; margin-top: 2px; }
+  .plan ul { list-style: none; margin: 18px 0 0; flex: 1; }
+  .plan li { padding: 6px 0 6px 27px; position: relative; font-size: 14.5px; color: var(--muted); }
+  .plan li::before { content: "✓"; position: absolute; left: 0; color: var(--green); font-weight: 800; }
+  .btn-plan { display: block; text-align: center; margin-top: 20px; background: linear-gradient(135deg, var(--ember1), var(--ember2)); color: #2a1403; text-decoration: none; font-weight: 800; padding: 12px; border-radius: 999px; font-size: 14.5px; transition: transform .16s; }
+  .btn-plan:hover { transform: scale(1.03); }
+  .oferta { text-align: center; margin-top: 28px; font-size: 16px; background: var(--card); border: 1px dashed var(--gold); border-radius: 14px; padding: 18px; }
+  .oferta b { color: var(--gold); }
+
+  /* Proceso */
+  .pasos { counter-reset: p; display: grid; gap: 14px; }
+  .paso { counter-increment: p; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px 18px 66px; position: relative; }
+  .paso::before { content: counter(p); position: absolute; left: 18px; top: 50%; transform: translateY(-50%); width: 34px; height: 34px; border-radius: 50%; background: linear-gradient(135deg, var(--ember1), var(--ember2)); color: #2a1403; display: flex; align-items: center; justify-content: center; font-weight: 800; }
+  .paso strong { display: block; margin-bottom: 2px; }
+  .paso span { color: var(--muted); font-size: 14.5px; }
+
+  /* FAQ */
+  details { background: var(--card); border: 1px solid var(--line); border-radius: 13px; padding: 15px 20px; margin-bottom: 11px; }
+  summary { cursor: pointer; font-weight: 700; list-style: none; position: relative; padding-right: 26px; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; position: absolute; right: 0; top: -2px; color: var(--gold); font-size: 22px; transition: transform .2s; }
+  details[open] summary::after { transform: rotate(45deg); }
+  summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 6px; }
+  details p { color: var(--muted); margin-top: 11px; font-size: 15px; }
+
+  /* Cierre */
+  .cierre { text-align: center; padding: 84px 24px; background: radial-gradient(ellipse at 50% 120%, rgba(255,106,53,.25), transparent 60%), var(--bg-2); }
+  .cierre h2 { font-size: clamp(28px, 4.5vw, 42px); margin-bottom: 12px; }
+  .cierre p { color: var(--muted); max-width: 52ch; margin: 0 auto 26px; font-size: 17px; }
+  .garantia { display: inline-flex; align-items: center; gap: 8px; margin-top: 22px; color: var(--green); font-size: 14px; font-weight: 600; }
+
+  .nota { text-align: center; color: var(--muted); font-size: 13px; padding: 24px; opacity: .8; }
+
+  /* Barra CTA fija */
+  #cta-fija { position: fixed; left: 0; right: 0; bottom: 0; z-index: 9000; background: rgba(18,16,14,.94); backdrop-filter: blur(10px); border-top: 1px solid var(--line); padding: 12px 16px; display: flex; align-items: center; justify-content: center; gap: 14px; transform: translateY(120%); transition: transform .35s ease; flex-wrap: wrap; }
+  #cta-fija.ver { transform: none; }
+  #cta-fija span { font-size: 14.5px; font-weight: 600; }
+  #cta-fija .btn-wa { padding: 11px 22px; font-size: 14.5px; }
+
+  /* Reveal */
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+  .reveal.in { opacity: 1; transform: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .reveal { opacity: 1; transform: none; }
+    .burb { opacity: 1; transform: none; }
+  }
+</style>
+
+<div id="progreso"></div>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Asistente virtual · 24 horas</span>
+    <h1>Tu negocio <span class="grad">vendiendo solo</span>, incluso cuando duermes</h1>
+    <p class="lead">Un asistente que responde a tus clientes al instante, resuelve sus dudas y <strong>coge las reservas por ti</strong> — de noche, en festivos y cuando estás a tope. Cada reserva te llega directa al WhatsApp.</p>
+
+    <div class="chat-demo" aria-label="Ejemplo de conversación con el asistente">
+      <div class="chat-cab">
+        <div class="av">🤖</div>
+        <div><b>Asistente virtual</b><small><span class="punto"></span>En línea · responde en segundos</small></div>
+      </div>
+      <div class="burb cli b1">Hola, ¿tenéis mesa para 4 este sábado?</div>
+      <div class="burb bot b2">¡Claro! 📅 Tenemos a las 21:00, 22:00 y 23:00. ¿Cuál te viene mejor?</div>
+      <div class="burb cli b3">A las nueve</div>
+      <div class="burb bot b4">Perfecto: sábado, 4 personas, 21:00. ¿A nombre de quién la reservo? ✍️</div>
+    </div>
+
+    <div class="badges">
+      <span class="badge">⚡ Responde en <b>segundos</b></span>
+      <span class="badge">🕐 Atiende <b>24/7</b></span>
+      <span class="badge">📲 Reservas a tu <b>WhatsApp</b></span>
+      <span class="badge">🎤 Habla por <b>voz</b></span>
+    </div>
+
+    <a class="btn-wa" href="https://wa.me/34603621660?text=Hola%2C%20quiero%20una%20demo%20gratis%20del%20asistente%20virtual%20para%20mi%20negocio" target="_blank" rel="noopener noreferrer">💬 Pide tu demo gratis</a>
+    <p class="tel-linea">O escríbeme directo al <a href="https://wa.me/34603621660" target="_blank" rel="noopener noreferrer">+34 603 621 660</a></p>
+  </div>
+</header>
+
+<section class="sec-panel">
+  <div class="wrap">
+    <span class="eyebrow reveal">El problema</span>
+    <h2 class="tit reveal">Cada mensaje sin responder es un cliente que se va a la competencia</h2>
+    <p class="sub reveal">Tus clientes escriben a cualquier hora y quieren respuesta ya. Mientras cocinas, atiendes o descansas, las dudas se acumulan y las reservas se pierden sin que te enteres.</p>
+    <div class="rejilla">
+      <div class="tarjeta reveal"><div class="cifra" data-contador="78" data-sufijo="%">0%</div><strong>compra a quien responde primero</strong><p>La mayoría elige el negocio que le contesta antes, no el mejor.</p></div>
+      <div class="tarjeta reveal"><div class="cifra" data-contador="60" data-sufijo="%">0%</div><strong>de las consultas llegan fuera de horario</strong><p>Noches, domingos y festivos: justo cuando no puedes contestar.</p></div>
+      <div class="tarjeta reveal"><div class="cifra" data-contador="5" data-sufijo=" min">0 min</div><strong>es lo que espera un cliente</strong><p>Después, cierra la página y se va a buscar otra opción.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-oscura">
+  <div class="wrap">
+    <span class="eyebrow reveal">La solución</span>
+    <h2 class="tit reveal">Un asistente que trabaja para ti, con tu marca y tu tono</h2>
+    <p class="sub reveal">No es un menú de botones frío: conversa en lenguaje natural, con el nombre, los colores y la personalidad de tu negocio.</p>
+    <div class="rejilla">
+      <div class="tarjeta reveal"><strong>📅 Reservas y citas automáticas</strong><p>Guía al cliente paso a paso y te entrega la reserva lista y confirmada.</p></div>
+      <div class="tarjeta reveal"><strong>💬 Responde lo de siempre, siempre</strong><p>Horario, precios, ubicación, carta, domicilios… deja de repetir lo mismo.</p></div>
+      <div class="tarjeta reveal"><strong>📲 Cada reserva a tu WhatsApp</strong><p>Al confirmar, el comprobante con todos los datos llega a tu teléfono.</p></div>
+      <div class="tarjeta reveal"><strong>🎤 Atención por voz</strong><p>El cliente puede hablarle y el asistente le responde hablando.</p></div>
+      <div class="tarjeta reveal"><strong>🎨 100% con tu imagen</strong><p>Colores, logo, nombre del asistente y respuestas a tu medida.</p></div>
+      <div class="tarjeta reveal"><strong>⚡ Instalación sin líos</strong><p>Se integra en tu web actual en minutos. No cambias nada de lo que ya tienes.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-panel">
+  <div class="wrap">
+    <span class="eyebrow reveal">Para tu sector</span>
+    <h2 class="tit reveal">Hecho a la medida de tu tipo de negocio</h2>
+    <p class="sub reveal">El mismo asistente, adaptado al lenguaje y a lo que se agenda en cada sector:</p>
+    <div class="rejilla">
+      <div class="tarjeta reveal"><strong>🍽️ Restaurantes y cafés</strong><p>Reserva mesas, informa la carta y resuelve dudas de domicilios y eventos.</p></div>
+      <div class="tarjeta reveal"><strong>💈 Barberías y peluquerías</strong><p>Agenda cortes y servicios por horas, informa precios y promociones.</p></div>
+      <div class="tarjeta reveal"><strong>🦷 Clínicas y consultorios</strong><p>Agenda citas, explica tratamientos, seguros y requisitos previos.</p></div>
+      <div class="tarjeta reveal"><strong>💆 Spas y estética</strong><p>Reserva sesiones, describe paquetes y resuelve dudas frecuentes.</p></div>
+      <div class="tarjeta reveal"><strong>🛍️ Tiendas y comercios</strong><p>Responde por productos, tallas, envíos, devoluciones y pagos.</p></div>
+      <div class="tarjeta reveal"><strong>🏋️ Gimnasios y academias</strong><p>Informa planes y horarios, y agenda clases de prueba automáticamente.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-oscura">
+  <div class="wrap">
+    <span class="eyebrow reveal">Haz cuentas</span>
+    <h2 class="tit reveal">Cuánto te cuesta HOY no tenerlo</h2>
+    <p class="sub reveal">Un ejemplo con números conservadores. Piensa en tu propio negocio mientras lees:</p>
+    <div class="rejilla">
+      <div class="tarjeta reveal"><div class="cifra" data-contador="3">0</div><strong>clientes perdidos al día</strong><p>Gente que escribe fuera de horario o mientras atiendes y no recibe respuesta.</p></div>
+      <div class="tarjeta reveal"><div class="cifra" data-contador="25" data-sufijo=" €">0 €</div><strong>gasto medio por cliente</strong><p>Cada mesa, cita o venta que se va a la competencia por no contestar.</p></div>
+      <div class="tarjeta reveal"><div class="cifra" data-contador="2250" data-miles="1" data-sufijo=" €">0 €</div><strong>que pierdes cada mes</strong><p>3 clientes × 25 € × 30 días. El asistente cuesta una fracción de eso.</p></div>
+    </div>
+    <p class="sub reveal" style="text-align:center;margin:26px auto 0;color:var(--text)">Con que te salve <strong>1 cliente al día</strong>, multiplicas por 10 lo que pagas. El resto es beneficio.</p>
+  </div>
+</section>
+
+<section class="sec-panel">
+  <div class="wrap">
+    <span class="eyebrow reveal">Planes</span>
+    <h2 class="tit reveal">Elige cuánto quieres que trabaje por ti</h2>
+    <p class="sub reveal">Sin permanencia y sin letra pequeña. La cuota mensual incluye soporte y mejoras. Con recuperar <strong>una sola reserva al mes</strong>, ya se paga solo.</p>
+    <div class="planes">
+      <div class="plan reveal">
+        <h3>Básico</h3>
+        <div class="precio">149 € <small>puesta en marcha</small></div>
+        <div class="precio mes">+ 19 € <small>/ mes</small></div>
+        <ul>
+          <li>Asistente en tu web</li>
+          <li>Preguntas frecuentes 24/7</li>
+          <li>Horario, carta y contacto</li>
+          <li>Personalizado con tu marca</li>
+        </ul>
+        <a class="btn-plan" href="https://wa.me/34603621660?text=Hola%2C%20me%20interesa%20el%20plan%20B%C3%A1sico%20(149%E2%82%AC)%20del%20asistente%20virtual" target="_blank" rel="noopener noreferrer">Quiero este plan</a>
+      </div>
+      <div class="plan destacado reveal">
+        <h3>Profesional</h3>
+        <div class="precio">249 € <small>puesta en marcha</small></div>
+        <div class="precio mes">+ 39 € <small>/ mes</small></div>
+        <ul>
+          <li>Todo lo del Básico</li>
+          <li>Reservas y citas automáticas</li>
+          <li>Cada reserva a tu WhatsApp</li>
+          <li>Atención por voz</li>
+        </ul>
+        <a class="btn-plan" href="https://wa.me/34603621660?text=Hola%2C%20me%20interesa%20el%20plan%20Profesional%20(249%E2%82%AC)%20del%20asistente%20virtual" target="_blank" rel="noopener noreferrer">Quiero este plan</a>
+      </div>
+      <div class="plan reveal">
+        <h3>Premium</h3>
+        <div class="precio">399 € <small>puesta en marcha</small></div>
+        <div class="precio mes">+ 79 € <small>/ mes</small></div>
+        <ul>
+          <li>Todo lo del Profesional</li>
+          <li>Asistente que contesta el teléfono</li>
+          <li>Número con IA de voz</li>
+          <li>Reservas tomadas por llamada</li>
+        </ul>
+        <a class="btn-plan" href="https://wa.me/34603621660?text=Hola%2C%20me%20interesa%20el%20plan%20Premium%20(399%E2%82%AC)%20del%20asistente%20virtual" target="_blank" rel="noopener noreferrer">Quiero este plan</a>
+      </div>
+    </div>
+    <div class="oferta reveal">🎁 <b>Oferta de lanzamiento:</b> los primeros 5 negocios de Madrid se llevan la puesta en marcha <b>gratis</b> y el primer mes sin coste.</div>
+  </div>
+</section>
+
+<section class="sec-oscura">
+  <div class="wrap">
+    <span class="eyebrow reveal">Cómo trabajamos</span>
+    <h2 class="tit reveal">De la primera charla a tu asistente funcionando en días</h2>
+    <div class="pasos" style="margin-top:24px">
+      <div class="paso reveal"><strong>Hablamos de tu negocio</strong><span>Qué te preguntan tus clientes, qué se reserva y cómo quieres que suene tu asistente.</span></div>
+      <div class="paso reveal"><strong>Lo montamos a tu medida</strong><span>Respuestas, horarios, colores y personalidad con tu marca.</span></div>
+      <div class="paso reveal"><strong>Lo pruebas antes de lanzar</strong><span>Te enseño una demo funcionando y ajustamos lo que quieras.</span></div>
+      <div class="paso reveal"><strong>Lo instalamos y te acompaño</strong><span>Queda activo en tu web y cada mes afinamos según lo que pregunten tus clientes.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-panel">
+  <div class="wrap">
+    <span class="eyebrow reveal">Dudas frecuentes</span>
+    <h2 class="tit reveal">Lo que suelen preguntarme</h2>
+    <div style="margin-top:22px">
+      <details class="reveal"><summary>¿Necesito tener página web?</summary><p>Idealmente sí. Si no tienes, te hago una página sencilla con el asistente incluido.</p></details>
+      <details class="reveal"><summary>¿Puedo cambiar las respuestas después?</summary><p>Sí. Los ajustes están incluidos en tu cuota mensual: me escribes y lo actualizo.</p></details>
+      <details class="reveal"><summary>Mi negocio no es un restaurante, ¿me sirve?</summary><p>Casi seguro que sí: si recibes preguntas repetidas o agendas citas, el asistente se adapta.</p></details>
+      <details class="reveal"><summary>¿Y si el asistente no sabe algo?</summary><p>Invita al cliente a contactarte por teléfono o WhatsApp, para no perder nunca la venta.</p></details>
+      <details class="reveal"><summary>¿Hay permanencia?</summary><p>No. Cancelas la cuota mensual cuando quieras; la puesta en marcha es un pago único.</p></details>
+    </div>
+  </div>
+</section>
+
+<div class="cierre">
+  <span class="eyebrow">Empieza hoy</span>
+  <h2>Deja de perder clientes por no contestar</h2>
+  <p>Te enseño el asistente funcionando con el nombre y los datos de tu negocio, sin compromiso. Si te gusta, lo dejo instalado esta misma semana.</p>
+  <a class="btn-wa" href="https://wa.me/34603621660?text=Hola%2C%20quiero%20mi%20demo%20gratis%20del%20asistente%20virtual" target="_blank" rel="noopener noreferrer">💬 Pide tu demo gratis por WhatsApp</a>
+  <p class="tel-linea">WhatsApp directo: <a href="https://wa.me/34603621660" target="_blank" rel="noopener noreferrer">+34 603 621 660</a></p>
+  <div class="garantia">🛡️ Prueba sin riesgo · Sin permanencia · Cancelas cuando quieras</div>
+</div>
+
+<p class="nota">Los precios son de referencia y se ajustan según el alcance de cada proyecto.</p>
+
+<div id="cta-fija">
+  <span>👉 ¿Listo para no perder más clientes?</span>
+  <a class="btn-wa" href="https://wa.me/34603621660?text=Hola%2C%20quiero%20mi%20demo%20gratis%20del%20asistente%20virtual" target="_blank" rel="noopener noreferrer">💬 Demo gratis</a>
+</div>
+
+<script>
+  const prog = document.getElementById("progreso");
+  const ctaFija = document.getElementById("cta-fija");
+  window.addEventListener("scroll", () => {
+    const h = document.documentElement;
+    const pct = h.scrollTop / (h.scrollHeight - h.clientHeight);
+    prog.style.width = (pct * 100) + "%";
+    // La barra fija aparece tras pasar el hero y se esconde al final (para no tapar el cierre)
+    ctaFija.classList.toggle("ver", h.scrollTop > 700 && pct < 0.92);
+  });
+
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const conMiles = (n) => String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  const animarCifra = (el) => {
+    const fin = parseFloat(el.dataset.contador), suf = el.dataset.sufijo || "", miles = el.dataset.miles === "1";
+    const fmt = (v) => (miles ? conMiles(v) : Math.round(v)) + suf;
+    if (reduce) { el.textContent = fmt(fin); return; }
+    const dur = 1400, t0 = performance.now();
+    const paso = (t) => { const p = Math.min((t - t0) / dur, 1); el.textContent = fmt(fin * (1 - Math.pow(1 - p, 3))); if (p < 1) requestAnimationFrame(paso); };
+    requestAnimationFrame(paso);
+  };
+
+  if ("IntersectionObserver" in window) {
+    const ioR = new IntersectionObserver((es) => {
+      es.forEach((e) => { if (e.isIntersecting) {
+        const hs = [...e.target.parentElement.querySelectorAll(":scope > .reveal")];
+        const i = hs.indexOf(e.target);
+        e.target.style.transitionDelay = (i > 0 ? i * 0.07 : 0) + "s";
+        e.target.classList.add("in"); ioR.unobserve(e.target);
+      } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll(".reveal").forEach((el) => ioR.observe(el));
+
+    const ioN = new IntersectionObserver((es) => {
+      es.forEach((e) => { if (e.isIntersecting) { animarCifra(e.target); ioN.unobserve(e.target); } });
+    }, { threshold: 0.6 });
+    document.querySelectorAll("[data-contador]").forEach((el) => ioN.observe(el));
+  } else {
+    document.querySelectorAll(".reveal").forEach((el) => el.classList.add("in"));
+    document.querySelectorAll("[data-contador]").forEach(animarCifra);
+  }
+</script>

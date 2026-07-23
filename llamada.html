@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asistente Telefónico — Demo de llamada</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: radial-gradient(ellipse at 50% 20%, #1d3a35, #0b1614 70%);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px;
+    }
+
+    .pantalla { width: 100%; max-width: 420px; display: none; flex-direction: column; align-items: center; }
+    .pantalla.activa { display: flex; }
+
+    /* Avatar con ondas */
+    .avatar-zona { position: relative; width: 190px; height: 190px; margin-bottom: 22px; }
+    .avatar {
+      position: absolute; inset: 30px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #C0392B, #E67E22);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 56px;
+      box-shadow: 0 10px 40px rgba(0,0,0,.5);
+      z-index: 2;
+    }
+    .onda {
+      position: absolute; inset: 0;
+      border-radius: 50%;
+      border: 2px solid rgba(230, 126, 34, .5);
+      opacity: 0;
+    }
+    .hablando .onda { animation: onda 1.6s ease-out infinite; }
+    .hablando .onda:nth-child(2) { animation-delay: .5s; }
+    .hablando .onda:nth-child(3) { animation-delay: 1s; }
+    .escuchando .avatar { box-shadow: 0 0 0 6px rgba(46, 204, 113, .35), 0 10px 40px rgba(0,0,0,.5); }
+    @keyframes onda {
+      from { transform: scale(.72); opacity: .9; }
+      to   { transform: scale(1.15); opacity: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) { .onda { animation: none !important; } }
+
+    h1 { font-size: 26px; margin-bottom: 4px; }
+    .estado { font-size: 15px; color: #9fd6c6; min-height: 22px; margin-bottom: 4px; }
+    .timer { font-variant-numeric: tabular-nums; color: rgba(255,255,255,.55); font-size: 14px; margin-bottom: 20px; }
+
+    /* Transcripción */
+    #transcripcion {
+      width: 100%;
+      height: 220px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 22px;
+      padding: 4px;
+      -webkit-mask-image: linear-gradient(to bottom, transparent, #000 12%);
+              mask-image: linear-gradient(to bottom, transparent, #000 12%);
+    }
+    .linea { padding: 9px 14px; border-radius: 14px; font-size: 14.5px; max-width: 85%; text-align: left; white-space: pre-line; }
+    .linea.bot { background: rgba(255,255,255,.10); align-self: flex-start; }
+    .linea.cli { background: #1E5A50; align-self: flex-end; }
+
+    /* Botones */
+    .btn-llamar, .btn-colgar {
+      border: none; cursor: pointer;
+      border-radius: 999px;
+      font-size: 18px; font-weight: 700;
+      padding: 16px 42px;
+      color: #fff;
+      transition: transform .15s;
+    }
+    .btn-llamar { background: #27ae60; box-shadow: 0 8px 28px rgba(39,174,96,.4); }
+    .btn-colgar { background: #e74c3c; box-shadow: 0 8px 28px rgba(231,76,60,.4); }
+    .btn-llamar:hover, .btn-colgar:hover { transform: scale(1.05); }
+
+    .btn-wa {
+      display: none;
+      background: #25D366; color: #fff;
+      text-decoration: none; font-weight: 700;
+      padding: 12px 22px; border-radius: 999px;
+      margin-bottom: 16px; font-size: 15px;
+    }
+
+    .nota { margin-top: 26px; font-size: 13px; color: rgba(255,255,255,.45); max-width: 320px; line-height: 1.5; }
+    .error { color: #ffb3a7; font-size: 14px; margin-top: 14px; display: none; }
+  </style>
+</head>
+<body>
+
+  <!-- Pantalla inicial -->
+  <div class="pantalla activa" id="p-inicio">
+    <div class="avatar-zona"><div class="avatar" id="avatar-inicio">📞</div></div>
+    <h1 id="nombre-negocio">Asistente Telefónico</h1>
+    <p class="estado" style="margin-bottom:26px">Demo: así contesta la IA el teléfono de tu negocio</p>
+    <button class="btn-llamar" id="btn-llamar">📞 Llamar</button>
+    <p class="error" id="error-soporte">Tu navegador no soporta reconocimiento de voz.<br>Usa Chrome o Edge en PC/Android.</p>
+    <p class="nota">Al contestar, habla con normalidad: pregunta el horario, el menú o pide una reserva. La asistente te responde con voz y agenda todo.</p>
+  </div>
+
+  <!-- Pantalla de llamada -->
+  <div class="pantalla" id="p-llamada">
+    <div class="avatar-zona" id="avatar-zona">
+      <div class="onda"></div><div class="onda"></div><div class="onda"></div>
+      <div class="avatar" id="avatar-llamada">🍖</div>
+    </div>
+    <h1 id="nombre-llamada"></h1>
+    <p class="estado" id="estado">Conectando…</p>
+    <p class="timer" id="timer">00:00</p>
+    <div id="transcripcion"></div>
+    <a class="btn-wa" id="btn-wa" target="_blank" rel="noopener">📲 Enviar comprobante por WhatsApp</a>
+    <button class="btn-colgar" id="btn-colgar">📵 Colgar</button>
+  </div>
+
+  <script>window.CBN_MODO_LLAMADA = true;</script>
+  <script src="config.js"></script>
+  <script src="widget.js"></script>
+  <script>
+    const CFG = CHATBOT_CONFIG;
+    const $ = (id) => document.getElementById(id);
+
+    $("nombre-negocio").textContent = CFG.negocio.nombre;
+    $("nombre-llamada").textContent = CFG.tema.nombreAsistente + " · " + CFG.negocio.nombre;
+    $("avatar-llamada").textContent = CFG.tema.avatar;
+
+    const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SR || !window.speechSynthesis) {
+      $("error-soporte").style.display = "block";
+      $("btn-llamar").disabled = true;
+    }
+
+    let enLlamada = false;
+    let reconocedor = null;
+    let colaVoz = [];        // frases pendientes de decir
+    let hablando = false;
+    let segundos = 0, intervaloTimer = null;
+    let silencios = 0;       // veces seguidas sin escuchar nada
+
+    const limpiar = (t) => t.replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{2190}-\u{21FF}]/gu, "").replace(/\n+/g, ". ").replace(/\s+/g, " ").trim();
+
+    function caption(texto, quien) {
+      const div = document.createElement("div");
+      div.className = "linea " + quien;
+      div.textContent = texto;
+      $("transcripcion").appendChild(div);
+      $("transcripcion").scrollTop = $("transcripcion").scrollHeight;
+    }
+
+    function estado(txt) { $("estado").textContent = txt; }
+
+    // ---------- Voz del asistente ----------
+    function decir(texto) {
+      colaVoz.push(texto);
+      if (!hablando) siguienteFrase();
+    }
+
+    function siguienteFrase() {
+      if (!enLlamada) return;
+      const texto = colaVoz.shift();
+      if (!texto) { hablando = false; escuchar(); return; }
+      hablando = true;
+      estado("Hablando…");
+      $("avatar-zona").classList.add("hablando");
+      $("avatar-zona").classList.remove("escuchando");
+      const u = new SpeechSynthesisUtterance(limpiar(texto));
+      u.lang = CFG.voz.idioma;
+      u.rate = 1.05;
+      const v = speechSynthesis.getVoices().find(v => v.lang.startsWith("es"));
+      if (v) u.voice = v;
+      u.onend = () => { $("avatar-zona").classList.remove("hablando"); siguienteFrase(); };
+      u.onerror = () => { $("avatar-zona").classList.remove("hablando"); siguienteFrase(); };
+      speechSynthesis.speak(u);
+    }
+
+    // ---------- Escucha ----------
+    function escuchar() {
+      if (!enLlamada || hablando) return;
+      estado("Te escucho… 🎙️");
+      $("avatar-zona").classList.add("escuchando");
+      reconocedor = new SR();
+      reconocedor.lang = CFG.voz.idioma;
+      reconocedor.interimResults = false;
+      reconocedor.onresult = (e) => {
+        silencios = 0;
+        const texto = e.results[0][0].transcript;
+        caption(texto, "cli");
+        window.ChatbotCerebro.procesar(texto);
+      };
+      reconocedor.onerror = (e) => {
+        if (!enLlamada) return;
+        if (e.error === "not-allowed") { decir("Necesito permiso para usar el micrófono. Revisa el candado en la barra del navegador."); return; }
+        manejarSilencio();
+      };
+      reconocedor.onend = () => {
+        $("avatar-zona").classList.remove("escuchando");
+        // si terminó sin resultado y no estamos hablando, reintenta
+        if (enLlamada && !hablando && colaVoz.length === 0) manejarSilencio();
+      };
+      try { reconocedor.start(); } catch (_) {}
+    }
+
+    let gestionandoSilencio = false;
+    function manejarSilencio() {
+      if (gestionandoSilencio || hablando) return;
+      gestionandoSilencio = true;
+      setTimeout(() => {
+        gestionandoSilencio = false;
+        if (!enLlamada || hablando) return;
+        silencios++;
+        if (silencios === 3) decir("¿Sigues ahí? Puedo ayudarte con reservas, horarios o el menú.");
+        else if (silencios >= 6) colgar("La llamada terminó por inactividad.");
+        else escuchar();
+      }, 400);
+    }
+
+    // ---------- Cerebro del bot → voz + captions ----------
+    window.addEventListener("load", () => {
+      window.ChatbotCerebro.alResponder = (texto) => { caption(texto, "bot"); decir(texto); };
+      window.ChatbotCerebro.alEnlace = (texto, etiqueta, url) => {
+        caption(texto, "bot");
+        decir("Te dejo en pantalla un botón para enviar el comprobante por WhatsApp.");
+        const b = $("btn-wa");
+        b.href = url;
+        b.style.display = "inline-block";
+      };
+    });
+
+    // ---------- Ciclo de llamada ----------
+    $("btn-llamar").onclick = () => {
+      enLlamada = true;
+      silencios = 0;
+      $("p-inicio").classList.remove("activa");
+      $("p-llamada").classList.add("activa");
+      segundos = 0;
+      intervaloTimer = setInterval(() => {
+        segundos++;
+        $("timer").textContent = String(Math.floor(segundos / 60)).padStart(2, "0") + ":" + String(segundos % 60).padStart(2, "0");
+      }, 1000);
+      speechSynthesis.getVoices(); // precarga voces
+      const saludo = `Gracias por llamar a ${CFG.negocio.nombre}. Soy ${CFG.tema.nombreAsistente}, tu asistente virtual. ¿En qué puedo ayudarte? Puedo darte información o tomar tu reserva.`;
+      caption(saludo, "bot");
+      decir(saludo);
+    };
+
+    function colgar(motivo) {
+      enLlamada = false;
+      clearInterval(intervaloTimer);
+      speechSynthesis.cancel();
+      if (reconocedor) try { reconocedor.abort(); } catch (_) {}
+      $("p-llamada").classList.remove("activa");
+      $("p-inicio").classList.add("activa");
+      $("transcripcion").innerHTML = "";
+      $("btn-wa").style.display = "none";
+      if (motivo) $("p-inicio").querySelector(".estado").textContent = motivo;
+    }
+    $("btn-colgar").onclick = () => colgar("Llamada finalizada. ¡Gracias!");
+  </script>
+</body>
+</html>
