@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cómo funciona tu asistente virtual</title>
+  <meta name="description" content="Así funciona un asistente virtual para tu negocio: responde a tus clientes y coge las reservas solo, 24/7, y te llegan al WhatsApp.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%94%A5%3C/text%3E%3C/svg%3E">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Cómo funciona tu asistente virtual">
+  <meta property="og:description" content="Responde a tus clientes y coge las reservas solo, 24/7. Cada reserva a tu WhatsApp.">
+  <meta property="og:image" content="https://tuasistente24.com/img/hero.jpg">
+  <style>
+    :root {
+      --bg:#12100E; --bg2:#1A1512; --card:#201A15; --card2:#262019; --text:#F4EEE4; --muted:#A99E8E;
+      --ember1:#FF6A35; --ember2:#FFB23A; --gold:#E4B663; --green:#35D6A0; --line:rgba(228,182,99,.16);
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { background:var(--bg); color:var(--text); font-family:'Segoe UI',system-ui,-apple-system,sans-serif; line-height:1.6; overflow-x:hidden; }
+    h1,h2,h3 { font-family:Georgia,'Times New Roman',serif; letter-spacing:-.4px; }
+    a { color:inherit; }
+    .wrap { max-width:920px; margin:0 auto; padding:0 24px; }
+    .grad { background:linear-gradient(135deg,var(--ember1),var(--ember2)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+    .eyebrow { text-transform:uppercase; letter-spacing:.2em; font-size:12px; font-weight:800; color:var(--gold); }
+
+    #progreso { position:fixed; top:0; left:0; height:3px; width:0%; z-index:9999; background:linear-gradient(90deg,var(--ember1),var(--ember2)); transition:width .1s linear; }
+
+    /* Hero */
+    header.hero { text-align:center; padding:80px 24px 40px; background:radial-gradient(ellipse at 50% -10%, rgba(255,106,53,.22), transparent 60%), var(--bg); }
+    .hero .eyebrow { display:inline-block; margin-bottom:16px; }
+    .hero h1 { font-size:clamp(32px,6vw,54px); line-height:1.08; text-wrap:balance; margin-bottom:14px; }
+    .hero p { color:var(--muted); font-size:clamp(16px,2.3vw,20px); max-width:60ch; margin:0 auto; }
+    .play-hint { margin-top:22px; color:var(--gold); font-size:14px; display:inline-flex; align-items:center; gap:8px; }
+    .play-hint .dot { width:9px; height:9px; border-radius:50%; background:var(--green); animation:lat 1.6s infinite; }
+    @keyframes lat { 50% { opacity:.35; } }
+
+    /* Escenario del móvil (el "vídeo") */
+    .escena { display:flex; justify-content:center; padding:20px 24px 70px; }
+    .movil { width:340px; max-width:92vw; background:#0c0a09; border:10px solid #2a2320; border-radius:40px; padding:14px 12px; box-shadow:0 40px 90px rgba(0,0,0,.6); position:relative; }
+    .movil::before { content:""; position:absolute; top:20px; left:50%; transform:translateX(-50%); width:90px; height:6px; background:#39302b; border-radius:99px; }
+    .pantalla { background:linear-gradient(180deg,#15100d,#1d1611); border-radius:28px; padding:16px 12px 14px; height:520px; display:flex; flex-direction:column; }
+    .barra { display:flex; align-items:center; gap:10px; padding:6px 6px 12px; border-bottom:1px solid var(--line); }
+    .barra .av { width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg,var(--ember1),var(--ember2)); display:flex; align-items:center; justify-content:center; font-size:18px; }
+    .barra b { font-size:14px; display:block; }
+    .barra small { color:var(--green); font-size:11.5px; }
+    .barra .llamar { margin-left:auto; font-size:16px; opacity:.5; }
+    .mensajes { flex:1; overflow:hidden; display:flex; flex-direction:column; gap:9px; padding:14px 4px; }
+    .m { max-width:80%; padding:9px 13px; border-radius:15px; font-size:14px; line-height:1.4; opacity:0; transform:translateY(10px); animation:aparece .35s ease forwards; }
+    .m.cli { align-self:flex-end; background:linear-gradient(135deg,var(--ember1),var(--ember2)); color:#2a1403; border-bottom-right-radius:4px; font-weight:600; }
+    .m.bot { align-self:flex-start; background:var(--card2); border-bottom-left-radius:4px; white-space:pre-line; }
+    .m.aviso { align-self:center; background:rgba(53,214,160,.14); color:var(--green); font-size:12.5px; font-weight:700; border-radius:999px; padding:6px 14px; }
+    @keyframes aparece { to { opacity:1; transform:none; } }
+    .escribiendo { align-self:flex-start; background:var(--card2); border-radius:15px; padding:11px 14px; display:flex; gap:4px; }
+    .escribiendo span { width:7px; height:7px; border-radius:50%; background:var(--muted); animation:punto 1s infinite; }
+    .escribiendo span:nth-child(2){animation-delay:.2s} .escribiendo span:nth-child(3){animation-delay:.4s}
+    @keyframes punto { 0%,100%{opacity:.3;transform:translateY(0)} 50%{opacity:1;transform:translateY(-3px)} }
+    .barra-input { display:flex; gap:8px; align-items:center; padding-top:10px; border-top:1px solid var(--line); }
+    .barra-input .campo { flex:1; background:var(--card); border-radius:999px; padding:9px 14px; color:var(--muted); font-size:13px; }
+    .barra-input .enviar { width:34px; height:34px; border-radius:50%; background:linear-gradient(135deg,var(--ember1),var(--ember2)); display:flex; align-items:center; justify-content:center; color:#2a1403; }
+
+    /* Pasos */
+    section { padding:70px 0; }
+    .tit-sec { text-align:center; font-size:clamp(26px,4vw,38px); margin-bottom:12px; text-wrap:balance; }
+    .sub-sec { text-align:center; color:var(--muted); max-width:60ch; margin:0 auto 46px; font-size:17px; }
+    .pasos { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:18px; counter-reset:p; }
+    .paso { counter-increment:p; background:var(--card); border:1px solid var(--line); border-radius:18px; padding:26px 22px; position:relative; }
+    .paso::before { content:counter(p); position:absolute; top:-16px; left:22px; width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg,var(--ember1),var(--ember2)); color:#2a1403; display:flex; align-items:center; justify-content:center; font-weight:800; font-family:Georgia,serif; }
+    .paso .ic { font-size:30px; margin-bottom:8px; }
+    .paso h3 { font-size:18px; margin-bottom:6px; }
+    .paso p { color:var(--muted); font-size:14.5px; }
+
+    .sec-panel { background:var(--bg2); }
+    .rejilla { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:16px; }
+    .tarjeta { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:24px; transition:transform .2s,border-color .2s; }
+    .tarjeta:hover { transform:translateY(-5px); border-color:rgba(228,182,99,.4); }
+    .tarjeta .ic { font-size:30px; }
+    .tarjeta h3 { font-size:16.5px; margin:8px 0 5px; }
+    .tarjeta p { color:var(--muted); font-size:14px; }
+
+    /* CTA */
+    .cierre { text-align:center; padding:80px 24px; background:radial-gradient(ellipse at 50% 120%, rgba(255,106,53,.25), transparent 60%), var(--bg2); }
+    .cierre h2 { font-size:clamp(27px,4.5vw,40px); margin-bottom:12px; }
+    .cierre p { color:var(--muted); max-width:52ch; margin:0 auto 26px; font-size:17px; }
+    .btn-wa { display:inline-flex; align-items:center; gap:9px; background:#25D366; color:#06301b; text-decoration:none; font-weight:800; padding:15px 30px; border-radius:999px; font-size:16.5px; box-shadow:0 10px 30px rgba(37,211,102,.3); transition:transform .18s; }
+    .btn-wa:hover { transform:translateY(-2px) scale(1.02); }
+    .tel { margin-top:12px; font-size:14px; color:var(--muted); }
+    .tel a { color:var(--gold); font-weight:700; text-decoration:none; }
+    .btn-demo { display:inline-block; margin-top:16px; color:var(--gold); text-decoration:none; font-weight:700; border-bottom:1px solid var(--line); padding-bottom:2px; }
+
+    .reveal { opacity:0; transform:translateY(30px); transition:opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+    .reveal.in { opacity:1; transform:none; }
+    @media (prefers-reduced-motion:reduce){ *,*::before,*::after{animation:none!important;transition:none!important} .reveal{opacity:1;transform:none} }
+  </style>
+</head>
+<body>
+  <div id="progreso"></div>
+
+  <header class="hero">
+    <div class="wrap">
+      <span class="eyebrow">Así funciona</span>
+      <h1>Tu asistente <span class="grad">responde y reserva solo</span></h1>
+      <p>Mira cómo atiende a un cliente de principio a fin, sin que tú tengas que hacer nada.</p>
+      <div class="play-hint"><span class="dot"></span> Reproduciéndose automáticamente ↓</div>
+    </div>
+  </header>
+
+  <div class="escena">
+    <div class="movil">
+      <div class="pantalla">
+        <div class="barra">
+          <div class="av">🤖</div>
+          <div><b>Doradita · La Brasa Dorada</b><small>en línea</small></div>
+          <div class="llamar">📞</div>
+        </div>
+        <div class="mensajes" id="chat"></div>
+        <div class="barra-input">
+          <div class="campo">Escribe un mensaje…</div>
+          <div class="enviar">➤</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <h2 class="tit-sec reveal">Lo que acabas de ver, en 4 pasos</h2>
+      <p class="sub-sec reveal">Todo automático, de día y de noche. Tú solo recibes la reserva lista.</p>
+      <div class="pasos">
+        <div class="paso reveal"><div class="ic">💬</div><h3>El cliente escribe</h3><p>Desde tu web, a cualquier hora, aunque estés cerrado o a tope.</p></div>
+        <div class="paso reveal"><div class="ic">⚡</div><h3>Responde al instante</h3><p>Horario, carta, precios, ubicación… sin hacerte esperar.</p></div>
+        <div class="paso reveal"><div class="ic">📅</div><h3>Toma la reserva</h3><p>Le pregunta personas, día, hora y contacto, paso a paso.</p></div>
+        <div class="paso reveal"><div class="ic">📲</div><h3>Te llega al WhatsApp</h3><p>Recibes el comprobante con todos los datos en tu teléfono.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec-panel">
+    <div class="wrap">
+      <h2 class="tit-sec reveal">Trabaja por ti en 3 canales</h2>
+      <p class="sub-sec reveal">El mismo asistente, allí donde estén tus clientes.</p>
+      <div class="rejilla">
+        <div class="tarjeta reveal"><div class="ic">🌐</div><h3>En tu página web</h3><p>Un botón de chat que atiende y reserva las 24 horas.</p></div>
+        <div class="tarjeta reveal"><div class="ic">🎤</div><h3>Por voz</h3><p>El cliente le habla y el asistente le responde hablando.</p></div>
+        <div class="tarjeta reveal"><div class="ic">📞</div><h3>Al teléfono</h3><p>Puede contestar llamadas y tomar la reserva por voz.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2 class="tit-sec reveal">Vale para cualquier negocio</h2>
+      <p class="sub-sec reveal">Se adapta a lo que tú agendas y a las preguntas de tus clientes.</p>
+      <div class="rejilla">
+        <div class="tarjeta reveal"><div class="ic">🍽️</div><h3>Restaurantes</h3><p>Reserva mesas e informa de la carta.</p></div>
+        <div class="tarjeta reveal"><div class="ic">💈</div><h3>Barberías</h3><p>Agenda cortes y servicios por horas.</p></div>
+        <div class="tarjeta reveal"><div class="ic">🦷</div><h3>Clínicas</h3><p>Agenda citas y explica tratamientos.</p></div>
+        <div class="tarjeta reveal"><div class="ic">🛍️</div><h3>Tiendas</h3><p>Responde por productos, envíos y pagos.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cierre">
+    <span class="eyebrow">Empieza hoy</span>
+    <h2>¿Lo quieres funcionando en tu negocio?</h2>
+    <p>Te lo monto con el nombre y los datos de tu negocio y te lo enseño gratis, sin compromiso.</p>
+    <a class="btn-wa" href="https://wa.me/34603621660?text=Hola%2C%20vi%20c%C3%B3mo%20funciona%20y%20quiero%20un%20asistente%20para%20mi%20negocio" target="_blank" rel="noopener noreferrer">💬 Pídelo por WhatsApp</a>
+    <p class="tel">WhatsApp directo: <a href="https://wa.me/34603621660" target="_blank" rel="noopener noreferrer">+34 603 621 660</a></p>
+    <br><a class="btn-demo" href="https://tuasistente24.com/demo.html" target="_blank" rel="noopener noreferrer">👀 Probar la demo de verdad →</a>
+  </div>
+
+  <script>
+    // Barra de progreso
+    const prog = document.getElementById("progreso");
+    addEventListener("scroll", () => { const h=document.documentElement; prog.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+"%"; });
+
+    // Reveal
+    if ("IntersectionObserver" in window) {
+      const io = new IntersectionObserver((es)=>{es.forEach((e,i)=>{ if(e.isIntersecting){ const hs=[...e.target.parentElement.querySelectorAll(":scope > .reveal")]; const idx=hs.indexOf(e.target); e.target.style.transitionDelay=(idx>0?idx*0.08:0)+"s"; e.target.classList.add("in"); io.unobserve(e.target);} });},{threshold:.15});
+      document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+    } else { document.querySelectorAll(".reveal").forEach(el=>el.classList.add("in")); }
+
+    // "Vídeo": conversación que se reproduce sola y se repite
+    const guion = [
+      {who:"cli", t:"Hola, ¿tenéis mesa para 4 este sábado?"},
+      {who:"bot", t:"¡Hola! 👋 Claro que sí. Tenemos a las 21:00, 22:00 y 23:00. ¿Cuál prefieres?"},
+      {who:"cli", t:"A las nueve"},
+      {who:"bot", t:"Perfecto 🗓️ Sábado, 4 personas, 21:00. ¿A nombre de quién la reservo?"},
+      {who:"cli", t:"María López"},
+      {who:"bot", t:"¡Anotado, María! 📱 ¿Un teléfono de contacto?"},
+      {who:"cli", t:"600 123 456"},
+      {who:"bot", t:"✅ ¡Reserva confirmada!\nTe esperamos el sábado a las 21:00. 🎫 RES-A7K2"},
+      {who:"aviso", t:"📲 Reserva enviada al WhatsApp del restaurante"}
+    ];
+    const chat = document.getElementById("chat");
+    const dormir = (ms)=>new Promise(r=>setTimeout(r,ms));
+
+    function limpiar(){ chat.innerHTML=""; }
+    function typing(){ const d=document.createElement("div"); d.className="escribiendo"; d.innerHTML="<span></span><span></span><span></span>"; chat.appendChild(d); return d; }
+    function burbuja(m){ const d=document.createElement("div"); d.className="m "+m.who; d.textContent=m.t; chat.appendChild(d); }
+
+    async function reproducir(){
+      while (true) {
+        limpiar();
+        for (const m of guion) {
+          if (m.who === "bot") { const t=typing(); await dormir(750); t.remove(); }
+          else { await dormir(500); }
+          burbuja(m);
+          await dormir(m.who==="aviso" ? 300 : (m.t.length>40?1500:1000));
+        }
+        await dormir(3500); // pausa antes de repetir
+      }
+    }
+    if (!matchMedia("(prefers-reduced-motion: reduce)").matches) reproducir();
+    else guion.forEach(burbuja);
+  </script>
+</body>
+</html>
