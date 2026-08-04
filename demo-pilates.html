@@ -5,157 +5,212 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-66WBS8187W"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-66WBS8187W');</script>
-<title>Núcleo · Pilates y Fisioterapia — Demo de asistente virtual</title>
-<meta name="description" content="Pilates terapéutico y fisioterapia en grupos de máximo 5 personas. Trabajamos tu espalda, tu postura y tus lesiones con criterio clínico.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3EF%0%9%F%A%7%9%8%3C/text%3E%3C/svg%3E">
-<meta property="og:title" content="Núcleo · Pilates y Fisioterapia — Pide cita con nuestra asistente">
-<meta property="og:description" content="Mira una web con asistente que da las citas solo. ¿La quieres para tu negocio?">
+<title>Núcleo — Pilates y fisioterapia, Príncipe de Vergara</title>
+<meta name="description" content="Pilates terapéutico en grupos de 5 dirigido por fisioterapeutas. Valoración postural inicial gratuita.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A7%98%3C/text%3E%3C/svg%3E">
+<meta property="og:title" content="Núcleo — Reserva tu valoración">
+<meta property="og:description" content="Mira una web de centro de pilates con asistente que reserva las sesiones solo.">
 <meta property="og:image" content="https://tuasistente24.com/img/pilates/hero.jpg">
 <style>
-:root{--c1:#3C6E71;--c2:#A8DADC;--acc:#2F5D60;--claro:#F5FAFA;--oscuro:#1B3A3C;--gris:#5F6C72;--linea:#E3E9EB}
+:root{
+  --lino:#FCFBF9; --arena:#EDE7DF; --arena2:#D9CFC2; --salvia:#7D8C7C; --salvia-osc:#5C6B5C;
+  --carbon:#33342F; --carbon-cl:#7A7C74; --linea:#E5DFD6;
+}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;overflow-x:hidden}
-body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--oscuro);background:#fff;line-height:1.6}
-h1,h2,h3{font-family:Georgia,'Times New Roman',serif;letter-spacing:-.4px}
+body{background:var(--lino);color:var(--carbon);font-family:"Segoe UI",system-ui,sans-serif;line-height:1.8;font-weight:300}
+/* Serif ligera muy espaciada. Nada de negritas pesadas: el aire es el diseño. */
+.ser{font-family:Georgia,"Times New Roman",serif;font-weight:400;letter-spacing:-.005em}
 a{color:inherit}
-.cont{max-width:1100px;margin:0 auto;padding:0 24px}
-.aviso{background:var(--oscuro);color:#fff;font-size:13px;text-align:center;padding:9px 14px;opacity:.95}
-.aviso a{color:#7fffb2;font-weight:700;text-decoration:none}
-nav{background:rgba(255,255,255,.96);backdrop-filter:blur(10px);position:sticky;top:0;z-index:400;border-bottom:1px solid var(--linea)}
-nav .cont{display:flex;align-items:center;justify-content:space-between;height:70px}
-.marca{font-family:Georgia,serif;font-size:20px;font-weight:700;color:var(--acc);display:flex;align-items:center;gap:9px}
-nav ul{list-style:none;display:flex;gap:26px}
-nav ul a{text-decoration:none;font-size:15px;color:var(--gris)}
-nav ul a:hover{color:var(--acc)}
-.btn-cita{background:linear-gradient(135deg,var(--c1),var(--c2));color:#fff;border:none;padding:11px 22px;border-radius:99px;font-weight:700;font-size:14px;cursor:pointer;font-family:inherit}
-@media(max-width:820px){nav ul{display:none}}
-header.hero{position:relative;color:#fff;padding:92px 0 98px;background:linear-gradient(100deg,#1B3A3CF0 0%,#3C6E71D0 55%,#A8DADC80 100%),url('img/pilates/hero.jpg') center/cover no-repeat}
-.sello{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);color:#fff;padding:7px 17px;border-radius:99px;font-size:13px;margin-bottom:22px}
-header h1{font-size:clamp(34px,5.6vw,54px);line-height:1.08;max-width:15ch;margin-bottom:16px}
-header h1 em{font-style:italic;color:#A8DADC}
-header p{font-size:clamp(16px,2.2vw,19px);color:rgba(255,255,255,.88);max-width:54ch;margin-bottom:30px}
-.hcta{display:flex;gap:13px;flex-wrap:wrap}
-.b1{background:#fff;color:var(--acc);border:none;padding:16px 34px;border-radius:99px;font-size:16.5px;font-weight:800;cursor:pointer;font-family:inherit;transition:transform .16s}
-.b1:hover{transform:translateY(-2px)}
-.b2{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.45);padding:16px 30px;border-radius:99px;font-size:16.5px;font-weight:600;text-decoration:none;display:inline-block}
-.hstats{display:flex;gap:40px;margin-top:46px;flex-wrap:wrap}
-.hstats b{display:block;font-family:Georgia,serif;font-size:28px;color:#A8DADC}
-.hstats span{font-size:13px;color:rgba(255,255,255,.75)}
-.banda{background:linear-gradient(135deg,var(--c1),var(--c2));color:#fff;text-align:center;padding:26px 24px}
-.banda b{font-size:17px}
-.banda a{display:inline-block;margin-top:11px;background:#fff;color:var(--acc);padding:11px 26px;border-radius:99px;font-weight:800;text-decoration:none}
-section{padding:84px 0}
-.alt{background:var(--claro)}
-.eyebrow{text-align:center;text-transform:uppercase;letter-spacing:.2em;font-size:11.5px;font-weight:800;color:var(--acc);margin-bottom:11px}
-.tit{text-align:center;font-size:clamp(28px,4vw,40px);margin-bottom:13px}
-.intro{text-align:center;color:var(--gris);max-width:60ch;margin:0 auto 50px;font-size:17px}
-.servicios{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
-.serv{background:#fff;border:1px solid var(--linea);border-radius:18px;overflow:hidden;transition:transform .22s,box-shadow .22s}
-.serv:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(0,0,0,.10)}
-.serv img{width:100%;height:150px;object-fit:cover;display:block}
-.serv .sc{padding:18px}
-.serv h3{font-size:18px;margin-bottom:5px}
-.serv p{color:var(--gris);font-size:14px;margin-bottom:9px}
-.serv .precio{color:var(--acc);font-weight:800;font-size:16px}
-.equipo{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
-@media(max-width:800px){.equipo{grid-template-columns:1fr;gap:30px}}
-.equipo img{width:100%;border-radius:20px;box-shadow:0 20px 46px rgba(0,0,0,.16)}
-.equipo h2{font-size:32px;margin-bottom:15px}
-.equipo p{color:var(--gris);margin-bottom:13px;font-size:16px}
-.checks{list-style:none;margin-top:18px}
-.checks li{padding:7px 0 7px 30px;position:relative;font-size:15.5px}
-.checks li::before{content:"✓";position:absolute;left:0;width:20px;height:20px;background:var(--c2);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;top:9px}
-.opiniones{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
-.op{background:#fff;border:1px solid var(--linea);border-radius:18px;padding:24px}
-.op .est{color:#F5A623;letter-spacing:2px;margin-bottom:10px}
-.op p{font-style:italic;color:var(--gris);font-size:15px;margin-bottom:15px}
-.op .aut{display:flex;align-items:center;gap:11px}
-.op .av{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--c1),var(--c2));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700}
-.op .aut b{font-size:14.5px;display:block} .op .aut small{color:#93A2A6;font-size:12.5px}
-.info{background:var(--oscuro);color:#fff}
-.info .tit{color:#fff} .info .eyebrow{color:#A8DADC}
-.igrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:26px}
-.ii{display:flex;gap:15px;align-items:flex-start}
-.ii .ic{font-size:25px}
-.ii b{display:block;color:#A8DADC;font-size:15px;margin-bottom:3px}
-.ii span,.ii a{color:rgba(255,255,255,.78);font-size:15px;text-decoration:none;line-height:1.5}
-footer{background:#000;color:#8E9A9E;text-align:center;padding:38px 24px;font-size:14px;opacity:.92}
-#cta-chat{position:fixed;right:24px;bottom:100px;z-index:9990;max-width:225px;background:#fff;color:var(--oscuro);padding:13px 16px;border-radius:14px 14px 4px 14px;box-shadow:0 12px 34px rgba(0,0,0,.22);font-size:14px;font-weight:600;line-height:1.35;opacity:0;transform:translateY(10px) scale(.92);transition:opacity .4s,transform .4s;pointer-events:none;border:1px solid var(--linea)}
+.cont{max-width:1040px;margin:0 auto;padding:0 32px}
+.medio{max-width:680px;margin:0 auto;padding:0 32px}
+
+.aviso{background:var(--carbon);color:#D8D6CE;font-size:12.5px;text-align:center;padding:9px 14px;font-weight:400}
+.aviso a{color:#A8D8B4;font-weight:600;text-decoration:none}
+
+nav{position:sticky;top:0;z-index:400;background:rgba(252,251,249,.92);backdrop-filter:blur(8px)}
+nav .cont{display:flex;align-items:center;justify-content:space-between;height:84px}
+.marca{font-family:Georgia,serif;font-size:19px;letter-spacing:.36em;text-transform:uppercase;font-weight:400}
+nav ul{list-style:none;display:flex;gap:36px}
+nav ul a{text-decoration:none;font-size:13px;letter-spacing:.1em;color:var(--carbon-cl);font-weight:400}
+nav ul a:hover{color:var(--salvia)}
+.btn-nav{background:none;border:none;border-bottom:1px solid var(--salvia);color:var(--salvia);padding:4px 2px;
+  font-size:13px;letter-spacing:.1em;cursor:pointer;font-family:inherit}
+@media(max-width:900px){nav ul{display:none}}
+
+/* HERO: asimétrico, muchísimo aire, sin sombras ni cajas */
+.hero{padding:92px 0 110px}
+.hgrid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end}
+@media(max-width:880px){.hgrid{grid-template-columns:1fr;gap:44px}}
+.linea-sup{width:52px;height:1px;background:var(--salvia);margin-bottom:30px}
+.hero h1{font-size:clamp(38px,5.4vw,62px);line-height:1.18;margin-bottom:26px;font-weight:400}
+.hero h1 em{font-style:italic;color:var(--salvia)}
+.hero p{color:var(--carbon-cl);font-size:17px;max-width:38ch;margin-bottom:38px;line-height:1.85}
+.b-prin{background:var(--salvia);color:var(--lino);border:none;padding:16px 34px;font-size:13.5px;
+  letter-spacing:.12em;cursor:pointer;font-family:inherit;font-weight:400;transition:background .25s}
+.b-prin:hover{background:var(--salvia-osc)}
+.hero .foto img{width:100%;aspect-ratio:3/4;object-fit:cover;filter:saturate(.86)}
+.hero .pie{margin-top:14px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--carbon-cl)}
+
+.banda{background:var(--arena);text-align:center;padding:24px 26px}
+.banda b{font-weight:600;font-size:15px}
+.banda a{color:var(--salvia-osc);font-weight:600;text-decoration:underline;text-underline-offset:4px}
+
+section{padding:110px 0}
+.k{font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--salvia);margin-bottom:20px}
+.h2{font-size:clamp(28px,3.8vw,40px);line-height:1.25;margin-bottom:24px;font-weight:400}
+
+/* MÉTODO: tres pasos en línea con números finos */
+.metodo{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:52px;margin-top:64px}
+.paso .n{font-family:Georgia,serif;font-size:15px;color:var(--salvia);margin-bottom:16px;display:block;
+  padding-bottom:14px;border-bottom:1px solid var(--linea)}
+.paso h3{font-family:Georgia,serif;font-size:20px;font-weight:400;margin-bottom:10px}
+.paso p{color:var(--carbon-cl);font-size:15px}
+
+/* CLASES: tabla ligera sin bordes pesados */
+.clases{background:var(--arena)}
+.tarifa{display:flex;align-items:baseline;justify-content:space-between;gap:24px;padding:26px 0;
+  border-bottom:1px solid var(--arena2);flex-wrap:wrap}
+.tarifa:last-child{border-bottom:none}
+.tarifa h3{font-family:Georgia,serif;font-size:21px;font-weight:400;margin-bottom:5px}
+.tarifa p{color:var(--carbon-cl);font-size:14.5px;max-width:46ch}
+.tarifa .pre{font-family:Georgia,serif;font-size:24px;color:var(--salvia-osc);white-space:nowrap;font-variant-numeric:tabular-nums}
+
+/* CITA grande, un solo testimonio destacado + dos pequeños */
+.destacada{text-align:center;padding:0 0 64px}
+.destacada blockquote{font-family:Georgia,serif;font-size:clamp(22px,3.2vw,30px);font-style:italic;
+  line-height:1.55;max-width:24ch;margin:0 auto 24px;font-weight:400}
+.destacada cite{font-style:normal;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--carbon-cl)}
+.ops{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:48px;padding-top:58px;border-top:1px solid var(--linea)}
+.op p{font-size:15.5px;color:var(--carbon-cl);margin-bottom:14px;line-height:1.75}
+.op b{font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:600}
+.op small{display:block;color:var(--arena2);font-size:12px;margin-top:4px;letter-spacing:.04em}
+
+.cierre{background:var(--salvia);color:var(--lino);text-align:center;padding:110px 32px}
+.cierre .k{color:#CFDACE}
+.cierre h2{font-family:Georgia,serif;font-size:clamp(28px,4vw,42px);font-weight:400;margin-bottom:20px}
+.cierre p{color:#DCE4DB;max-width:44ch;margin:0 auto 36px;font-size:16.5px}
+.cierre .b-prin{background:var(--lino);color:var(--salvia-osc)}
+.cierre .b-prin:hover{background:var(--arena)}
+.datos{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:30px;max-width:860px;margin:64px auto 0;
+  padding-top:42px;border-top:1px solid rgba(252,251,249,.22);text-align:left}
+.datos h3{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#CFDACE;margin-bottom:8px;font-weight:600}
+.datos p,.datos a{font-size:14.5px;color:var(--lino);text-decoration:none;line-height:1.7}
+footer{background:var(--carbon);color:#8B8D84;text-align:center;padding:28px;font-size:12px;letter-spacing:.14em}
+
+#cta-chat{position:fixed;right:24px;bottom:100px;z-index:9990;max-width:222px;background:var(--lino);color:var(--carbon);
+  padding:15px 18px;border:1px solid var(--linea);font-size:14px;line-height:1.45;font-weight:400;
+  opacity:0;transform:translateY(10px);transition:opacity .5s,transform .5s;pointer-events:none}
 #cta-chat.ver{opacity:1;transform:none;pointer-events:auto}
-#cta-chat .x{position:absolute;top:4px;right:8px;color:#bbb;cursor:pointer;font-size:14px}
-#cta-chat b{color:var(--acc)}
-#cta-chat::after{content:"";position:absolute;bottom:-7px;right:22px;width:14px;height:14px;background:#fff;border-right:1px solid var(--linea);border-bottom:1px solid var(--linea);transform:rotate(45deg)}
-.volver{position:fixed;left:16px;bottom:16px;z-index:9990;background:rgba(0,0,0,.72);color:#fff;text-decoration:none;font-size:13px;padding:9px 16px;border-radius:99px;backdrop-filter:blur(6px)}
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
-.reveal.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+#cta-chat .x{position:absolute;top:4px;right:9px;color:var(--arena2);cursor:pointer;font-size:14px}
+#cta-chat b{color:var(--salvia);font-weight:600}
+.volver{position:fixed;left:16px;bottom:16px;z-index:9990;background:var(--carbon);color:var(--lino);
+  text-decoration:none;font-size:11.5px;letter-spacing:.12em;padding:11px 18px}
+.rev{opacity:0;transform:translateY(18px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.rev.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}.rev{opacity:1;transform:none}}
 </style>
 </head>
 <body>
-<div class="aviso">🔧 DEMOSTRACIÓN — Ejemplo de web con asistente virtual. ¿La quieres para tu negocio?
-<a href="https://wa.me/34603621660?text=Hola%2C%20vi%20la%20demo%20y%20quiero%20un%20asistente%20para%20mi%20negocio" target="_blank" rel="noopener noreferrer">📲 Escríbeme: +34 603 621 660</a></div>
+
+<div class="aviso">DEMOSTRACIÓN — Ejemplo de web con asistente virtual. ¿La quieres para tu centro?
+<a href="https://wa.me/34603621660?text=Hola%2C%20vi%20la%20demo%20de%20pilates%20y%20quiero%20un%20asistente" target="_blank" rel="noopener noreferrer">Escríbeme: +34 603 621 660</a></div>
+
 <nav><div class="cont">
-<div class="marca">🧘 Núcleo</div>
-<ul><li><a href="#servicios">Servicios</a></li><li><a href="#nosotros">Nosotros</a></li><li><a href="#opiniones">Opiniones</a></li><li><a href="#contacto">Contacto</a></li></ul>
-<button class="btn-cita" onclick="abrirChat()">Reservar</button>
+  <div class="marca">Núcleo</div>
+  <ul><li><a href="#metodo">Método</a></li><li><a href="#clases">Clases</a></li><li><a href="#opiniones">Opiniones</a></li><li><a href="#visitanos">Visítanos</a></li></ul>
+  <button class="btn-nav" onclick="abrirChat()">Reservar valoración</button>
 </div></nav>
-<header class="hero"><div class="cont">
-<div class="sello">⭐ Valoración postural inicial gratuita</div>
-<h1>Recupera tu cuerpo <em>sin dolor</em></h1>
-<p>Pilates terapéutico y fisioterapia en grupos de máximo 5 personas. Trabajamos tu espalda, tu postura y tus lesiones con criterio clínico.</p>
-<div class="hcta"><button class="b1" onclick="abrirChat()">📅 Reservar valoración</button><a class="b2" href="#servicios">Ver servicios</a></div>
-<div class="hstats"><div><b>4,9★</b><span>+350 alumnos</span></div><div><b>5 pers.</b><span>máximo por grupo</span></div><div><b>Gratis</b><span>valoración inicial</span></div></div>
-</div></header>
-<div class="banda"><b>👀 Esto que ves es una DEMO.</b> Así puede quedar la web de tu negocio, con asistente que atiende y reserva solo.
-<br><a href="https://wa.me/34603621660?text=Hola%2C%20quiero%20una%20web%20con%20asistente%20como%20la%20demo" target="_blank" rel="noopener noreferrer">Quiero una igual →</a></div>
-<section id="servicios"><div class="cont">
-<div class="eyebrow reveal">Servicios</div><h2 class="tit reveal">Nuestros servicios</h2>
-<p class="intro reveal">Precios claros y reserva online las 24 horas.</p>
-<div class="servicios reveal"><div class="serv"><img src="img/pilates/s1.jpg" alt="Pilates máquinas"><div class="sc"><h3>Pilates máquinas</h3><p>Grupos de 5 con reformer y cadillac.</p><div class="precio">89 €/mes</div></div></div><div class="serv"><img src="img/pilates/s2.jpg" alt="Fisioterapia"><div class="sc"><h3>Fisioterapia</h3><p>Sesión individual de terapia manual.</p><div class="precio">45 €</div></div></div><div class="serv"><img src="img/pilates/s3.jpg" alt="Pilates + fisio"><div class="sc"><h3>Pilates + fisio</h3><p>Bono combinado con seguimiento.</p><div class="precio">125 €/mes</div></div></div><div class="serv"><img src="img/pilates/s4.jpg" alt="Suelo pélvico"><div class="sc"><h3>Suelo pélvico</h3><p>Programa específico con fisioterapeuta.</p><div class="precio">55 €</div></div></div></div>
+
+<header class="hero"><div class="cont"><div class="hgrid">
+  <div>
+    <div class="linea-sup"></div>
+    <h1 class="ser">Recupera tu cuerpo,<br><em>sin dolor</em></h1>
+    <p>Pilates terapéutico y fisioterapia en grupos de cinco personas. Todas las clases las dirige un fisioterapeuta colegiado.</p>
+    <button class="b-prin" onclick="abrirChat()">Reservar valoración gratuita</button>
+  </div>
+  <div class="foto">
+    <img src="img/pilates/hero.jpg" alt="Sala de pilates">
+    <div class="pie">Príncipe de Vergara 88 · Madrid</div>
+  </div>
+</div></div></header>
+
+<div class="banda"><b>👀 Esto es una DEMO.</b> Así puede quedar la web de tu centro, con asistente que reserva solo.
+<a href="https://wa.me/34603621660?text=Hola%2C%20quiero%20una%20web%20con%20asistente%20para%20mi%20centro%20de%20pilates" target="_blank" rel="noopener noreferrer">Quiero una igual</a></div>
+
+<section id="metodo"><div class="cont">
+  <div class="medio" style="padding:0;text-align:center">
+    <div class="k rev">El método</div>
+    <h2 class="h2 ser rev">Pilates con criterio<br>de fisioterapeuta</h2>
+    <p class="rev" style="color:var(--carbon-cl);font-size:16.5px">No hacemos pilates genérico. Adaptamos cada ejercicio a tu espalda, tus lesiones y tu día a día.</p>
+  </div>
+  <div class="metodo">
+    <div class="paso rev"><span class="n">Primero</span><h3 class="ser">Valoración postural</h3><p>Analizamos tu postura y hablamos de tus molestias. Es gratuita y sin compromiso.</p></div>
+    <div class="paso rev"><span class="n">Después</span><h3 class="ser">Plan individual</h3><p>Diseñamos tu progresión, aunque entrenes en grupo. Cada uno hace lo suyo.</p></div>
+    <div class="paso rev"><span class="n">Siempre</span><h3 class="ser">Grupos de cinco</h3><p>Cinco personas como máximo. Es lo que nos permite corregirte en cada ejercicio.</p></div>
+  </div>
 </div></section>
-<section id="nosotros" class="alt"><div class="cont"><div class="equipo">
-<img class="reveal" src="img/pilates/equipo.jpg" alt="Núcleo · Pilates y Fisioterapia">
-<div class="reveal"><div class="eyebrow" style="text-align:left">Nosotros</div>
-<h2>Pilates con criterio de fisioterapeuta</h2><p>Todas nuestras clases las da un fisioterapeuta colegiado. No hacemos pilates genérico: adaptamos cada ejercicio a tu espalda, tus lesiones y tu día a día.</p><p>Empezamos siempre con una valoración postural gratuita para saber de dónde partes. A partir de ahí, grupos de cinco personas como mucho para poder corregirte.</p><ul class="checks"><li>Valoración postural inicial gratuita</li><li>Clases dirigidas por fisioterapeutas colegiados</li><li>Grupos de 5 personas como máximo</li><li>Adaptado a lesiones y embarazo</li></ul></div>
-</div></div></section>
+
+<section id="clases" class="clases"><div class="cont">
+  <div class="k rev">Clases y tarifas</div>
+  <h2 class="h2 ser rev" style="margin-bottom:44px">Sin permanencia</h2>
+  <div class="rev">
+    <div class="tarifa"><div><h3 class="ser">Pilates · 2 días por semana</h3><p>Grupos reducidos con reformer y cadillac.</p></div><span class="pre">89 €/mes</span></div>
+    <div class="tarifa"><div><h3 class="ser">Pilates · 3 días por semana</h3><p>Para quien busca progresar más rápido.</p></div><span class="pre">115 €/mes</span></div>
+    <div class="tarifa"><div><h3 class="ser">Sesión de fisioterapia</h3><p>Terapia manual individual de 50 minutos.</p></div><span class="pre">45 €</span></div>
+    <div class="tarifa"><div><h3 class="ser">Bono pilates + fisio</h3><p>Combinado con seguimiento mensual del fisioterapeuta.</p></div><span class="pre">125 €/mes</span></div>
+    <div class="tarifa"><div><h3 class="ser">Suelo pélvico</h3><p>Programa específico con especialista, también postparto.</p></div><span class="pre">55 €</span></div>
+  </div>
+</div></section>
+
 <section id="opiniones"><div class="cont">
-<div class="eyebrow reveal">Opiniones</div><h2 class="tit reveal">Lo que dicen nuestros clientes</h2>
-<p class="intro reveal">Valoraciones reales de quienes ya confían en nosotros.</p>
-<div class="opiniones"><div class="op reveal"><div class="est">★★★★★</div><p>"Llevaba años con dolor lumbar y en tres meses ha desaparecido. Increíble."</p><div class="aut"><div class="av">A</div><div><b>Ana Belén Ruiz</b><small>Hace 1 mes · Google</small></div></div></div><div class="op reveal"><div class="est">★★★★★</div><p>"Reservé la valoración por el chat de la web un sábado. Me contestó al momento."</p><div class="aut"><div class="av">T</div><div><b>Teresa Gil</b><small>Hace 3 semanas · Google</small></div></div></div><div class="op reveal"><div class="est">★★★★★</div><p>"Que las clases las dé una fisio se nota muchísimo. Te corrigen todo."</p><div class="aut"><div class="av">L</div><div><b>Laura Ibáñez</b><small>Hace 2 meses · Google</small></div></div></div></div>
+  <div class="destacada rev">
+    <blockquote class="ser">Llevaba años con dolor lumbar y en tres meses ha desaparecido.</blockquote>
+    <cite>Ana Belén Ruiz · Google</cite>
+  </div>
+  <div class="ops">
+    <div class="op rev"><p>"Reservé la valoración por el chat de la web un sábado por la tarde. Me contestó al momento."</p><b>Teresa Gil</b><small>Hace 3 semanas</small></div>
+    <div class="op rev"><p>"Que las clases las dé una fisioterapeuta se nota muchísimo. Te corrigen absolutamente todo."</p><b>Laura Ibáñez</b><small>Hace 2 meses</small></div>
+  </div>
 </div></section>
-<section id="contacto" class="info"><div class="cont">
-<div class="eyebrow reveal">Contacto</div><h2 class="tit reveal">Empieza por la valoración</h2>
-<p class="intro reveal" style="color:rgba(255,255,255,.72)">Reserva por el chat en 30 segundos, a cualquier hora.</p>
-<div class="igrid reveal">
-<div class="ii"><span class="ic">📍</span><div><b>Dirección</b><span>Calle de Príncipe de Vergara 88, Madrid</span></div></div>
-<div class="ii"><span class="ic">🕐</span><div><b>Horario</b><span>Lunes a Viernes: 08:00 – 21:00<br>Sábados: 09:00 – 14:00<br>Domingos: cerrado</span></div></div>
-<div class="ii"><span class="ic">📱</span><div><b>Teléfono</b><a href="https://wa.me/34603621660" target="_blank" rel="noopener noreferrer">+34 603 621 660</a></div></div>
-<div class="ii"><span class="ic">💬</span><div><b>Reservas</b><span>Por el chat, 24 horas</span></div></div>
-</div></div></section>
-<footer><div style="font-family:Georgia,serif;font-size:19px;color:#fff;margin-bottom:8px">🧘 Núcleo</div>
-<p>Página de demostración del asistente virtual para negocios</p>
-<p style="margin-top:12px;opacity:.6">© 2026 · tuasistente24.com</p></footer>
-<a class="volver" href="demo.html">← Ver otros sectores</a>
-<div id="cta-chat"><span class="x" onclick="document.getElementById('cta-chat').classList.remove('ver')">✕</span>👋 <b>¿Reservamos tu valoración?</b><br>Es gratis y tardo 30 seg.</div>
+
+<div class="cierre" id="visitanos">
+  <div class="k">Visítanos</div>
+  <h2>Empieza por la valoración</h2>
+  <p>Es gratuita y sin compromiso. Reserva por el chat en treinta segundos.</p>
+  <button class="b-prin" onclick="abrirChat()">Reservar mi valoración</button>
+  <div class="datos">
+    <div><h3>Dirección</h3><p>Príncipe de Vergara 88<br>28006 Madrid</p></div>
+    <div><h3>Horario</h3><p>Lun–Vie: 08:00–21:00<br>Sábado: 09:00–14:00</p></div>
+    <div><h3>Teléfono</h3><a href="https://wa.me/34603621660" target="_blank" rel="noopener noreferrer">+34 603 621 660</a></div>
+    <div><h3>Metro</h3><p>Diego de León<br>a 3 minutos</p></div>
+  </div>
+</div>
+
+<footer>NÚCLEO · PRÍNCIPE DE VERGARA 88 · MADRID — Demostración de tuasistente24.com</footer>
+
+<a class="volver" href="demo.html">← Otros sectores</a>
+<div id="cta-chat"><span class="x" onclick="document.getElementById('cta-chat').classList.remove('ver')">✕</span>👋 <b>¿Reservamos tu valoración?</b><br>Es gratis y tardo 30 segundos.</div>
+
 <script>
 function abrirChat(){var b=document.getElementById('cbn-burbuja'); if(b) b.click();}
 window.abrirChat=abrirChat;
 if("IntersectionObserver" in window){
- var io=new IntersectionObserver(function(es){es.forEach(function(e){
-  if(e.isIntersecting){var hs=[].slice.call(e.target.parentElement.querySelectorAll(":scope > .reveal"));
-  var i=hs.indexOf(e.target); e.target.style.transitionDelay=(i>0?i*0.08:0)+"s";
-  e.target.classList.add("in"); io.unobserve(e.target);}});},{threshold:.12});
- document.querySelectorAll(".reveal").forEach(function(el){io.observe(el)});
-} else { document.querySelectorAll(".reveal").forEach(function(el){el.classList.add("in")}); }
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.isIntersecting){var hs=[].slice.call(e.target.parentElement.querySelectorAll(":scope > .rev"));
+    var i=hs.indexOf(e.target); e.target.style.transitionDelay=(i>0?i*0.09:0)+"s";
+    e.target.classList.add("in"); io.unobserve(e.target);}});},{threshold:.12});
+  document.querySelectorAll(".rev").forEach(function(el){io.observe(el)});
+} else { document.querySelectorAll(".rev").forEach(function(el){el.classList.add("in")}); }
 setTimeout(function(){var c=document.getElementById("cta-chat");
- if(c && !document.querySelector("#cbn-panel:not(.cbn-oculto)")) c.classList.add("ver");},4500);
+  if(c && !document.querySelector("#cbn-panel:not(.cbn-oculto)")) c.classList.add("ver");},5000);
 document.addEventListener("click",function(e){
- if(e.target.closest("#cbn-burbuja")||e.target.closest("#cta-chat")){
-  var c=document.getElementById("cta-chat"); if(c) c.classList.remove("ver");
-  if(e.target.closest("#cta-chat") && !e.target.closest(".x")) abrirChat();}});
+  if(e.target.closest("#cbn-burbuja")||e.target.closest("#cta-chat")){
+    var c=document.getElementById("cta-chat"); if(c) c.classList.remove("ver");
+    if(e.target.closest("#cta-chat") && !e.target.closest(".x")) abrirChat();}});
 </script>
-<link rel="stylesheet" href="widget.css?v=4">
-<script src="config-pilates.js?v=4"></script>
-<script src="widget.js?v=4"></script>
+<link rel="stylesheet" href="widget.css?v=5">
+<script src="config-pilates.js?v=5"></script>
+<script src="widget.js?v=5"></script>
 </body>
 </html>

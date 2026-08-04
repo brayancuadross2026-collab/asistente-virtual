@@ -5,157 +5,223 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-66WBS8187W"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-66WBS8187W');</script>
-<title>Espacio Bruma · Belleza — Demo de asistente virtual</title>
-<meta name="description" content="Centro de belleza y estética en el Barrio de Salamanca. Uñas, tratamientos faciales y corporales con producto profesional y trato personalizado.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3EF%0%9%F%9%2%8%5%3C/text%3E%3C/svg%3E">
-<meta property="og:title" content="Espacio Bruma · Belleza — Pide cita con nuestra asistente">
-<meta property="og:description" content="Mira una web con asistente que da las citas solo. ¿La quieres para tu negocio?">
+<title>Espacio Bruma — Belleza y estética, Serrano 141</title>
+<meta name="description" content="Centro de belleza en el Barrio de Salamanca. Uñas, tratamientos faciales y estética con valoración inicial gratuita.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%85%3C/text%3E%3C/svg%3E">
+<meta property="og:title" content="Espacio Bruma — Reserva con nuestra asistente">
+<meta property="og:description" content="Mira una web de centro de belleza con asistente que reserva las citas solo.">
 <meta property="og:image" content="https://tuasistente24.com/img/belleza/hero.jpg">
 <style>
-:root{--c1:#7A3B5E;--c2:#D98BA8;--acc:#B45C82;--claro:#FDF7F9;--oscuro:#2E1622;--gris:#5F6C72;--linea:#E3E9EB}
+:root{
+  --papel:#FBF8F6; --papel2:#F2EAE6; --tinta:#241B1F; --tinta-cl:#6E6167;
+  --rosa:#C9A0A8; --oro:#A98D5F; --linea:#E3D8D3;
+}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;overflow-x:hidden}
-body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--oscuro);background:#fff;line-height:1.6}
-h1,h2,h3{font-family:Georgia,'Times New Roman',serif;letter-spacing:-.4px}
+body{background:var(--papel);color:var(--tinta);font-family:"Segoe UI",system-ui,sans-serif;line-height:1.7;font-weight:300}
+.ed{font-family:Georgia,"Times New Roman",serif;font-weight:400;letter-spacing:-.01em}
 a{color:inherit}
-.cont{max-width:1100px;margin:0 auto;padding:0 24px}
-.aviso{background:var(--oscuro);color:#fff;font-size:13px;text-align:center;padding:9px 14px;opacity:.95}
-.aviso a{color:#7fffb2;font-weight:700;text-decoration:none}
-nav{background:rgba(255,255,255,.96);backdrop-filter:blur(10px);position:sticky;top:0;z-index:400;border-bottom:1px solid var(--linea)}
-nav .cont{display:flex;align-items:center;justify-content:space-between;height:70px}
-.marca{font-family:Georgia,serif;font-size:20px;font-weight:700;color:var(--acc);display:flex;align-items:center;gap:9px}
-nav ul{list-style:none;display:flex;gap:26px}
-nav ul a{text-decoration:none;font-size:15px;color:var(--gris)}
-nav ul a:hover{color:var(--acc)}
-.btn-cita{background:linear-gradient(135deg,var(--c1),var(--c2));color:#fff;border:none;padding:11px 22px;border-radius:99px;font-weight:700;font-size:14px;cursor:pointer;font-family:inherit}
-@media(max-width:820px){nav ul{display:none}}
-header.hero{position:relative;color:#fff;padding:92px 0 98px;background:linear-gradient(100deg,#2E1622F0 0%,#7A3B5ED0 55%,#D98BA880 100%),url('img/belleza/hero.jpg') center/cover no-repeat}
-.sello{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);color:#fff;padding:7px 17px;border-radius:99px;font-size:13px;margin-bottom:22px}
-header h1{font-size:clamp(34px,5.6vw,54px);line-height:1.08;max-width:15ch;margin-bottom:16px}
-header h1 em{font-style:italic;color:#D98BA8}
-header p{font-size:clamp(16px,2.2vw,19px);color:rgba(255,255,255,.88);max-width:54ch;margin-bottom:30px}
-.hcta{display:flex;gap:13px;flex-wrap:wrap}
-.b1{background:#fff;color:var(--acc);border:none;padding:16px 34px;border-radius:99px;font-size:16.5px;font-weight:800;cursor:pointer;font-family:inherit;transition:transform .16s}
-.b1:hover{transform:translateY(-2px)}
-.b2{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.45);padding:16px 30px;border-radius:99px;font-size:16.5px;font-weight:600;text-decoration:none;display:inline-block}
-.hstats{display:flex;gap:40px;margin-top:46px;flex-wrap:wrap}
-.hstats b{display:block;font-family:Georgia,serif;font-size:28px;color:#D98BA8}
-.hstats span{font-size:13px;color:rgba(255,255,255,.75)}
-.banda{background:linear-gradient(135deg,var(--c1),var(--c2));color:#fff;text-align:center;padding:26px 24px}
-.banda b{font-size:17px}
-.banda a{display:inline-block;margin-top:11px;background:#fff;color:var(--acc);padding:11px 26px;border-radius:99px;font-weight:800;text-decoration:none}
-section{padding:84px 0}
-.alt{background:var(--claro)}
-.eyebrow{text-align:center;text-transform:uppercase;letter-spacing:.2em;font-size:11.5px;font-weight:800;color:var(--acc);margin-bottom:11px}
-.tit{text-align:center;font-size:clamp(28px,4vw,40px);margin-bottom:13px}
-.intro{text-align:center;color:var(--gris);max-width:60ch;margin:0 auto 50px;font-size:17px}
-.servicios{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
-.serv{background:#fff;border:1px solid var(--linea);border-radius:18px;overflow:hidden;transition:transform .22s,box-shadow .22s}
-.serv:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(0,0,0,.10)}
-.serv img{width:100%;height:150px;object-fit:cover;display:block}
-.serv .sc{padding:18px}
-.serv h3{font-size:18px;margin-bottom:5px}
-.serv p{color:var(--gris);font-size:14px;margin-bottom:9px}
-.serv .precio{color:var(--acc);font-weight:800;font-size:16px}
-.equipo{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
-@media(max-width:800px){.equipo{grid-template-columns:1fr;gap:30px}}
-.equipo img{width:100%;border-radius:20px;box-shadow:0 20px 46px rgba(0,0,0,.16)}
-.equipo h2{font-size:32px;margin-bottom:15px}
-.equipo p{color:var(--gris);margin-bottom:13px;font-size:16px}
-.checks{list-style:none;margin-top:18px}
-.checks li{padding:7px 0 7px 30px;position:relative;font-size:15.5px}
-.checks li::before{content:"✓";position:absolute;left:0;width:20px;height:20px;background:var(--c2);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;top:9px}
-.opiniones{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
-.op{background:#fff;border:1px solid var(--linea);border-radius:18px;padding:24px}
-.op .est{color:#F5A623;letter-spacing:2px;margin-bottom:10px}
-.op p{font-style:italic;color:var(--gris);font-size:15px;margin-bottom:15px}
-.op .aut{display:flex;align-items:center;gap:11px}
-.op .av{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--c1),var(--c2));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700}
-.op .aut b{font-size:14.5px;display:block} .op .aut small{color:#93A2A6;font-size:12.5px}
-.info{background:var(--oscuro);color:#fff}
-.info .tit{color:#fff} .info .eyebrow{color:#D98BA8}
-.igrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:26px}
-.ii{display:flex;gap:15px;align-items:flex-start}
-.ii .ic{font-size:25px}
-.ii b{display:block;color:#D98BA8;font-size:15px;margin-bottom:3px}
-.ii span,.ii a{color:rgba(255,255,255,.78);font-size:15px;text-decoration:none;line-height:1.5}
-footer{background:#000;color:#8E9A9E;text-align:center;padding:38px 24px;font-size:14px;opacity:.92}
-#cta-chat{position:fixed;right:24px;bottom:100px;z-index:9990;max-width:225px;background:#fff;color:var(--oscuro);padding:13px 16px;border-radius:14px 14px 4px 14px;box-shadow:0 12px 34px rgba(0,0,0,.22);font-size:14px;font-weight:600;line-height:1.35;opacity:0;transform:translateY(10px) scale(.92);transition:opacity .4s,transform .4s;pointer-events:none;border:1px solid var(--linea)}
+.cont{max-width:1080px;margin:0 auto;padding:0 30px}
+.estrecho{max-width:760px;margin:0 auto;padding:0 30px}
+
+.aviso{background:var(--tinta);color:#E7DCD8;font-size:12.5px;text-align:center;padding:9px 14px;font-weight:400}
+.aviso a{color:#8FE6B8;font-weight:600;text-decoration:none}
+
+nav{position:sticky;top:0;z-index:400;background:rgba(251,248,246,.93);backdrop-filter:blur(9px);border-bottom:1px solid var(--linea)}
+nav .cont{display:flex;align-items:center;justify-content:space-between;height:78px}
+.marca{font-family:Georgia,serif;font-size:21px;letter-spacing:.22em;text-transform:uppercase;font-weight:400}
+nav ul{list-style:none;display:flex;gap:34px}
+nav ul a{text-decoration:none;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--tinta-cl);font-weight:400}
+nav ul a:hover{color:var(--oro)}
+.btn-nav{background:none;border:1px solid var(--tinta);color:var(--tinta);padding:11px 24px;font-size:11.5px;
+  letter-spacing:.16em;text-transform:uppercase;cursor:pointer;font-family:inherit;transition:all .2s}
+.btn-nav:hover{background:var(--tinta);color:var(--papel)}
+@media(max-width:900px){nav ul{display:none}}
+
+/* HERO editorial: imagen desplazada, titular montado encima, mucho aire */
+.hero{padding:78px 0 96px;position:relative}
+.hgrid{display:grid;grid-template-columns:1.05fr .95fr;gap:0;align-items:center}
+@media(max-width:880px){.hgrid{grid-template-columns:1fr;gap:34px}}
+.hero .txt{position:relative;z-index:2}
+.kicker{font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--oro);margin-bottom:26px}
+.hero h1{font-size:clamp(42px,6.4vw,74px);line-height:1.02;margin-bottom:24px;font-weight:400}
+.hero h1 em{font-style:italic;color:var(--rosa)}
+.hero p{color:var(--tinta-cl);font-size:17px;max-width:40ch;margin-bottom:34px}
+.hero .foto{position:relative}
+.hero .foto img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
+.hero .foto figcaption{position:absolute;left:-56px;bottom:34px;background:var(--papel);padding:16px 22px;
+  font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--tinta-cl);border:1px solid var(--linea)}
+@media(max-width:880px){.hero .foto figcaption{left:14px}}
+.b-prin{background:var(--tinta);color:var(--papel);border:none;padding:17px 38px;font-size:12px;letter-spacing:.18em;
+  text-transform:uppercase;cursor:pointer;font-family:inherit;transition:background .2s}
+.b-prin:hover{background:var(--oro)}
+
+.banda{background:var(--papel2);text-align:center;padding:24px 26px;border-top:1px solid var(--linea);border-bottom:1px solid var(--linea)}
+.banda b{font-weight:600;font-size:15px}
+.banda a{color:var(--oro);font-weight:600;text-decoration:underline;text-underline-offset:4px}
+
+section{padding:104px 0}
+.sec-tit{font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--oro);margin-bottom:16px}
+.sec-h2{font-size:clamp(30px,4.2vw,44px);line-height:1.14;margin-bottom:22px;font-weight:400}
+
+/* SERVICIOS: lista editorial numerada, no tarjetas */
+.lista{border-top:1px solid var(--linea)}
+.serv{display:grid;grid-template-columns:52px 1fr auto;gap:26px;align-items:baseline;padding:28px 0;
+  border-bottom:1px solid var(--linea);transition:padding-left .3s}
+.serv:hover{padding-left:10px}
+.serv .num{font-family:Georgia,serif;font-size:13px;color:var(--rosa);font-variant-numeric:tabular-nums}
+.serv h3{font-family:Georgia,serif;font-size:22px;font-weight:400;margin-bottom:5px}
+.serv p{color:var(--tinta-cl);font-size:14.5px;max-width:52ch}
+.serv .pre{font-family:Georgia,serif;font-size:20px;color:var(--oro);white-space:nowrap;font-variant-numeric:tabular-nums}
+@media(max-width:640px){.serv{grid-template-columns:34px 1fr;gap:16px}.serv .pre{grid-column:2;margin-top:8px}}
+
+/* FILOSOFIA con imagen a sangre */
+.filo{background:var(--papel2)}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+@media(max-width:880px){.fgrid{grid-template-columns:1fr;gap:36px}}
+.fgrid img{width:100%;aspect-ratio:1;object-fit:cover}
+.fgrid h2{font-size:clamp(28px,3.6vw,38px);font-weight:400;margin-bottom:20px;line-height:1.2}
+.fgrid p{color:var(--tinta-cl);margin-bottom:16px;font-size:16px}
+.fnotas{list-style:none;margin-top:26px;border-top:1px solid var(--linea)}
+.fnotas li{padding:13px 0;border-bottom:1px solid var(--linea);font-size:14.5px;display:flex;gap:14px;align-items:baseline}
+.fnotas li::before{content:"—";color:var(--rosa)}
+
+/* OPINIONES: citas grandes centradas, tipo editorial */
+.ops{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:52px}
+.op p{font-family:Georgia,serif;font-size:19px;font-style:italic;line-height:1.5;margin-bottom:18px}
+.op b{font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:600}
+.op small{display:block;color:var(--tinta-cl);font-size:12px;margin-top:3px}
+
+.cierre{background:var(--tinta);color:var(--papel);text-align:center;padding:106px 30px}
+.cierre .sec-tit{color:var(--rosa)}
+.cierre h2{font-family:Georgia,serif;font-size:clamp(30px,4.2vw,44px);font-weight:400;margin-bottom:18px}
+.cierre p{color:#BCAEB2;max-width:46ch;margin:0 auto 34px;font-size:16px}
+.cierre .b-prin{background:var(--papel);color:var(--tinta)}
+.cierre .b-prin:hover{background:var(--rosa);color:var(--tinta)}
+.datos{display:flex;gap:44px;justify-content:center;flex-wrap:wrap;margin-top:56px;padding-top:40px;border-top:1px solid rgba(255,255,255,.13)}
+.datos div{text-align:left}
+.datos h3{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--rosa);margin-bottom:7px;font-weight:600}
+.datos p,.datos a{color:#D9CFD1;font-size:14.5px;text-decoration:none;line-height:1.6}
+footer{background:var(--tinta);color:#8A7C81;text-align:center;padding:26px;font-size:12px;letter-spacing:.1em;
+  border-top:1px solid rgba(255,255,255,.08)}
+
+#cta-chat{position:fixed;right:24px;bottom:100px;z-index:9990;max-width:224px;background:#fff;color:var(--tinta);
+  padding:14px 17px;box-shadow:0 14px 40px rgba(36,27,31,.16);font-size:14px;line-height:1.4;border:1px solid var(--linea);
+  opacity:0;transform:translateY(10px);transition:opacity .4s,transform .4s;pointer-events:none;font-weight:400}
 #cta-chat.ver{opacity:1;transform:none;pointer-events:auto}
-#cta-chat .x{position:absolute;top:4px;right:8px;color:#bbb;cursor:pointer;font-size:14px}
-#cta-chat b{color:var(--acc)}
-#cta-chat::after{content:"";position:absolute;bottom:-7px;right:22px;width:14px;height:14px;background:#fff;border-right:1px solid var(--linea);border-bottom:1px solid var(--linea);transform:rotate(45deg)}
-.volver{position:fixed;left:16px;bottom:16px;z-index:9990;background:rgba(0,0,0,.72);color:#fff;text-decoration:none;font-size:13px;padding:9px 16px;border-radius:99px;backdrop-filter:blur(6px)}
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
-.reveal.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+#cta-chat .x{position:absolute;top:4px;right:9px;color:#C4B6B9;cursor:pointer;font-size:14px}
+#cta-chat b{color:var(--oro);font-weight:600}
+.volver{position:fixed;left:16px;bottom:16px;z-index:9990;background:var(--tinta);color:var(--papel);
+  text-decoration:none;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:11px 17px}
+.rev{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.rev.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}.rev{opacity:1;transform:none}}
 </style>
 </head>
 <body>
-<div class="aviso">🔧 DEMOSTRACIÓN — Ejemplo de web con asistente virtual. ¿La quieres para tu negocio?
-<a href="https://wa.me/34603621660?text=Hola%2C%20vi%20la%20demo%20y%20quiero%20un%20asistente%20para%20mi%20negocio" target="_blank" rel="noopener noreferrer">📲 Escríbeme: +34 603 621 660</a></div>
+
+<div class="aviso">DEMOSTRACIÓN — Ejemplo de web con asistente virtual. ¿La quieres para tu centro?
+<a href="https://wa.me/34603621660?text=Hola%2C%20vi%20la%20demo%20de%20belleza%20y%20quiero%20un%20asistente" target="_blank" rel="noopener noreferrer">Escríbeme: +34 603 621 660</a></div>
+
 <nav><div class="cont">
-<div class="marca">💅 Espacio Bruma</div>
-<ul><li><a href="#servicios">Servicios</a></li><li><a href="#nosotros">Nosotros</a></li><li><a href="#opiniones">Opiniones</a></li><li><a href="#contacto">Contacto</a></li></ul>
-<button class="btn-cita" onclick="abrirChat()">Reservar</button>
+  <div class="marca">Bruma</div>
+  <ul><li><a href="#servicios">Servicios</a></li><li><a href="#centro">El centro</a></li><li><a href="#opiniones">Opiniones</a></li><li><a href="#visitanos">Visítanos</a></li></ul>
+  <button class="btn-nav" onclick="abrirChat()">Reservar cita</button>
 </div></nav>
-<header class="hero"><div class="cont">
-<div class="sello">⭐ Primera visita con diagnóstico gratuito</div>
-<h1>Cuídate como <em>te mereces</em></h1>
-<p>Centro de belleza y estética en el Barrio de Salamanca. Uñas, tratamientos faciales y corporales con producto profesional y trato personalizado.</p>
-<div class="hcta"><button class="b1" onclick="abrirChat()">📅 Pedir cita en 30 seg</button><a class="b2" href="#servicios">Ver servicios</a></div>
-<div class="hstats"><div><b>4,9★</b><span>+500 clientas</span></div><div><b>8 años</b><span>en Serrano</span></div><div><b>Gratis</b><span>primera valoración</span></div></div>
-</div></header>
-<div class="banda"><b>👀 Esto que ves es una DEMO.</b> Así puede quedar la web de tu negocio, con asistente que atiende y reserva solo.
-<br><a href="https://wa.me/34603621660?text=Hola%2C%20quiero%20una%20web%20con%20asistente%20como%20la%20demo" target="_blank" rel="noopener noreferrer">Quiero una igual →</a></div>
+
+<header class="hero"><div class="cont"><div class="hgrid">
+  <div class="txt">
+    <div class="kicker">Serrano 141 · Barrio de Salamanca</div>
+    <h1 class="ed">Un rato para ti,<br><em>sin prisas</em></h1>
+    <p>Centro de belleza y estética con cabinas individuales, producto profesional y una norma: nunca solapamos clientas.</p>
+    <button class="b-prin" onclick="abrirChat()">Reservar cita</button>
+  </div>
+  <figure class="foto">
+    <img src="img/belleza/hero.jpg" alt="Interior del centro de belleza">
+    <figcaption>Valoración inicial gratuita</figcaption>
+  </figure>
+</div></div></header>
+
+<div class="banda"><b>👀 Esto es una DEMO.</b> Así puede quedar la web de tu centro, con asistente que reserva solo.
+<a href="https://wa.me/34603621660?text=Hola%2C%20quiero%20una%20web%20con%20asistente%20para%20mi%20centro" target="_blank" rel="noopener noreferrer">Quiero una igual</a></div>
+
 <section id="servicios"><div class="cont">
-<div class="eyebrow reveal">Servicios</div><h2 class="tit reveal">Nuestros servicios</h2>
-<p class="intro reveal">Precios claros y reserva online las 24 horas.</p>
-<div class="servicios reveal"><div class="serv"><img src="img/belleza/s1.jpg" alt="Manicura semipermanente"><div class="sc"><h3>Manicura semipermanente</h3><p>Esmaltado que aguanta 3 semanas impecable.</p><div class="precio">28 €</div></div></div><div class="serv"><img src="img/belleza/s2.jpg" alt="Tratamiento facial"><div class="sc"><h3>Tratamiento facial</h3><p>Limpieza profunda e hidratación según tu piel.</p><div class="precio">55 €</div></div></div><div class="serv"><img src="img/belleza/s3.jpg" alt="Extensiones de pestañas"><div class="sc"><h3>Extensiones de pestañas</h3><p>Pelo a pelo o volumen ruso, mirada natural.</p><div class="precio">65 €</div></div></div><div class="serv"><img src="img/belleza/s4.jpg" alt="Depilación láser"><div class="sc"><h3>Depilación láser</h3><p>Sesión por zona con láser de diodo.</p><div class="precio">desde 35 €</div></div></div></div>
+  <div class="sec-tit rev">Carta de servicios</div>
+  <h2 class="sec-h2 ed rev">Lo que hacemos</h2>
+  <div class="lista rev">
+    <div class="serv"><span class="num">01</span><div><h3 class="ed">Manicura semipermanente</h3><p>Esmaltado que aguanta tres semanas impecable, con retirada incluida.</p></div><span class="pre">28 €</span></div>
+    <div class="serv"><span class="num">02</span><div><h3 class="ed">Pedicura completa</h3><p>Tratamiento de pies con exfoliación, hidratación y esmaltado.</p></div><span class="pre">35 €</span></div>
+    <div class="serv"><span class="num">03</span><div><h3 class="ed">Tratamiento facial</h3><p>Limpieza profunda e hidratación adaptada a tu tipo de piel.</p></div><span class="pre">55 €</span></div>
+    <div class="serv"><span class="num">04</span><div><h3 class="ed">Extensiones de pestañas</h3><p>Pelo a pelo o volumen ruso, con acabado natural.</p></div><span class="pre">65 €</span></div>
+    <div class="serv"><span class="num">05</span><div><h3 class="ed">Depilación láser</h3><p>Sesión por zona con láser de diodo, apto para todo el año.</p></div><span class="pre">desde 35 €</span></div>
+    <div class="serv"><span class="num">06</span><div><h3 class="ed">Tratamiento corporal</h3><p>Reductores, reafirmantes y drenaje con aparatología.</p></div><span class="pre">desde 45 €</span></div>
+  </div>
 </div></section>
-<section id="nosotros" class="alt"><div class="cont"><div class="equipo">
-<img class="reveal" src="img/belleza/equipo.jpg" alt="Espacio Bruma · Belleza">
-<div class="reveal"><div class="eyebrow" style="text-align:left">Nosotros</div>
-<h2>Un rato para ti, sin prisas</h2><p>Abrimos hace ocho años con una idea clara: que venir al centro sea un momento agradable, no un trámite. Por eso trabajamos con cita y sin solapar clientas.</p><p>Todo el equipo está titulado y usamos marcas profesionales. Antes de cualquier tratamiento hacemos una valoración gratuita para recomendarte lo que de verdad necesitas.</p><ul class="checks"><li>Valoración inicial gratuita</li><li>Producto profesional en todos los tratamientos</li><li>Cabinas individuales y ambiente tranquilo</li><li>Reserva online las 24 horas</li></ul></div>
+
+<section id="centro" class="filo"><div class="cont"><div class="fgrid">
+  <img class="rev" src="img/belleza/equipo.jpg" alt="Cabina del centro">
+  <div class="rev">
+    <div class="sec-tit">El centro</div>
+    <h2 class="sec-h2 ed">Ocho años cuidando<br>del barrio</h2>
+    <p>Abrimos en 2018 con una idea sencilla: que venir aquí sea un momento agradable y no un trámite entre prisas.</p>
+    <p>Todo el equipo está titulado y trabajamos con marcas profesionales. Antes de cualquier tratamiento hacemos una valoración sin coste para recomendarte solo lo que de verdad necesitas.</p>
+    <ul class="fnotas">
+      <li>Valoración inicial gratuita y sin compromiso</li>
+      <li>Cabinas individuales, nunca solapamos citas</li>
+      <li>Producto profesional en todos los tratamientos</li>
+      <li>Reserva por el chat las 24 horas</li>
+    </ul>
+  </div>
 </div></div></section>
-<section id="opiniones"><div class="cont">
-<div class="eyebrow reveal">Opiniones</div><h2 class="tit reveal">Lo que dicen nuestros clientes</h2>
-<p class="intro reveal">Valoraciones reales de quienes ya confían en nosotros.</p>
-<div class="opiniones"><div class="op reveal"><div class="est">★★★★★</div><p>"Las uñas me duran perfectas casi un mes. Y el trato es maravilloso."</p><div class="aut"><div class="av">M</div><div><b>Marta Villar</b><small>Hace 2 semanas · Google</small></div></div></div><div class="op reveal"><div class="est">★★★★★</div><p>"Reservé por el chat a las once de la noche y me confirmaron la cita. Súper cómodo."</p><div class="aut"><div class="av">E</div><div><b>Elena Sáez</b><small>Hace 1 mes · Google</small></div></div></div><div class="op reveal"><div class="est">★★★★★</div><p>"El tratamiento facial me cambió la piel. Se nota que saben lo que hacen."</p><div class="aut"><div class="av">P</div><div><b>Paula Ortega</b><small>Hace 1 mes · Google</small></div></div></div></div>
+
+<section id="opiniones"><div class="estrecho" style="text-align:center;margin-bottom:56px">
+  <div class="sec-tit rev">Opiniones</div>
+  <h2 class="sec-h2 ed rev">Lo que dicen nuestras clientas</h2>
+</div><div class="cont">
+  <div class="ops">
+    <div class="op rev"><p>"Las uñas me duran perfectas casi un mes. Y el trato es maravilloso."</p><b>Marta Villar</b><small>Hace 2 semanas · Google</small></div>
+    <div class="op rev"><p>"Reservé por el chat a las once de la noche y me confirmaron la cita al momento."</p><b>Elena Sáez</b><small>Hace 1 mes · Google</small></div>
+    <div class="op rev"><p>"El tratamiento facial me cambió la piel. Se nota que saben lo que hacen."</p><b>Paula Ortega</b><small>Hace 1 mes · Google</small></div>
+  </div>
 </div></section>
-<section id="contacto" class="info"><div class="cont">
-<div class="eyebrow reveal">Contacto</div><h2 class="tit reveal">Reserva tu momento</h2>
-<p class="intro reveal" style="color:rgba(255,255,255,.72)">Reserva por el chat en 30 segundos, a cualquier hora.</p>
-<div class="igrid reveal">
-<div class="ii"><span class="ic">📍</span><div><b>Dirección</b><span>Calle de Serrano 141, Madrid</span></div></div>
-<div class="ii"><span class="ic">🕐</span><div><b>Horario</b><span>Lunes a Viernes: 10:00 – 20:30<br>Sábados: 10:00 – 15:00<br>Domingos: cerrado</span></div></div>
-<div class="ii"><span class="ic">📱</span><div><b>Teléfono</b><a href="https://wa.me/34603621660" target="_blank" rel="noopener noreferrer">+34 603 621 660</a></div></div>
-<div class="ii"><span class="ic">💬</span><div><b>Reservas</b><span>Por el chat, 24 horas</span></div></div>
-</div></div></section>
-<footer><div style="font-family:Georgia,serif;font-size:19px;color:#fff;margin-bottom:8px">💅 Espacio Bruma</div>
-<p>Página de demostración del asistente virtual para negocios</p>
-<p style="margin-top:12px;opacity:.6">© 2026 · tuasistente24.com</p></footer>
-<a class="volver" href="demo.html">← Ver otros sectores</a>
+
+<div class="cierre" id="visitanos">
+  <div class="sec-tit">Visítanos</div>
+  <h2>Reserva tu momento</h2>
+  <p>Pide tu cita por el chat en treinta segundos, a la hora que quieras.</p>
+  <button class="b-prin" onclick="abrirChat()">Reservar ahora</button>
+  <div class="datos">
+    <div><h3>Dirección</h3><p>Calle de Serrano 141<br>28006 Madrid</p></div>
+    <div><h3>Horario</h3><p>Lun–Vie: 10:00–20:30<br>Sábado: 10:00–15:00</p></div>
+    <div><h3>Teléfono</h3><a href="https://wa.me/34603621660" target="_blank" rel="noopener noreferrer">+34 603 621 660</a></div>
+    <div><h3>Metro</h3><p>Núñez de Balboa<br>a 4 minutos</p></div>
+  </div>
+</div>
+
+<footer>ESPACIO BRUMA · SERRANO 141 · MADRID — Demostración de tuasistente24.com</footer>
+
+<a class="volver" href="demo.html">← Otros sectores</a>
 <div id="cta-chat"><span class="x" onclick="document.getElementById('cta-chat').classList.remove('ver')">✕</span>👋 <b>¿Te reservo cita?</b><br>Tardo 30 segundos.</div>
+
 <script>
 function abrirChat(){var b=document.getElementById('cbn-burbuja'); if(b) b.click();}
 window.abrirChat=abrirChat;
 if("IntersectionObserver" in window){
- var io=new IntersectionObserver(function(es){es.forEach(function(e){
-  if(e.isIntersecting){var hs=[].slice.call(e.target.parentElement.querySelectorAll(":scope > .reveal"));
-  var i=hs.indexOf(e.target); e.target.style.transitionDelay=(i>0?i*0.08:0)+"s";
-  e.target.classList.add("in"); io.unobserve(e.target);}});},{threshold:.12});
- document.querySelectorAll(".reveal").forEach(function(el){io.observe(el)});
-} else { document.querySelectorAll(".reveal").forEach(function(el){el.classList.add("in")}); }
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.isIntersecting){var hs=[].slice.call(e.target.parentElement.querySelectorAll(":scope > .rev"));
+    var i=hs.indexOf(e.target); e.target.style.transitionDelay=(i>0?i*0.08:0)+"s";
+    e.target.classList.add("in"); io.unobserve(e.target);}});},{threshold:.12});
+  document.querySelectorAll(".rev").forEach(function(el){io.observe(el)});
+} else { document.querySelectorAll(".rev").forEach(function(el){el.classList.add("in")}); }
 setTimeout(function(){var c=document.getElementById("cta-chat");
- if(c && !document.querySelector("#cbn-panel:not(.cbn-oculto)")) c.classList.add("ver");},4500);
+  if(c && !document.querySelector("#cbn-panel:not(.cbn-oculto)")) c.classList.add("ver");},4500);
 document.addEventListener("click",function(e){
- if(e.target.closest("#cbn-burbuja")||e.target.closest("#cta-chat")){
-  var c=document.getElementById("cta-chat"); if(c) c.classList.remove("ver");
-  if(e.target.closest("#cta-chat") && !e.target.closest(".x")) abrirChat();}});
+  if(e.target.closest("#cbn-burbuja")||e.target.closest("#cta-chat")){
+    var c=document.getElementById("cta-chat"); if(c) c.classList.remove("ver");
+    if(e.target.closest("#cta-chat") && !e.target.closest(".x")) abrirChat();}});
 </script>
-<link rel="stylesheet" href="widget.css?v=4">
-<script src="config-belleza.js?v=4"></script>
-<script src="widget.js?v=4"></script>
+<link rel="stylesheet" href="widget.css?v=5">
+<script src="config-belleza.js?v=5"></script>
+<script src="widget.js?v=5"></script>
 </body>
 </html>
