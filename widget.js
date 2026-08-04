@@ -6,6 +6,11 @@
 (function () {
   const CFG = window.CHATBOT_CONFIG || CHATBOT_CONFIG;
 
+  // Atajo a la configuración de reservas (se usa en varias funciones).
+  // Los textos del flujo se pueden personalizar por sector desde config.js:
+  // una clínica no pregunta lo mismo que un restaurante.
+  const RES = CFG.reservas || {};
+
   // Modo llamada: otra interfaz (llamada.html) usa el cerebro del bot
   // sin dibujar el widget. Define window.CBN_MODO_LLAMADA = true ANTES
   // de cargar este archivo y recibe las respuestas por los callbacks
@@ -109,8 +114,17 @@
 
     // Franjas horarias
     if (/(tarde|noche)/.test(t) && h < 12) h += 12;
-    else if (/(am|manana|mediodia)/.test(t)) { /* mantener */ }
-    else if (h >= 1 && h <= 11) h += 12; // heurística: en restaurante, cena
+    else if (/(am|manana|mediodia)/.test(t)) { /* mantener tal cual */ }
+    else if (h >= 1 && h <= 11) {
+      // Sin franja explícita ("a las 11"): decidimos con las horas que el
+      // negocio abre. Si las 11:00 están disponibles, es por la mañana;
+      // si no lo están pero sí las 23:00, se refiere a la tarde/noche.
+      const dispo = (RES.horasDisponibles || []).map((x) => parseInt(x));
+      const comoEsta = dispo.includes(h);
+      const masDoce = dispo.includes(h + 12);
+      if (!comoEsta && masDoce) h += 12;
+      else if (!comoEsta && !masDoce && h <= 7) h += 12; // "a las 8" sin más = 20:00
+    }
 
     if (h === 24) h = 0;
     if (h > 23 || min > 59 || h < 0) return null;
@@ -121,12 +135,12 @@
     f.toLocaleDateString("es-ES", { weekday: "long", day: "numeric", month: "long" });
 
   // ---------- Flujo de reservas ----------
-  // Textos del paso "personas". Se pueden personalizar por sector desde
-  // config.js (una clínica no pregunta lo mismo que un restaurante).
-  const RES = CFG.reservas || {};
   const TXT_PERSONAS = RES.preguntaPersonas || "¿Para cuántas personas?";
   const OPC_PERSONAS = RES.opcionesPersonas || ["2 personas", "4 personas", "6 personas"];
   const TXT_PERSONAS_REPITE = RES.repitePersonas || "¿Cuántas personas serán? Escríbeme un número, por ejemplo: 4";
+  // Cómo se llama la unidad contada: ["persona","personas"] o ["mascota","mascotas"]…
+  const NOM_PERSONAS = RES.nombrePersonas || ["persona", "personas"];
+  const contar = (n) => `${n} ${n > 1 ? NOM_PERSONAS[1] : NOM_PERSONAS[0]}`;
 
   function iniciarReserva() {
     reserva = { paso: "personas", datos: {} };
@@ -156,7 +170,7 @@
         }
         reserva.datos.personas = n;
         reserva.paso = "fecha";
-        responder(`¡Genial, ${n} persona${n > 1 ? "s" : ""}! 🗓️ ¿Para qué día? (puedes decir "hoy", "mañana", "viernes" o una fecha como 25/07)`, ["Hoy", "Mañana", "Sábado"]);
+        responder(`¡Genial, ${contar(n)}! 🗓️ ¿Para qué día? (puedes decir "hoy", "mañana", "viernes" o una fecha como 25/07)`, ["Hoy", "Mañana", "Sábado"]);
         break;
       }
       case "fecha": {
@@ -189,7 +203,7 @@
         reserva.paso = "confirmar";
         const d = reserva.datos;
         responder(
-          `📋 Confírmame los datos:\n\n👥 ${d.personas} persona${d.personas > 1 ? "s" : ""}\n📅 ${d.fecha}\n🕐 ${d.hora}\n👤 ${d.nombre}\n📱 ${d.telefono}\n\n¿Todo correcto?`,
+          `📋 Confírmame los datos:\n\n👥 ${contar(d.personas)}\n📅 ${d.fecha}\n🕐 ${d.hora}\n👤 ${d.nombre}\n📱 ${d.telefono}\n\n¿Todo correcto?`,
           ["✅ Confirmar", "❌ Cancelar"]
         );
         break;

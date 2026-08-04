@@ -31,6 +31,7 @@ const CHATBOT_CONFIG = {
     habilitado: true,
     unidad: "cita",
     maxPersonas: 4,
+    nombrePersonas: ["paciente", "pacientes"],
     // Textos adaptados al sector (una clínica no pregunta como un restaurante)
     preguntaPersonas: "¿Para cuántos pacientes?",
     opcionesPersonas: ["Solo para mí", "2 personas", "3 personas"],
