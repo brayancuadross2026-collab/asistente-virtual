@@ -121,9 +121,16 @@
     f.toLocaleDateString("es-ES", { weekday: "long", day: "numeric", month: "long" });
 
   // ---------- Flujo de reservas ----------
+  // Textos del paso "personas". Se pueden personalizar por sector desde
+  // config.js (una clínica no pregunta lo mismo que un restaurante).
+  const RES = CFG.reservas || {};
+  const TXT_PERSONAS = RES.preguntaPersonas || "¿Para cuántas personas?";
+  const OPC_PERSONAS = RES.opcionesPersonas || ["2 personas", "4 personas", "6 personas"];
+  const TXT_PERSONAS_REPITE = RES.repitePersonas || "¿Cuántas personas serán? Escríbeme un número, por ejemplo: 4";
+
   function iniciarReserva() {
     reserva = { paso: "personas", datos: {} };
-    responder(`¡Perfecto! 📅 Vamos a reservar tu ${CFG.reservas.unidad}.\n¿Para cuántas personas?`, ["2 personas", "4 personas", "6 personas"]);
+    responder(`¡Perfecto! 📅 Vamos a reservar tu ${RES.unidad}.\n${TXT_PERSONAS}`, OPC_PERSONAS);
   }
 
   function procesarReserva(texto) {
@@ -139,7 +146,9 @@
         const m = t.match(/\d+/);
         let n = m ? parseInt(m[0]) : palabraANumero(t);
         if (n === null && /(pareja|par)\b/.test(t)) n = 2;
-        if (n === null || isNaN(n)) { responder("¿Cuántas personas serán? Escríbeme un número, por ejemplo: 4"); return; }
+        // "solo para mí", "para mí", "yo solo", "solo yo" = 1
+        if (n === null && /\b(solo|sola|unicamente)?\s*(para\s+)?(mi|yo)\b/.test(t)) n = 1;
+        if (n === null || isNaN(n)) { responder(TXT_PERSONAS_REPITE); return; }
         if (n < 1) { responder("Necesito al menos 1 persona 😄 ¿Cuántos serán?"); return; }
         if (n > CFG.reservas.maxPersonas) {
           responder(`Para grupos de más de ${CFG.reservas.maxPersonas} personas mejor llámanos al ${CFG.negocio.telefono} y armamos algo especial 🎉`);
