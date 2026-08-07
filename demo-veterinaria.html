@@ -1,235 +1,590 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-66WBS8187W"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-66WBS8187W');</script>
-<title>Clínica Veterinaria Patas — Alcalá 320, Madrid</title>
-<meta name="description" content="Clínica veterinaria de barrio con quirófano, laboratorio propio y urgencias 24 horas. Pide cita en 30 segundos.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%90%B6%3C/text%3E%3C/svg%3E">
-<meta property="og:title" content="Clínica Veterinaria Patas — Pide cita con nuestra asistente">
-<meta property="og:description" content="Mira una web de veterinaria con asistente que da las citas solo.">
-<meta property="og:image" content="https://tuasistente24.com/img/veterinaria/hero.jpg">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-66WBS8187W"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-66WBS8187W');</script>
+  <title>Clínica Veterinaria Patas — Urgencias 24 h, Madrid</title>
+  <meta name="description" content="Clínica veterinaria en Alcalá 320. Urgencias 24 horas, quirófano propio y peluquería canina. Cita en 30 segundos.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🐶%3C/text%3E%3C/svg%3E">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Clínica Veterinaria Patas">
+  <meta property="og:description" content="Clínica veterinaria en Alcalá 320. Urgencias 24 horas, quirófano propio y peluquería canina. Cita en 30 segundos.">
+  <meta property="og:image" content="https://tuasistente24.com/img/veterinaria/hero.jpg">
 <style>
-:root{
-  --crema:#FFF8F1; --crema2:#FDEEE0; --mandarina:#E8853F; --mandarina-cl:#F5A76A;
-  --salvia:#6E9C7E; --cacao:#4A3B32; --cacao-cl:#7C6A5F; --linea:#EFE0D2;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;overflow-x:hidden}
-/* Sans redondeada, sin serif: trato cercano y amable */
-body{background:var(--crema);color:var(--cacao);font-family:"Trebuchet MS","Segoe UI",system-ui,sans-serif;line-height:1.65}
-a{color:inherit}
-.cont{max-width:1120px;margin:0 auto;padding:0 26px}
+  :root{
+    --pri:#78C6A3; --sec:#15616D; --osc:#0b3239; --crema:#f2f9f6; --texto:#123;
+    --gris:#6b6b6b; --linea:#e6e2dc; --blanco:#fff;
+    --sombra:0 1px 2px rgba(0,0,0,.04), 0 10px 30px rgba(0,0,0,.07);
+    --sombra-alta:0 26px 60px rgba(0,0,0,.2);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;overflow-x:hidden}
+  body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--texto);background:var(--crema);padding-bottom:0}
+  h1,h2,h3{font-family:'Playfair Display',Georgia,'Times New Roman',serif;font-weight:700;text-wrap:balance}
+  a{color:inherit} img{max-width:100%;display:block} button{font-family:inherit}
+  .contenedor{max-width:1160px;margin:0 auto;padding:0 24px}
 
-.aviso{background:var(--cacao);color:#FFE3CB;font-size:12.5px;text-align:center;padding:9px 14px}
-.aviso a{color:#9FE8B8;font-weight:700;text-decoration:none}
+  #progreso{position:fixed;top:0;left:0;height:3px;width:0%;z-index:9998;background:linear-gradient(90deg,var(--pri),var(--sec));transition:width .1s linear}
+  #preloader{position:fixed;inset:0;background:var(--osc);z-index:10000;display:grid;place-items:center;transition:opacity .6s,visibility .6s}
+  #preloader.oculto{opacity:0;visibility:hidden}
+  #preloader img{width:min(280px,62vw);opacity:0;animation:apar .9s ease .25s forwards}
+  @keyframes apar{to{opacity:1}}
 
-nav{position:sticky;top:0;z-index:400;background:rgba(255,248,241,.95);backdrop-filter:blur(9px)}
-nav .cont{display:flex;align-items:center;justify-content:space-between;height:76px}
-.marca{display:flex;align-items:center;gap:10px;font-size:21px;font-weight:700;color:var(--mandarina)}
-.marca .h{width:34px;height:34px;border-radius:50%;background:var(--mandarina);display:flex;align-items:center;justify-content:center;font-size:17px}
-nav ul{list-style:none;display:flex;gap:28px}
-nav ul a{text-decoration:none;font-size:15px;color:var(--cacao-cl);font-weight:600}
-nav ul a:hover{color:var(--mandarina)}
-.btn-nav{background:var(--mandarina);color:#fff;border:none;padding:12px 24px;border-radius:99px;font-size:14.5px;
-  font-weight:700;cursor:pointer;font-family:inherit;box-shadow:0 5px 16px rgba(232,133,63,.28)}
-@media(max-width:900px){nav ul{display:none}}
+  .aviso-demo{background:linear-gradient(90deg,#1a1a2e,#2a1a3e);color:#ffd966;font-size:13px;text-align:center;padding:8px 14px;position:relative;z-index:500}
+  .aviso-demo a{color:#7fffb2;font-weight:700;text-decoration:none}
 
-/* HERO cálido: blob orgánico detrás de la foto, todo muy redondeado */
-.hero{padding:56px 0 78px;position:relative;overflow:hidden}
-.hero::before{content:"";position:absolute;top:-16%;right:-14%;width:620px;height:620px;background:var(--crema2);
-  border-radius:58% 42% 46% 54%/48% 52% 48% 52%;z-index:0}
-.hgrid{display:grid;grid-template-columns:1.02fr .98fr;gap:52px;align-items:center;position:relative;z-index:2}
-@media(max-width:880px){.hgrid{grid-template-columns:1fr;gap:34px}}
-.chip{display:inline-flex;align-items:center;gap:8px;background:var(--salvia);color:#fff;padding:8px 18px;
-  border-radius:99px;font-size:13px;font-weight:700;margin-bottom:20px}
-.hero h1{font-size:clamp(36px,5.6vw,58px);line-height:1.1;margin-bottom:18px;font-weight:700}
-.hero h1 em{font-style:normal;color:var(--mandarina)}
-.hero p{color:var(--cacao-cl);font-size:17px;max-width:44ch;margin-bottom:30px}
-.hcta{display:flex;gap:13px;flex-wrap:wrap;align-items:center}
-.b-prin{background:var(--mandarina);color:#fff;border:none;padding:17px 34px;border-radius:99px;font-size:16.5px;
-  font-weight:700;cursor:pointer;font-family:inherit;box-shadow:0 8px 24px rgba(232,133,63,.3);transition:transform .16s}
-.b-prin:hover{transform:translateY(-2px)}
-.b-sec{color:var(--salvia);text-decoration:none;font-weight:700;font-size:15.5px;border-bottom:2px solid var(--salvia);padding-bottom:2px}
-.hero .foto img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:46% 54% 52% 48%/50% 46% 54% 50%}
+  nav{background:rgba(15,15,15,.78);backdrop-filter:blur(12px);position:sticky;top:0;z-index:400;border-bottom:1px solid rgba(255,255,255,.12);transition:background .3s}
+  nav.compacta{background:rgba(15,15,15,.96)}
+  nav .contenedor{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .marca img{height:46px;width:auto}
+  footer .marca img{height:60px;margin:0 auto}
+  nav ul{list-style:none;display:flex;gap:24px}
+  nav ul a{color:#e9e6e1;text-decoration:none;font-size:15px;position:relative}
+  nav ul a::after{content:"";position:absolute;left:0;bottom:-5px;width:0;height:2px;background:var(--pri);transition:width .25s}
+  nav ul a:hover{color:var(--pri)} nav ul a:hover::after{width:100%}
+  .btn-nav{background:linear-gradient(135deg,var(--pri),var(--sec));color:#fff;padding:10px 22px;border-radius:999px;font-weight:700;font-size:14px;border:none;cursor:pointer;transition:transform .18s}
+  .btn-nav:hover{transform:translateY(-2px)}
+  @media(max-width:900px){nav ul{display:none}}
 
-/* URGENCIAS: banda destacada, es lo que más importa a un dueño de mascota */
-.urg{background:var(--cacao);color:#fff;padding:30px 26px;text-align:center}
-.urg b{font-size:19px;display:block;margin-bottom:5px}
-.urg span{color:#D8C7BB;font-size:15px}
-.urg a{display:inline-block;margin-top:14px;background:var(--mandarina);color:#fff;text-decoration:none;
-  padding:13px 30px;border-radius:99px;font-weight:700;font-size:15.5px}
+  header.hero{position:relative;color:#fff;text-align:center;padding:118px 24px 126px;overflow:hidden;
+    background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,.82)),url('img/veterinaria/hero.jpg') center/cover no-repeat}
+  .hero-inner{position:relative;z-index:2;opacity:0;transform:translateY(30px);animation:heroin 1s ease .3s forwards}
+  @keyframes heroin{to{opacity:1;transform:none}}
+  .chip{display:inline-block;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.3);color:#fff;padding:7px 18px;border-radius:999px;font-size:13px;letter-spacing:.05em;margin-bottom:24px}
+  .hero h1{font-size:clamp(38px,7.5vw,72px);line-height:1.04;margin-bottom:18px;letter-spacing:-1px}
+  .hero h1 span{background:linear-gradient(135deg,var(--pri),#fff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-style:italic}
+  .hero p.sub{font-size:clamp(16px,2.3vw,21px);color:#e8e4de;max-width:640px;margin:0 auto 34px;line-height:1.55}
+  .hero-cta{display:flex;gap:13px;justify-content:center;flex-wrap:wrap}
+  .btn-pri{background:linear-gradient(135deg,var(--pri),var(--sec));color:#fff;padding:17px 36px;border-radius:999px;font-size:17px;font-weight:700;border:none;cursor:pointer;text-decoration:none;box-shadow:0 10px 30px rgba(0,0,0,.35);transition:transform .18s}
+  .btn-pri:hover{transform:translateY(-3px) scale(1.02)}
+  .btn-fan{background:rgba(255,255,255,.07);color:#fff;padding:17px 30px;border-radius:999px;font-size:17px;font-weight:600;text-decoration:none;border:1.5px solid rgba(255,255,255,.35);transition:all .2s}
+  .btn-fan:hover{border-color:var(--pri);background:rgba(255,255,255,.14)}
+  .hero-stats{display:flex;gap:46px;justify-content:center;margin-top:56px;flex-wrap:wrap}
+  .hero-stats .num{font-family:'Playfair Display',Georgia,serif;font-size:34px;color:var(--pri);font-variant-numeric:tabular-nums}
+  .hero-stats .lab{font-size:13px;color:#cfcac4;margin-top:2px}
 
-.banda{background:var(--crema2);text-align:center;padding:24px 26px}
-.banda b{font-size:15.5px}
-.banda a{color:var(--mandarina);font-weight:700;text-decoration:underline;text-underline-offset:4px}
+  .banda-venta{background:linear-gradient(135deg,var(--pri),var(--sec));color:#fff;text-align:center;padding:26px 24px}
+  .banda-venta b{font-size:17px}
+  .banda-venta a{display:inline-block;margin-top:10px;background:#fff;color:var(--sec);padding:11px 26px;border-radius:999px;font-weight:700;text-decoration:none;transition:transform .16s}
+  .banda-venta a:hover{transform:scale(1.05)}
 
-section{padding:88px 0}
-.cab{text-align:center;margin-bottom:52px}
-.cab .k{font-size:13px;font-weight:700;color:var(--salvia);margin-bottom:9px}
-.cab h2{font-size:clamp(28px,4vw,40px);font-weight:700}
-.cab p{color:var(--cacao-cl);max-width:56ch;margin:12px auto 0;font-size:16.5px}
+  section{padding:90px 0}
+  .eyebrow{text-align:center;text-transform:uppercase;letter-spacing:.2em;font-size:12px;font-weight:700;color:var(--pri);margin-bottom:12px}
+  .titulo-seccion{text-align:center;font-size:clamp(29px,4.4vw,44px);margin-bottom:14px;letter-spacing:-.5px}
+  .intro-seccion{text-align:center;max-width:640px;margin:0 auto 50px;color:var(--gris);font-size:17px;line-height:1.6}
+  .reveal{opacity:0;transform:translateY(38px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
 
-/* SERVICIOS: tarjetas muy redondeadas con icono circular */
-.servs{display:grid;grid-template-columns:repeat(auto-fit,minmax(238px,1fr));gap:20px}
-.sv{background:#fff;border-radius:26px;padding:28px 24px;box-shadow:0 6px 22px rgba(74,59,50,.06);transition:transform .22s,box-shadow .22s}
-.sv:hover{transform:translateY(-6px);box-shadow:0 16px 38px rgba(74,59,50,.11)}
-.sv .ic{width:54px;height:54px;border-radius:50%;background:var(--crema2);display:flex;align-items:center;
-  justify-content:center;font-size:25px;margin-bottom:15px}
-.sv h3{font-size:18.5px;margin-bottom:6px;font-weight:700}
-.sv p{color:var(--cacao-cl);font-size:14.5px;margin-bottom:11px}
-.sv .pre{color:var(--mandarina);font-weight:700;font-size:16.5px}
+  .dos{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  @media(max-width:820px){.dos{grid-template-columns:1fr;gap:32px}}
+  .foto-grande{aspect-ratio:4/3;border-radius:20px;overflow:hidden;position:relative;box-shadow:var(--sombra-alta)}
+  .foto-grande img{width:100%;height:100%;object-fit:cover;transition:transform 9s ease}
+  .foto-grande:hover img{transform:scale(1.07)}
+  .dos h2{font-size:35px;margin-bottom:18px}
+  .dos p{color:#5f5a55;line-height:1.75;margin-bottom:15px;font-size:16.5px}
+  .firma{font-family:'Playfair Display',Georgia,serif;font-style:italic;color:var(--sec);font-size:20px;margin-top:10px}
 
-/* EQUIPO con foto redonda */
-.equipo{background:var(--crema2)}
-.egrid{display:grid;grid-template-columns:.95fr 1.05fr;gap:54px;align-items:center}
-@media(max-width:880px){.egrid{grid-template-columns:1fr;gap:32px}}
-.egrid img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:52% 48% 46% 54%/48% 52% 48% 52%}
-.egrid h2{font-size:clamp(27px,3.6vw,37px);margin-bottom:16px;font-weight:700}
-.egrid p{color:var(--cacao-cl);margin-bottom:14px;font-size:16px}
-.puntos{list-style:none;margin-top:22px;display:grid;gap:11px}
-.puntos li{display:flex;gap:12px;align-items:flex-start;font-size:15.5px}
-.puntos li::before{content:"🐾";flex-shrink:0}
+  .banda-frase{position:relative;padding:140px 24px;text-align:center;color:#fff;
+    background:url('img/veterinaria/equipo.jpg') center/cover fixed no-repeat}
+  @supports(-webkit-touch-callout:none){.banda-frase{background-attachment:scroll}}
+  .banda-frase::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.78),rgba(0,0,0,.62))}
+  .banda-frase .contenedor{position:relative;z-index:1}
+  .frase{font-family:'Playfair Display',Georgia,serif;font-size:clamp(23px,3.8vw,38px);line-height:1.25;max-width:20ch;margin:0 auto 14px;font-style:italic}
+  .frase-firma{opacity:.75;font-size:14px;letter-spacing:.06em;text-transform:uppercase}
 
-/* OPINIONES en burbujas */
-.ops{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:22px}
-.op{background:#fff;border-radius:24px 24px 24px 6px;padding:26px;box-shadow:0 6px 22px rgba(74,59,50,.06)}
-.op p{font-size:15.5px;margin-bottom:16px;color:var(--cacao-cl)}
-.op .aut{display:flex;align-items:center;gap:11px}
-.op .av{width:42px;height:42px;border-radius:50%;background:var(--salvia);color:#fff;display:flex;
-  align-items:center;justify-content:center;font-weight:700;font-size:16px}
-.op b{font-size:14.5px;display:block}.op small{color:#A99A90;font-size:12.5px}
+  .serv-seccion{background:#fff}
+  .categorias{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
+  .cat-pill{background:var(--crema);border:1.5px solid var(--linea);padding:10px 22px;border-radius:999px;font-size:14.5px;color:var(--gris);cursor:pointer;transition:all .2s;font-weight:600}
+  .cat-pill:hover{border-color:var(--pri);color:var(--pri)}
+  .cat-pill.activa{background:linear-gradient(135deg,var(--pri),var(--sec));color:#fff;border-color:transparent}
+  .serv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+  @media(max-width:980px){.serv-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:620px){.serv-grid{grid-template-columns:1fr}}
+  .serv{background:#fff;border:1px solid var(--linea);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--sombra);transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s,border-color .3s}
+  .serv:hover{transform:translateY(-7px);box-shadow:var(--sombra-alta);border-color:var(--pri)}
+  .serv.ocultar{display:none}
+  .serv .foto{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--crema)}
+  .serv .foto img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+  .serv:hover .foto img{transform:scale(1.07)}
+  .serv .etq{position:absolute;top:12px;left:12px;font-size:11.5px;font-weight:800;padding:5px 12px;border-radius:999px;backdrop-filter:blur(6px)}
+  .etq.top{background:rgba(255,255,255,.94);color:var(--sec)}
+  .etq.veg{background:rgba(220,245,228,.94);color:#2f6b22}
+  .serv .cuerpo{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1}
+  .serv .nombre{font-weight:700;font-size:17.5px;line-height:1.25;margin-bottom:6px}
+  .serv .desc{color:#7d7770;font-size:14px;line-height:1.5;flex:1;margin-bottom:16px}
+  .serv .pie{display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .serv .precio{font-family:'Playfair Display',Georgia,serif;font-weight:700;color:var(--sec);font-size:23px;font-variant-numeric:tabular-nums}
+  .serv .precio small{font-size:13px;color:var(--gris);font-family:'Segoe UI',sans-serif}
+  .btn-add{background:var(--osc);color:#fff;border:none;cursor:pointer;font-weight:700;font-size:14.5px;padding:11px 18px;border-radius:999px;transition:background .2s,transform .16s}
+  .btn-add:hover{background:var(--sec);transform:scale(1.05)}
+  .cantidad{display:flex;align-items:center;gap:11px;background:var(--crema);border:1px solid var(--linea);border-radius:999px;padding:5px 8px}
+  .cantidad button{width:29px;height:29px;border-radius:50%;border:none;cursor:pointer;background:#fff;font-size:17px;font-weight:700;line-height:1;box-shadow:0 2px 6px rgba(0,0,0,.12)}
+  .cantidad button:hover{background:var(--sec);color:#fff}
+  .cantidad .n{min-width:18px;text-align:center;font-weight:800}
 
-.cierre{background:var(--salvia);color:#fff;text-align:center;padding:92px 26px}
-.cierre h2{font-size:clamp(28px,4.2vw,42px);margin-bottom:14px;font-weight:700}
-.cierre p{max-width:46ch;margin:0 auto 30px;font-size:16.5px;color:#E2F0E7}
-.cierre .b-prin{background:#fff;color:var(--salvia);box-shadow:0 8px 24px rgba(0,0,0,.14)}
-.datos{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:26px;max-width:900px;
-  margin:52px auto 0;padding-top:36px;border-top:1px solid rgba(255,255,255,.22);text-align:left}
-.datos h3{font-size:13px;font-weight:700;margin-bottom:6px;color:#CFE7D8}
-.datos p,.datos a{font-size:15px;color:#fff;text-decoration:none;line-height:1.55}
-footer{background:var(--cacao);color:#A6968B;text-align:center;padding:26px;font-size:13px}
+  .equipo-seccion{background:var(--osc);color:#fff}
+  .equipo-seccion h2{color:#fff}
+  .equipo-seccion p{color:#d5d1cc}
+  .equipo-datos{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:26px}
+  .dato{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:16px 18px}
+  .dato b{display:block;font-family:'Playfair Display',Georgia,serif;font-size:25px;color:var(--pri);line-height:1}
+  .dato span{font-size:13.5px;color:#c9c5c0}
 
-#cta-chat{position:fixed;right:24px;bottom:100px;z-index:9990;max-width:224px;background:#fff;color:var(--cacao);
-  padding:14px 17px;border-radius:20px 20px 4px 20px;box-shadow:0 14px 36px rgba(74,59,50,.2);font-size:14px;
-  font-weight:600;line-height:1.4;opacity:0;transform:translateY(10px);transition:opacity .4s,transform .4s;pointer-events:none}
-#cta-chat.ver{opacity:1;transform:none;pointer-events:auto}
-#cta-chat .x{position:absolute;top:5px;right:10px;color:#C9B8AC;cursor:pointer;font-size:14px}
-#cta-chat b{color:var(--mandarina)}
-.volver{position:fixed;left:16px;bottom:16px;z-index:9990;background:var(--cacao);color:#fff;text-decoration:none;
-  font-size:13px;font-weight:600;padding:11px 18px;border-radius:99px}
-.rev{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
-.rev.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){*{transition:none!important}.rev{opacity:1;transform:none}}
+  .galeria-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  @media(max-width:760px){.galeria-grid{grid-template-columns:repeat(2,1fr)}}
+  .gal{aspect-ratio:1;border-radius:16px;position:relative;overflow:hidden;box-shadow:0 10px 26px rgba(0,0,0,.15)}
+  .gal img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .45s}
+  .gal:hover img{transform:scale(1.12)}
+  .gal .cap{position:absolute;bottom:0;left:0;right:0;z-index:3;padding:12px;font-size:12.5px;font-weight:700;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.8));font-family:'Segoe UI',sans-serif;transform:translateY(101%);transition:transform .3s}
+  .gal:hover .cap{transform:translateY(0)}
+
+  .op-seccion{background:linear-gradient(180deg,#fff,var(--crema))}
+  .rating-top{text-align:center;margin-bottom:46px}
+  .rating-top .estrellas{color:var(--pri);font-size:32px;letter-spacing:5px}
+  .rating-top .nota{font-family:'Playfair Display',Georgia,serif;font-size:46px}
+  .rating-top .fuente{color:var(--gris);font-size:14px}
+  .op-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  @media(max-width:820px){.op-grid{grid-template-columns:1fr}}
+  .opinion{background:#fff;border:1px solid var(--linea);border-radius:18px;padding:26px;box-shadow:var(--sombra);transition:transform .25s}
+  .opinion:hover{transform:translateY(-6px)}
+  .opinion .est{color:var(--pri);font-size:15px;letter-spacing:2px;margin-bottom:12px}
+  .opinion p{color:#5f5a55;font-size:15px;line-height:1.65;font-style:italic;margin-bottom:18px}
+  .opinion .autor{display:flex;align-items:center;gap:11px}
+  .opinion .avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--pri),var(--sec));color:#fff;display:grid;place-items:center;font-weight:700}
+  .opinion .autor b{font-size:14.5px}
+  .opinion .autor small{display:block;color:#9a948d;font-size:12.5px}
+
+  .ubi-seccion{background:var(--osc);color:#fff}
+  .ubi-seccion .titulo-seccion{color:#fff}
+  .ubi-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px}
+  @media(max-width:820px){.ubi-grid{grid-template-columns:1fr}}
+  .mapa{border-radius:20px;overflow:hidden;min-height:320px;border:1px solid rgba(255,255,255,.18)}
+  .info-contacto{display:flex;flex-direction:column;gap:24px;justify-content:center}
+  .info-item{display:flex;gap:16px;align-items:flex-start}
+  .info-item .ico{font-size:26px}
+  .info-item b{display:block;color:var(--pri);font-size:15px;margin-bottom:3px}
+  .info-item span,.info-item a{color:#d5d1cc;font-size:15px;line-height:1.5;text-decoration:none}
+
+  footer{background:#0d0d0d;color:#8d8880;text-align:center;padding:44px 24px 120px;font-size:14px}
+  .redes{display:flex;gap:16px;justify-content:center;margin:14px 0;font-size:22px}
+  .redes a{text-decoration:none;transition:transform .2s;display:inline-block}
+  .redes a:hover{transform:scale(1.25)}
+
+  #barra{position:fixed;left:0;right:0;bottom:0;z-index:9995;background:rgba(20,20,20,.97);backdrop-filter:blur(14px);color:#fff;padding:14px 24px;display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.16);transform:translateY(110%);transition:transform .4s cubic-bezier(.2,.7,.2,1)}
+  #barra.ver{transform:none}
+  #barra .resumen b{color:var(--pri);font-size:19px}
+  #barra button{border:none;cursor:pointer;font-weight:700;font-size:14.5px;padding:12px 22px;border-radius:999px;transition:transform .16s}
+  #barra button:hover{transform:translateY(-2px)}
+  .btn-ver{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.28)!important}
+  .btn-wa{background:#25D366;color:#06301b}
+  @media(min-width:721px){#barra{padding-right:110px}}
+  @media(max-width:720px){#barra{flex-direction:column;gap:10px;padding-bottom:18px}#barra .acciones{width:100%;display:flex;gap:10px}#barra button{flex:1}}
+
+  #fondo{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:9996;opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
+  #fondo.ver{opacity:1;visibility:visible}
+  #panel{position:fixed;right:0;top:0;bottom:0;width:min(420px,100%);background:var(--crema);z-index:9997;transform:translateX(105%);transition:transform .4s cubic-bezier(.2,.7,.2,1);display:flex;flex-direction:column;box-shadow:-20px 0 60px rgba(0,0,0,.3)}
+  #panel.ver{transform:none}
+  #panel .cab{background:var(--osc);color:#fff;padding:20px 22px;display:flex;align-items:center;justify-content:space-between}
+  #panel .cab h3{font-size:20px;color:var(--pri)}
+  #panel .cab .x{background:none;border:none;color:#fff;font-size:24px;cursor:pointer}
+  #panel .lista{flex:1;overflow-y:auto;padding:18px 22px}
+  .vacio{color:var(--gris);text-align:center;padding:50px 10px;font-size:15px}
+  .linea{display:flex;gap:12px;align-items:center;padding:13px 0;border-bottom:1px solid var(--linea)}
+  .linea img{width:56px;height:56px;border-radius:11px;object-fit:cover;flex-shrink:0}
+  .linea .n{flex:1;font-size:14.5px;font-weight:600;line-height:1.3}
+  .linea .n small{display:block;color:var(--gris);font-weight:400;font-size:13px;margin-top:2px}
+  .linea .ctrl{display:flex;align-items:center;gap:8px}
+  .linea .ctrl button{width:26px;height:26px;border-radius:50%;border:1px solid var(--linea);background:#fff;cursor:pointer;font-weight:700}
+  .linea .ctrl button:hover{background:var(--sec);color:#fff}
+  .linea .imp{font-weight:800;color:var(--sec);min-width:62px;text-align:right;font-size:15px}
+  #panel .pie{border-top:1px solid var(--linea);padding:18px 22px 22px;background:#fff}
+  #panel .total{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px;font-size:16px}
+  #panel .total b{font-family:'Playfair Display',Georgia,serif;font-size:30px}
+  #panel .pie .btn-wa{width:100%;padding:15px;font-size:16px;border:none;border-radius:14px;font-weight:800;cursor:pointer}
+  #panel .pie .btn-chat{width:100%;margin-top:9px;padding:13px;font-size:15px;border:1px solid var(--linea);border-radius:14px;background:#fff;font-weight:700;cursor:pointer}
+  .nota-demo{font-size:12.5px;color:var(--gris);text-align:center;margin-top:12px;line-height:1.45}
+
+  @media(prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important}
+    .reveal{opacity:1;transform:none}
+    #barra.ver,#panel.ver{transform:none}
+  }
 </style>
 </head>
 <body>
 
-<div class="aviso">DEMOSTRACIÓN — Ejemplo de web con asistente virtual. ¿La quieres para tu clínica?
-<a href="https://wa.me/34603621660?text=Hola%2C%20vi%20la%20demo%20de%20veterinaria%20y%20quiero%20un%20asistente" target="_blank" rel="noopener noreferrer">Escríbeme: +34 603 621 660</a></div>
+<div id="preloader"><img src="img/veterinaria/logo.svg" alt="Clínica Veterinaria Patas"></div>
+<div id="progreso"></div>
 
-<nav><div class="cont">
-  <div class="marca"><span class="h">🐾</span> Patas</div>
-  <ul><li><a href="#servicios">Servicios</a></li><li><a href="#clinica">La clínica</a></li><li><a href="#opiniones">Opiniones</a></li><li><a href="#donde">Dónde estamos</a></li></ul>
-  <button class="btn-nav" onclick="abrirChat()">Pedir cita</button>
-</div></nav>
+<div class="aviso-demo">
+  🔧 PÁGINA DE DEMOSTRACIÓN — Ejemplo de web con asistente virtual instalado. ¿La quieres para tu negocio?
+  <a href="https://wa.me/34603621660?text=Hola%2C%20vi%20la%20demo%20y%20quiero%20un%20asistente%20virtual%20para%20mi%20negocio" target="_blank" rel="noopener noreferrer">📲 Escríbeme: +34 603 621 660</a>
+</div>
 
-<header class="hero"><div class="cont"><div class="hgrid">
-  <div>
-    <span class="chip">⏱️ Urgencias 24 horas, también festivos</span>
-    <h1>Cuidamos a los tuyos<br><em>como de la familia</em></h1>
-    <p>Clínica de barrio con medios de hospital: quirófano, laboratorio propio y ecografía. Los resultados, el mismo día.</p>
-    <div class="hcta">
-      <button class="b-prin" onclick="abrirChat()">Pedir cita · 30 seg</button>
-      <a class="b-sec" href="#servicios">Ver servicios</a>
+<nav id="nav">
+  <div class="contenedor">
+    <a class="marca" href="#" aria-label="Clínica Veterinaria Patas"><img src="img/veterinaria/logo.svg" alt="Clínica Veterinaria Patas"></a>
+    <ul>
+      <li><a href="#historia">Nosotros</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#equipo">Equipo</a></li>
+      <li><a href="#galeria">Galería</a></li>
+      <li><a href="#ubicacion">Dónde estamos</a></li>
+    </ul>
+    <button class="btn-nav" onclick="abrirChat()">Pedir cita</button>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="contenedor hero-inner">
+    <div class="chip">Clínica veterinaria · Urgencias 24 h</div>
+    <h1>Cuidamos a los tuyos<br><span>como de la familia</span></h1>
+    <p class="sub">Urgencias las 24 horas, quirófano propio y las mismas caras cada vez que vienes. Porque tu perro también reconoce a quien le atiende.</p>
+    <div class="hero-cta">
+      <button class="btn-pri" onclick="abrirChat()">📅 Reservar en 30 seg</button>
+      <a class="btn-fan" href="#servicios">Ver servicios y precios</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="num" data-contador="24" data-sufijo="h">0h</div><div class="lab">urgencias, todos los días</div></div>
+      <div><div class="num" data-contador="4.9" data-decimal="1" data-sufijo="★">0★</div><div class="lab">+700 familias</div></div>
+      <div><div class="num" data-contador="14" data-sufijo="años">0años</div><div class="lab">en Ciudad Lineal</div></div>
     </div>
   </div>
-  <div class="foto"><img src="img/veterinaria/hero.jpg" alt="Perro en la clínica veterinaria"></div>
-</div></div></header>
+</header>
 
-<div class="urg">
-  <b>🚨 ¿Es una urgencia?</b>
-  <span>Atendemos 24 horas todos los días del año. Ven directamente, te atendemos nada más llegar.</span>
-  <a href="https://wa.me/34603621660" target="_blank" rel="noopener noreferrer">Llamar ahora · +34 603 621 660</a>
+<div class="banda-venta">
+  <b>👀 Esto que ves es una DEMO.</b> Así de profesional puede quedar la web de tu negocio, con asistente que reserva solo.
+  <br><a href="https://wa.me/34603621660?text=Hola%2C%20quiero%20una%20web%20con%20asistente%20como%20la%20demo" target="_blank" rel="noopener noreferrer">Quiero una igual para mi negocio →</a>
 </div>
 
-<div class="banda"><b>👀 Esto es una DEMO.</b> Así puede quedar la web de tu clínica, con asistente que da las citas solo.
-<a href="https://wa.me/34603621660?text=Hola%2C%20quiero%20una%20web%20con%20asistente%20para%20mi%20cl%C3%ADnica%20veterinaria" target="_blank" rel="noopener noreferrer">Quiero una igual</a></div>
-
-<section id="servicios"><div class="cont">
-  <div class="cab rev"><div class="k">Servicios</div><h2>Todo lo que necesita</h2>
-    <p>Damos presupuesto cerrado antes de cualquier intervención. Sin sustos.</p></div>
-  <div class="servs">
-    <div class="sv rev"><div class="ic">🩺</div><h3>Consulta general</h3><p>Revisión completa, diagnóstico y plan de tratamiento.</p><div class="pre">38 €</div></div>
-    <div class="sv rev"><div class="ic">💉</div><h3>Vacunación</h3><p>Vacunas, microchip y desparasitación con recordatorio.</p><div class="pre">desde 25 €</div></div>
-    <div class="sv rev"><div class="ic">🏥</div><h3>Cirugía</h3><p>Quirófano propio con monitorización y seguimiento.</p><div class="pre">presupuesto</div></div>
-    <div class="sv rev"><div class="ic">✂️</div><h3>Peluquería canina</h3><p>Baño, corte y cuidado según la raza de tu perro.</p><div class="pre">desde 30 €</div></div>
+<section id="historia">
+  <div class="contenedor dos">
+    <div class="foto-grande reveal"><img src="img/veterinaria/equipo.jpg" alt="Clínica Veterinaria Patas"></div>
+    <div class="reveal">
+      <div class="eyebrow" style="text-align:left">Nuestra historia</div>
+      <h2>Catorce años abriendo también de madrugada</h2>
+      <p>Abrimos en 2012 y desde entonces no hemos cerrado una sola noche. Las urgencias no avisan, y un animal con dolor no puede esperar a mañana.</p>
+      <p>Tenemos quirófano propio con monitorización, así que no derivamos a nadie. Damos presupuesto cerrado antes de operar y llamamos en cuanto termina.</p>
+      <div class="firma">— Alba Ferrán, veterinaria jefa</div>
+    </div>
   </div>
-</div></section>
+</section>
 
-<section id="clinica" class="equipo"><div class="cont"><div class="egrid">
-  <img class="rev" src="img/veterinaria/equipo.jpg" alt="Nuestro equipo veterinario">
-  <div class="rev">
-    <div class="k" style="color:var(--salvia);font-weight:700;margin-bottom:9px">La clínica</div>
-    <h2>Quince años cuidando del barrio</h2>
-    <p>Somos una clínica de barrio, pero con los medios de un hospital veterinario. Tenemos laboratorio propio, así que los análisis los tienes el mismo día y no hay que esperar.</p>
-    <p>Sabemos lo duro que es traer a tu animal preocupado. Por eso explicamos cada paso con calma, sin tecnicismos y sin meter miedo.</p>
-    <ul class="puntos">
-      <li>Urgencias 24 horas, también fines de semana y festivos</li>
-      <li>Laboratorio propio: resultados el mismo día</li>
-      <li>Presupuesto cerrado antes de cualquier intervención</li>
-      <li>Planes de salud anuales con todo incluido</li>
-    </ul>
+<section class="banda-frase">
+  <div class="contenedor">
+    <p class="frase">«Las urgencias no avisan. Por eso no cerramos»</p>
+    <div class="frase-firma">Clínica Veterinaria Patas</div>
   </div>
-</div></div></section>
+</section>
 
-<section id="opiniones"><div class="cont">
-  <div class="cab rev"><div class="k">Opiniones</div><h2>Lo que dicen las familias</h2></div>
-  <div class="ops">
-    <div class="op rev"><p>"Mi perra entró de urgencia un domingo y la atendieron enseguida. Les debo mucho."</p><div class="aut"><div class="av">C</div><div><b>Cristina Aguado</b><small>Hace 2 semanas · Google</small></div></div></div>
-    <div class="op rev"><p>"Pedí cita por el chat de madrugada porque mi gato estaba raro. Me contestaron al instante."</p><div class="aut"><div class="av">M</div><div><b>Marcos Vidal</b><small>Hace 1 mes · Google</small></div></div></div>
-    <div class="op rev"><p>"Te explican todo con calma y sin meterte miedo. Se nota que quieren a los animales."</p><div class="aut"><div class="av">S</div><div><b>Sofía Ledesma</b><small>Hace 1 mes · Google</small></div></div></div>
+<section id="servicios" class="serv-seccion">
+  <div class="contenedor">
+    <div class="eyebrow reveal">Servicios</div>
+    <h2 class="titulo-seccion reveal">Nuestros servicios</h2>
+    <p class="intro-seccion reveal">Precios cerrados en lo habitual. En cirugía, presupuesto por escrito antes de tocar nada.</p>
+    <div class="categorias reveal">
+      <span class="cat-pill activa" data-filtro="todas">✨ Todos</span>
+      <span class="cat-pill" data-filtro="salud">🩺 Salud</span>
+      <span class="cat-pill" data-filtro="cirugia">🏥 Cirugía</span>
+      <span class="cat-pill" data-filtro="cuidado">✂️ Cuidado</span>
+    </div>
+    <div class="serv-grid reveal" id="rejilla"></div>
   </div>
-</div></section>
+</section>
 
-<div class="cierre" id="donde">
-  <h2>Estamos aquí cuando nos necesites</h2>
-  <p>Pide tu cita por el chat en treinta segundos, a cualquier hora del día o de la noche.</p>
-  <button class="b-prin" onclick="abrirChat()">Pedir cita ahora</button>
-  <div class="datos">
-    <div><h3>Dirección</h3><p>Calle de Alcalá 320<br>28027 Madrid</p></div>
-    <div><h3>Horario</h3><p>Lun–Vie: 09:30–21:00<br>Sábado: 10:00–14:00</p></div>
-    <div><h3>Urgencias</h3><p>24 horas, todos los días</p></div>
-    <div><h3>Teléfono</h3><a href="https://wa.me/34603621660" target="_blank" rel="noopener noreferrer">+34 603 621 660</a></div>
+<section id="equipo" class="equipo-seccion">
+  <div class="contenedor dos">
+    <div class="foto-grande reveal"><img src="img/veterinaria/hero.jpg" alt="Equipo de Clínica Veterinaria Patas"></div>
+    <div class="reveal">
+      <div class="eyebrow" style="text-align:left">El equipo</div>
+      <h2>Tu perro reconoce<br>a quien le atiende</h2>
+      <p>Somos tres veterinarios y dos auxiliares, y llevamos años los mismos. Un animal que ya conoce el olor y la voz de quien le explora entra mucho más tranquilo.</p>
+      <p>Si el tuyo se pone nervioso, dínoslo al reservar: te damos cita a primera hora, cuando la sala está vacía.</p>
+      <div class="equipo-datos">
+        <div class="dato"><b>24 h</b><span>urgencias, siempre</span></div>
+        <div class="dato"><b>5 personas</b><span>el mismo equipo</span></div>
+        <div class="dato"><b>Quirófano</b><span>propio, no derivamos</span></div>
+        <div class="dato"><b>14 años</b><span>en el barrio</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="galeria">
+  <div class="contenedor">
+    <div class="eyebrow reveal">Galería</div>
+    <h2 class="titulo-seccion reveal">Un vistazo a la casa</h2>
+    <div class="galeria-grid reveal">
+      <div class="gal"><img src="img/veterinaria/s2.jpg" alt="Consulta sin prisas" loading="lazy"><div class="cap">Consulta sin prisas</div></div>
+      <div class="gal"><img src="img/veterinaria/s1.jpg" alt="También gatos" loading="lazy"><div class="cap">También gatos</div></div>
+      <div class="gal"><img src="img/veterinaria/s5.jpg" alt="Quirófano propio" loading="lazy"><div class="cap">Quirófano propio</div></div>
+      <div class="gal"><img src="img/veterinaria/s6.jpg" alt="Peluquería canina" loading="lazy"><div class="cap">Peluquería canina</div></div>
+      <div class="gal"><img src="img/veterinaria/s4.jpg" alt="Vacunas al día" loading="lazy"><div class="cap">Vacunas al día</div></div>
+      <div class="gal"><img src="img/veterinaria/s3.jpg" alt="Revisiones completas" loading="lazy"><div class="cap">Revisiones completas</div></div>
+      <div class="gal"><img src="img/veterinaria/equipo.jpg" alt="Alba, en consulta" loading="lazy"><div class="cap">Alba, en consulta</div></div>
+      <div class="gal"><img src="img/veterinaria/hero.jpg" alt="La clínica" loading="lazy"><div class="cap">La clínica</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="opiniones" class="op-seccion">
+  <div class="contenedor">
+    <div class="eyebrow reveal">Opiniones</div>
+    <h2 class="titulo-seccion reveal">Lo que dicen nuestros clientes</h2>
+    <div class="rating-top reveal">
+      <div class="estrellas">★★★★★</div>
+      <div class="nota">4,9 / 5</div>
+      <div class="fuente">Basado en +700 reseñas en Google</div>
+    </div>
+    <div class="op-grid">
+      <div class="opinion reveal"><div class="est">★★★★★</div><p>"Mi perra se puso muy mal un domingo de madrugada. Llamé, cogieron a la primera y nos atendieron nada más llegar. Le salvaron la vida."</p><div class="autor"><div class="avatar">L</div><div><b>Lucía Bermejo</b><small>Hace 1 mes · Google</small></div></div></div>
+      <div class="opinion reveal"><div class="est">★★★★★</div><p>"Mi gato es de los que bufan a todo el mundo. Aquí le dan cita a primera hora y entra como si nada."</p><div class="autor"><div class="avatar">G</div><div><b>Gonzalo Ruiz</b><small>Hace 2 semanas · Google</small></div></div></div>
+      <div class="opinion reveal"><div class="est">★★★★★</div><p>"Presupuesto cerrado antes de operar y me llamaron en cuanto salió del quirófano. Se agradece muchísimo."</p><div class="autor"><div class="avatar">B</div><div><b>Beatriz Cano</b><small>Hace 3 semanas · Google</small></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="ubicacion" class="ubi-seccion">
+  <div class="contenedor">
+    <div class="eyebrow reveal">Dónde estamos</div>
+    <h2 class="titulo-seccion reveal">Ven a vernos</h2>
+    <div class="ubi-grid reveal">
+      <div class="mapa">
+        <svg viewBox="0 0 400 320" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Mapa de ubicación">
+          <rect width="400" height="320" fill="#1e2a38"/>
+          <g stroke="#2c3a4c" stroke-width="6"><line x1="0" y1="90" x2="400" y2="70"/><line x1="0" y1="200" x2="400" y2="220"/><line x1="120" y1="0" x2="140" y2="320"/><line x1="270" y1="0" x2="250" y2="320"/></g>
+          <g stroke="#37475c" stroke-width="3"><line x1="0" y1="150" x2="400" y2="145"/><line x1="190" y1="0" x2="200" y2="320"/></g>
+          <rect x="150" y="100" width="90" height="70" fill="#263446"/>
+          <circle cx="200" cy="150" r="13" fill="#78C6A3"><animate attributeName="r" values="13;17;13" dur="2s" repeatCount="indefinite"/></circle>
+          <circle cx="200" cy="150" r="26" fill="none" stroke="#78C6A3" stroke-width="3" opacity="0.5"><animate attributeName="r" values="20;34;20" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values=".6;0;.6" dur="2s" repeatCount="indefinite"/></circle>
+          <text x="200" y="196" fill="#fff" font-size="13" font-family="sans-serif" text-anchor="middle" font-weight="bold">Veterinaria Patas</text>
+          <text x="200" y="213" fill="#78C6A3" font-size="10" font-family="sans-serif" text-anchor="middle">Calle de Alcalá 320</text>
+        </svg>
+      </div>
+      <div class="info-contacto">
+        <div class="info-item"><span class="ico">📍</span><div><b>Dirección</b><span>Calle de Alcalá 320<br>Ciudad Lineal, 28027 Madrid</span></div></div>
+        <div class="info-item"><span class="ico">🚇</span><div><b>Cómo llegar</b><span>Metro Ciudad Lineal a 5 min<br>Parking en la puerta</span></div></div>
+        <div class="info-item"><span class="ico">🕐</span><div><b>Horario</b><span>Lun–Vie: 09:30–21:00<br>Sábados: 10:00–14:00<br>Urgencias: 24 h</span></div></div>
+        <div class="info-item"><span class="ico">📱</span><div><b>Reservas y contacto</b><a href="https://wa.me/34603621660" target="_blank" rel="noopener noreferrer">+34 603 621 660</a></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="marca"><img src="img/veterinaria/logo.svg" alt="Clínica Veterinaria Patas"></div>
+  <p style="margin-top:12px">Ciudad Lineal, 28027 Madrid</p>
+  <div class="redes">
+    <a href="#" onclick="return false" title="Instagram">📷</a>
+    <a href="#" onclick="return false" title="Facebook">👍</a>
+    <a href="https://wa.me/34603621660" target="_blank" rel="noopener noreferrer" title="WhatsApp">💬</a>
+  </div>
+  <p style="margin-top:16px;opacity:.7">© 2026 Clínica Veterinaria Patas · Página de demostración del asistente virtual para negocios</p>
+</footer>
+
+<div id="barra">
+  <div class="resumen"><span id="res-txt">0</span> · <b id="res-total">0,00 €</b></div>
+  <div class="acciones">
+    <button class="btn-ver" onclick="abrirPanel()">Ver mi selección</button>
+    <button class="btn-wa" onclick="enviar()">📲 Enviar por WhatsApp</button>
   </div>
 </div>
 
-<footer>CLÍNICA VETERINARIA PATAS · ALCALÁ 320 · MADRID — Demostración de tuasistente24.com</footer>
-
-<a class="volver" href="demo.html">← Otros sectores</a>
-<div id="cta-chat"><span class="x" onclick="document.getElementById('cta-chat').classList.remove('ver')">✕</span>👋 <b>¿Pedimos cita?</b><br>Te la doy en 30 segundos.</div>
+<div id="fondo" onclick="cerrarPanel()"></div>
+<aside id="panel" aria-label="Tu selección">
+  <div class="cab"><h3>Tu selección</h3><button class="x" onclick="cerrarPanel()" aria-label="Cerrar">✕</button></div>
+  <div class="lista" id="lista"></div>
+  <div class="pie">
+    <div class="total"><span>Total</span><b id="total">0,00 €</b></div>
+    <button class="btn-wa" onclick="enviar()">📲 Enviarlo por WhatsApp</button>
+    <button class="btn-chat" onclick="cerrarPanel();abrirChat()">💬 Prefiero preguntar al asistente</button>
+    <p class="nota-demo">Es una demo: se abre tu WhatsApp con el mensaje escrito. No se cobra nada ni se envía a ningún sitio.</p>
+  </div>
+</aside>
 
 <script>
-function abrirChat(){var b=document.getElementById('cbn-burbuja'); if(b) b.click();}
-window.abrirChat=abrirChat;
-if("IntersectionObserver" in window){
-  var io=new IntersectionObserver(function(es){es.forEach(function(e){
-    if(e.isIntersecting){var hs=[].slice.call(e.target.parentElement.querySelectorAll(":scope > .rev"));
-    var i=hs.indexOf(e.target); e.target.style.transitionDelay=(i>0?i*0.07:0)+"s";
-    e.target.classList.add("in"); io.unobserve(e.target);}});},{threshold:.12});
-  document.querySelectorAll(".rev").forEach(function(el){io.observe(el)});
-} else { document.querySelectorAll(".rev").forEach(function(el){el.classList.add("in")}); }
-setTimeout(function(){var c=document.getElementById("cta-chat");
-  if(c && !document.querySelector("#cbn-panel:not(.cbn-oculto)")) c.classList.add("ver");},4500);
-document.addEventListener("click",function(e){
-  if(e.target.closest("#cbn-burbuja")||e.target.closest("#cta-chat")){
-    var c=document.getElementById("cta-chat"); if(c) c.classList.remove("ver");
-    if(e.target.closest("#cta-chat") && !e.target.closest(".x")) abrirChat();}});
+  const SERVICIOS = [
+      {
+            "id": "consulta",
+            "cat": "salud",
+            "nombre": "Consulta general",
+            "precio": 38.0,
+            "img": "img/veterinaria/s2.jpg",
+            "desc": "Revisión completa con el veterinario. Sin prisas y explicándotelo todo.",
+            "etq": "★ La más pedida",
+            "tipo": "top"
+      },
+      {
+            "id": "vacuna",
+            "cat": "salud",
+            "nombre": "Vacunación",
+            "precio": 25.0,
+            "img": "img/veterinaria/s4.jpg",
+            "desc": "Desde 25 €. Te avisamos cuando toque la siguiente para que no se pase.",
+            "etq": null,
+            "tipo": "top"
+      },
+      {
+            "id": "analisis",
+            "cat": "salud",
+            "nombre": "Análisis de sangre",
+            "precio": 45.0,
+            "img": "img/veterinaria/s3.jpg",
+            "desc": "Resultados el mismo día, con la interpretación hecha por el veterinario.",
+            "etq": null,
+            "tipo": "top"
+      },
+      {
+            "id": "cirugia",
+            "cat": "cirugia",
+            "nombre": "Cirugía",
+            "precio": 0.0,
+            "img": "img/veterinaria/s5.jpg",
+            "desc": "Quirófano propio con monitorización. Presupuesto cerrado antes de operar.",
+            "etq": "Presupuesto",
+            "tipo": "veg"
+      },
+      {
+            "id": "peluqueria",
+            "cat": "cuidado",
+            "nombre": "Peluquería canina",
+            "precio": 30.0,
+            "img": "img/veterinaria/s6.jpg",
+            "desc": "Baño y corte según la raza. Desde 30 € y sin secadora de jaula.",
+            "etq": null,
+            "tipo": "top"
+      },
+      {
+            "id": "urgencia",
+            "cat": "salud",
+            "nombre": "Urgencias 24 h",
+            "precio": 0.0,
+            "img": "img/veterinaria/s1.jpg",
+            "desc": "Ven directamente, sin cita. Te atendemos nada más llegar.",
+            "etq": "🚨 Sin cita",
+            "tipo": "veg"
+      }
+];
+
+  const eur = n => n.toFixed(2).replace(".", ",") + " €";
+  const sel = {};
+
+  const rejilla = document.getElementById("rejilla");
+  rejilla.innerHTML = SERVICIOS.map(s => `
+    <article class="serv" data-cat="${s.cat}" data-id="${s.id}">
+      <div class="foto">
+        <img src="${s.img}" alt="${s.nombre}" loading="lazy">
+        ${s.etq ? `<span class="etq ${s.tipo}">${s.etq}</span>` : ""}
+      </div>
+      <div class="cuerpo">
+        <div class="nombre">${s.nombre}</div>
+        <div class="desc">${s.desc}</div>
+        <div class="pie">
+          <span class="precio">${s.precio > 0 ? eur(s.precio) : "<small>Consultar</small>"}</span>
+          <span class="zona"></span>
+        </div>
+      </div>
+    </article>`).join("");
+
+  function pintar(id) {
+    const z = document.querySelector(`.serv[data-id="${id}"] .zona`);
+    if (!z) return;
+    const n = sel[id] || 0;
+    z.innerHTML = n === 0
+      ? `<button class="btn-add" onclick="mas('${id}')">+ Añadir</button>`
+      : `<span class="cantidad"><button onclick="menos('${id}')" aria-label="Quitar uno">−</button><span class="n">${n}</span><button onclick="mas('${id}')" aria-label="Añadir uno">+</button></span>`;
+  }
+  SERVICIOS.forEach(s => pintar(s.id));
+
+  function mas(id) { sel[id] = (sel[id] || 0) + 1; pintar(id); refrescar(); }
+  function menos(id) { if (!sel[id]) return; sel[id]--; if (sel[id] <= 0) delete sel[id]; pintar(id); refrescar(); }
+  window.mas = mas; window.menos = menos;
+
+  const lineas = () => SERVICIOS.filter(s => sel[s.id]).map(s => ({...s, n: sel[s.id], imp: s.precio * sel[s.id]}));
+  const total = () => lineas().reduce((a, l) => a + l.imp, 0);
+  const unidades = () => lineas().reduce((a, l) => a + l.n, 0);
+
+  const barra = document.getElementById("barra");
+  function refrescar() {
+    const u = unidades();
+    barra.classList.toggle("ver", u > 0);
+    document.getElementById("res-txt").textContent = u + (u === 1 ? " servicio" : " servicios");
+    document.getElementById("res-total").textContent = eur(total());
+    document.getElementById("total").textContent = eur(total());
+    const ls = lineas();
+    document.getElementById("lista").innerHTML = ls.length === 0
+      ? `<p class="vacio">Todavía no has elegido nada.<br>Vuelve arriba y toca «+ Añadir».</p>`
+      : ls.map(l => `
+        <div class="linea">
+          <img src="${l.img}" alt="">
+          <div class="n">${l.nombre}<small>${l.precio > 0 ? eur(l.precio) + " la unidad" : "a consultar"}</small></div>
+          <div class="ctrl"><button onclick="menos('${l.id}')">−</button><span>${l.n}</span><button onclick="mas('${l.id}')">+</button></div>
+          <div class="imp">${l.precio > 0 ? eur(l.imp) : "—"}</div>
+        </div>`).join("");
+    if (ls.length === 0) cerrarPanel();
+  }
+  const abrirPanel = () => { document.getElementById("panel").classList.add("ver"); document.getElementById("fondo").classList.add("ver"); };
+  const cerrarPanel = () => { document.getElementById("panel").classList.remove("ver"); document.getElementById("fondo").classList.remove("ver"); };
+  window.abrirPanel = abrirPanel; window.cerrarPanel = cerrarPanel;
+
+  function enviar() {
+    const ls = lineas();
+    if (!ls.length) { abrirPanel(); return; }
+    let t = "Hola, me interesa esto de Clínica Veterinaria Patas:\n\n";
+    ls.forEach(l => { t += `• ${l.n} x ${l.nombre}` + (l.precio > 0 ? ` — ${eur(l.imp)}` : " — a consultar") + "\n"; });
+    if (total() > 0) t += `\nTotal orientativo: ${eur(total())}`;
+    window.open("https://wa.me/34603621660?text=" + encodeURIComponent(t), "_blank", "noopener");
+  }
+  window.enviar = enviar;
+
+  document.querySelectorAll(".cat-pill").forEach(p => p.addEventListener("click", () => {
+    document.querySelectorAll(".cat-pill").forEach(x => x.classList.remove("activa"));
+    p.classList.add("activa");
+    const f = p.dataset.filtro;
+    document.querySelectorAll(".serv").forEach(s => s.classList.toggle("ocultar", f !== "todas" && s.dataset.cat !== f));
+  }));
+
+  function abrirChat() { const b = document.getElementById("cbn-burbuja"); if (b) b.click(); }
+  window.abrirChat = abrirChat;
+
+  addEventListener("load", () => { const p = document.getElementById("preloader"); if (p) setTimeout(() => p.classList.add("oculto"), 600); });
+
+  const nav = document.getElementById("nav"), prog = document.getElementById("progreso");
+  addEventListener("scroll", () => {
+    const h = document.documentElement;
+    prog.style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + "%";
+    nav.classList.toggle("compacta", h.scrollTop > 40);
+  }, {passive:true});
+
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), {threshold:.15});
+    document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+  } else {
+    document.querySelectorAll(".reveal").forEach(el => el.classList.add("in"));
+  }
+
+  const ioc = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    ioc.unobserve(e.target);
+    const el = e.target, fin = parseFloat(el.dataset.contador), dec = el.dataset.decimal ? 1 : 0, suf = el.dataset.sufijo || "";
+    let t0 = null;
+    const paso = ts => {
+      if (!t0) t0 = ts;
+      const p = Math.min((ts - t0) / 1400, 1);
+      el.textContent = (fin * (1 - Math.pow(1 - p, 3))).toFixed(dec).replace(".", ",") + suf;
+      if (p < 1) requestAnimationFrame(paso);
+    };
+    requestAnimationFrame(paso);
+  }), {threshold:.6});
+  document.querySelectorAll("[data-contador]").forEach(el => ioc.observe(el));
+
+  refrescar();
 </script>
-<link rel="stylesheet" href="widget.css?v=5">
-<script src="config-veterinaria.js?v=5"></script>
-<script src="widget.js?v=5"></script>
+
+<link rel="stylesheet" href="widget.css?v=8">
+<script src="config-veterinaria.js?v=8"></script>
+<script src="widget.js?v=8"></script>
 </body>
 </html>

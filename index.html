@@ -7,90 +7,363 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-66WBS8187W"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-66WBS8187W');</script>
   <title>Asistentes Virtuales para Negocios · Responde y reserva por ti 24/7</title>
-  <meta name="description" content="Un asistente virtual que responde a tus clientes y coge las reservas por ti, de día y de noche. Cada reserva directa a tu WhatsApp. Para restaurantes y negocios en Madrid.">
+  <meta name="description" content="Un asistente virtual que responde a tus clientes y coge las reservas por ti, de día y de noche. Cada reserva directa a tu WhatsApp. Demo gratis con el nombre de tu negocio.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%94%A5%3C/text%3E%3C/svg%3E">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tuasistente24.com/">
   <meta property="og:title" content="Asistentes Virtuales para Negocios">
-  <meta property="og:description" content="Un asistente que responde y reserva por ti, 24/7. Cada reserva directa a tu WhatsApp.">
-  <style>
-    :root {
-      --bg:#12100E; --bg2:#1A1512; --card:#201A15; --text:#F4EEE4; --muted:#A99E8E;
-      --ember1:#FF6A35; --ember2:#FFB23A; --gold:#E4B663; --green:#35D6A0; --line:rgba(228,182,99,.16);
-    }
-    * { margin:0; padding:0; box-sizing:border-box; }
-    html { scroll-behavior:smooth; }
-    body { background:var(--bg); color:var(--text); font-family:'Segoe UI',system-ui,-apple-system,sans-serif; line-height:1.6; overflow-x:hidden; }
-    h1,h2 { font-family:Georgia,'Times New Roman',serif; letter-spacing:-.4px; }
-    a { color:inherit; }
-    .wrap { max-width:820px; margin:0 auto; padding:0 24px; }
-    .grad { background:linear-gradient(135deg,var(--ember1),var(--ember2)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
-    .eyebrow { text-transform:uppercase; letter-spacing:.2em; font-size:12px; font-weight:800; color:var(--gold); }
+  <meta property="og:description" content="Un asistente que responde y reserva por ti, 24/7. Cada reserva directa a tu WhatsApp. Demo gratis con el nombre de tu negocio.">
+  <meta property="og:image" content="https://tuasistente24.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Vera, el asistente de TuAsistente24, contestando el precio de los tres planes en un chat.">
+  <meta name="twitter:card" content="summary_large_image">
+<style>
+  :root{
+    --bg:#FFFDFA; --bg2:#FDF6EE; --card:#FFFFFF;
+    --ink:#1A1512; --ink2:#4A423B; --muted:#7C7069;
+    --ember1:#FF6A35; --ember2:#FFB23A;
+    --green:#25D366; --green-dark:#06301b;
+    --line:#EDE3D8; --line2:#DCCDBC;
+    --sombra:0 1px 2px rgba(26,21,18,.04), 0 8px 24px rgba(26,21,18,.06);
+    --sombra-alta:0 20px 50px rgba(255,106,53,.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:'Segoe UI',system-ui,-apple-system,sans-serif;line-height:1.6;overflow-x:hidden;padding-bottom:78px}
+  h1,h2,h3{letter-spacing:-.03em;line-height:1.1;text-wrap:balance;font-weight:800}
+  a{color:inherit}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 22px}
+  .acento{color:var(--ember1)}
+  .eyebrow{text-transform:uppercase;letter-spacing:.16em;font-size:11.5px;font-weight:800;color:var(--ember1);margin-bottom:10px}
+  section{padding:78px 0}
+  section.alt{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  section h2{font-size:clamp(27px,4.4vw,40px);margin-bottom:12px}
+  section .intro{color:var(--muted);max-width:60ch;margin-bottom:38px;font-size:17px}
 
-    header { text-align:center; padding:80px 24px 60px; background:radial-gradient(ellipse at 50% -10%, rgba(255,106,53,.22), transparent 60%), var(--bg); }
-    header .llama { font-size:56px; display:inline-block; animation:fl 2.5s ease-in-out infinite; transform-origin:center bottom; }
-    @keyframes fl { 0%,100%{transform:scale(1) rotate(-2deg);} 50%{transform:scale(1.08) rotate(2deg);} }
-    header h1 { font-size:clamp(32px,6vw,52px); line-height:1.08; text-wrap:balance; margin:14px 0 16px; }
-    header p.lead { color:var(--muted); font-size:clamp(16px,2.3vw,19px); max-width:60ch; margin:0 auto 30px; }
+  /* ---------- nav ---------- */
+  nav{position:sticky;top:0;z-index:40;background:rgba(255,253,250,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  nav .in{max-width:1060px;margin:0 auto;padding:13px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+  nav .marca{font-weight:800;font-size:17px;letter-spacing:-.02em;display:flex;align-items:center;gap:7px}
+  nav .marca span{font-weight:400;color:var(--muted);font-size:14px}
+  nav .links{display:flex;gap:22px;font-size:14.5px;color:var(--ink2);font-weight:600}
+  nav .links a{text-decoration:none}
+  nav .links a:hover{color:var(--ember1)}
+  @media(max-width:760px){nav .links{display:none}}
+  .btn-wa{display:inline-flex;align-items:center;gap:9px;background:var(--green);color:var(--green-dark);text-decoration:none;font-weight:800;padding:15px 28px;border-radius:12px;font-size:16px;box-shadow:0 8px 22px rgba(37,211,102,.28);transition:transform .18s,box-shadow .18s}
+  .btn-wa:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(37,211,102,.4)}
+  .btn-wa.mini{padding:9px 16px;font-size:14px;border-radius:9px;box-shadow:none}
+  .btn-ghost{display:inline-flex;align-items:center;gap:9px;background:var(--card);color:var(--ink);text-decoration:none;font-weight:700;padding:15px 24px;border-radius:12px;font-size:15.5px;border:1px solid var(--line2);transition:border-color .18s,transform .18s}
+  .btn-ghost:hover{border-color:var(--ember1);transform:translateY(-2px)}
 
-    .btn-wa { display:inline-flex; align-items:center; gap:9px; background:#25D366; color:#06301b; text-decoration:none; font-weight:800; padding:15px 30px; border-radius:999px; font-size:16.5px; box-shadow:0 10px 30px rgba(37,211,102,.3); transition:transform .18s, box-shadow .18s; }
-    .btn-wa:hover { transform:translateY(-2px) scale(1.02); box-shadow:0 16px 40px rgba(37,211,102,.45); }
-    .tel { margin-top:12px; font-size:14px; color:var(--muted); }
-    .tel a { color:var(--gold); font-weight:700; text-decoration:none; }
+  /* ---------- hero ---------- */
+  .hero{padding:66px 0 60px;background:linear-gradient(180deg,#FFF4EA 0%,var(--bg) 70%)}
+  .hero .in{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
+  @media(max-width:880px){.hero .in{grid-template-columns:1fr;gap:38px}}
+  .hero h1{font-size:clamp(33px,5.4vw,52px);margin-bottom:16px}
+  .hero .lead{color:var(--ink2);font-size:clamp(16px,2vw,19px);max-width:52ch;margin-bottom:26px}
+  .hero .ctas{display:flex;gap:11px;flex-wrap:wrap;margin-bottom:18px}
+  .hero .micro{font-size:14px;color:var(--muted)}
+  .hero .micro b{color:var(--ink)}
 
-    .accesos { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; padding:20px 0 80px; }
-    a.tarjeta { display:block; text-decoration:none; background:var(--card); border:1px solid var(--line); border-radius:18px; padding:26px; transition:transform .2s, border-color .2s, box-shadow .2s; }
-    a.tarjeta:hover { transform:translateY(-5px); border-color:rgba(228,182,99,.4); box-shadow:0 20px 44px rgba(0,0,0,.4); }
-    a.tarjeta .ic { font-size:34px; }
-    a.tarjeta .t { font-size:18px; font-weight:700; margin:10px 0 4px; }
-    a.tarjeta .d { color:var(--muted); font-size:14.5px; }
-    a.tarjeta .flecha { color:var(--gold); font-weight:700; margin-top:10px; display:inline-block; }
+  /* ---------- mockup del chat ---------- */
+  .chat{background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:var(--sombra-alta);overflow:hidden;max-width:400px;margin:0 auto;width:100%}
+  .chat .top{background:linear-gradient(135deg,var(--ember1),var(--ember2));color:#fff;padding:14px 18px;display:flex;align-items:center;gap:11px}
+  .chat .top .av{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.22);display:grid;place-items:center;font-size:19px}
+  .chat .top b{font-size:15.5px;display:block;line-height:1.25}
+  .chat .top small{font-size:12px;opacity:.9}
+  .chat .body{padding:16px;background:var(--bg2);display:flex;flex-direction:column;gap:10px}
+  .msg{max-width:84%;padding:11px 14px;border-radius:15px;font-size:14.5px;line-height:1.5}
+  .msg.bot{background:var(--card);border:1px solid var(--line);border-bottom-left-radius:5px;align-self:flex-start;color:var(--ink2)}
+  .msg.yo{background:linear-gradient(135deg,var(--ember1),var(--ember2));color:#fff;border-bottom-right-radius:5px;align-self:flex-end;font-weight:600}
+  .msg b{color:var(--ink)}
+  .chat .chips{display:flex;flex-wrap:wrap;gap:7px;padding:0 16px 16px;background:var(--bg2)}
+  .chip{background:var(--card);border:1px solid var(--line2);border-radius:999px;padding:6px 13px;font-size:12.5px;color:var(--ink2);font-weight:600}
+  .chat .pie{padding:11px 16px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);background:var(--card)}
 
-    .badges { display:flex; flex-wrap:wrap; gap:9px; justify-content:center; margin-bottom:28px; }
-    .badge { background:var(--card); border:1px solid var(--line); border-radius:999px; padding:7px 15px; font-size:13px; color:var(--muted); }
-    .badge b { color:var(--text); }
+  /* ---------- cifras ---------- */
+  .cifras{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  .cifra{background:var(--card);padding:26px 18px;text-align:center}
+  .cifra .n{font-size:32px;font-weight:800;letter-spacing:-.03em;color:var(--ember1);line-height:1}
+  .cifra .t{font-size:14px;color:var(--muted);margin-top:6px}
 
-    footer { text-align:center; padding:30px 24px 50px; color:var(--muted); font-size:13px; border-top:1px solid var(--line); }
-  </style>
+  /* ---------- pasos ---------- */
+  .pasos{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:20px}
+  .paso{position:relative;padding-top:14px}
+  .paso .n{font-size:13px;font-weight:800;color:var(--ember1);letter-spacing:.1em}
+  .paso b{display:block;font-size:18px;margin:8px 0 5px;letter-spacing:-.02em}
+  .paso span{color:var(--muted);font-size:15px}
+  .paso::before{content:"";position:absolute;top:0;left:0;width:34px;height:3px;border-radius:2px;background:linear-gradient(90deg,var(--ember1),var(--ember2))}
+
+  /* ---------- planes ---------- */
+  .tabla-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:18px;background:var(--card);box-shadow:var(--sombra)}
+  table{border-collapse:collapse;width:100%;min-width:640px}
+  th,td{padding:16px 18px;text-align:left;border-bottom:1px solid var(--line);font-size:15px}
+  thead th{background:var(--bg2);font-size:13px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:800}
+  thead th.mejor{background:linear-gradient(135deg,var(--ember1),var(--ember2));color:#fff}
+  tbody tr:last-child td{border-bottom:0}
+  td.plan b{font-size:17px;display:block;letter-spacing:-.02em}
+  td.plan .p{font-size:26px;font-weight:800;letter-spacing:-.03em;margin-top:4px}
+  td.plan .m{color:var(--ember1);font-weight:700;font-size:15px}
+  td.col-mejor{background:#FFF7F1}
+  .si{color:#1a7f4b;font-weight:800}
+  .no{color:var(--muted)}
+
+  /* ---------- sectores ---------- */
+  .sectores{display:flex;flex-wrap:wrap;gap:10px}
+  .sector{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:10px 18px;font-size:15px;font-weight:600;box-shadow:var(--sombra)}
+
+  /* ---------- tarjetas de prueba ---------- */
+  .demos{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+  a.tarjeta{display:block;text-decoration:none;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:var(--sombra);transition:transform .2s,border-color .2s,box-shadow .2s}
+  a.tarjeta:hover{transform:translateY(-5px);border-color:var(--ember1);box-shadow:0 20px 44px rgba(26,21,18,.1)}
+  a.tarjeta .ic{font-size:32px}
+  a.tarjeta .t{font-size:18px;font-weight:800;margin:10px 0 4px;letter-spacing:-.02em}
+  a.tarjeta .d{color:var(--muted);font-size:14.5px}
+  a.tarjeta .flecha{color:var(--ember1);font-weight:700;margin-top:10px;display:inline-block}
+
+  /* ---------- faq ---------- */
+  .faq details{border-bottom:1px solid var(--line)}
+  .faq summary{cursor:pointer;padding:19px 0;font-weight:700;font-size:17px;list-style:none;display:flex;justify-content:space-between;gap:14px;align-items:center}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";color:var(--ember1);font-size:25px;font-weight:400;line-height:1}
+  .faq details[open] summary::after{content:"−"}
+  .faq p{color:var(--muted);padding:0 0 20px;font-size:16px;max-width:64ch}
+
+  /* ---------- cierre ---------- */
+  .cierre{background:linear-gradient(135deg,#1A1512,#2A211B);color:#F4EEE4;text-align:center}
+  .cierre h2{font-size:clamp(28px,5vw,42px);margin-bottom:14px}
+  .cierre h2 span{background:linear-gradient(135deg,var(--ember1),var(--ember2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .cierre p{color:#B5A798;max-width:52ch;margin:0 auto 28px;font-size:17px}
+  .cierre .tel{margin-top:16px;font-size:14.5px;color:#B5A798}
+  .cierre .tel a{color:var(--ember2);font-weight:700;text-decoration:none}
+
+  footer{text-align:center;padding:30px 22px 40px;color:var(--muted);font-size:13px}
+
+  /* La barra reserva 84px a la derecha: ahi vive el boton del asistente
+     (widget.css lo fija en bottom:24px con z-index 99999). Sin esta reserva
+     el robot se monta encima del boton de WhatsApp y en movil tapa el sitio
+     donde se pulsa. */
+  .barra{position:fixed;left:0;right:0;bottom:0;background:rgba(255,253,250,.95);backdrop-filter:blur(12px);border-top:1px solid var(--line2);padding:12px 84px 12px 16px;display:flex;gap:12px;align-items:center;justify-content:center;z-index:50}
+  .barra .txt{font-size:14px;color:var(--ink2);font-weight:600}
+  .barra .btn-wa{padding:12px 22px;font-size:15px;box-shadow:none}
+  @media(max-width:560px){.barra .txt{display:none}.barra .btn-wa{width:100%;justify-content:center}}
+</style>
 </head>
 <body>
-  <header>
-    <div class="wrap">
-      <span class="llama">🔥</span>
-      <div class="eyebrow" style="margin-top:8px">Asistente virtual · 24/7</div>
-      <h1>Tu negocio <span class="grad">respondiendo y reservando solo</span></h1>
-      <p class="lead">Instalo en tu web un asistente que atiende a tus clientes al instante, resuelve dudas y coge las reservas por ti — de noche, en festivos y cuando estás a tope. Cada reserva te llega al WhatsApp.</p>
-      <div class="badges">
-        <span class="badge">⚡ Responde en <b>segundos</b></span>
-        <span class="badge">🕐 <b>24/7</b></span>
-        <span class="badge">📲 Reservas a tu <b>WhatsApp</b></span>
-      </div>
-      <p class="tel">Escríbeme al <a href="https://wa.me/34603621660" target="_blank" rel="noopener noreferrer">+34 603 621 660</a></p>
-    </div>
-  </header>
 
+<nav>
+  <div class="in">
+    <div class="marca">🔥 tuasistente<span>24</span></div>
+    <div class="links">
+      <a href="#como">Cómo funciona</a>
+      <a href="#planes">Precios</a>
+      <a href="#sectores">Para quién</a>
+      <a href="#probar">Probarlo</a>
+      <a href="#dudas">Dudas</a>
+    </div>
+    <a class="btn-wa mini" href="https://wa.me/34603621660?text=Hola%20Brayan%2C%20quiero%20mi%20demo%20gratis" target="_blank" rel="noopener noreferrer">💬 Demo gratis</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="wrap in">
+    <div>
+      <div class="eyebrow">Asistente virtual · 24/7</div>
+      <h1>Tu negocio <span class="acento">respondiendo y reservando solo</span></h1>
+      <p class="lead">Instalo en tu web un asistente que atiende a tus clientes al instante, resuelve dudas y coge las reservas por ti — de noche, en festivos y cuando estás a tope. Cada reserva te llega al WhatsApp.</p>
+      <div class="ctas">
+        <a class="btn-wa" href="https://wa.me/34603621660?text=Hola%20Brayan%2C%20quiero%20mi%20demo%20gratis%20con%20el%20nombre%20de%20mi%20negocio" target="_blank" rel="noopener noreferrer">💬 Pídeme tu demo gratis</a>
+        <a class="btn-ghost" href="demo.html">👀 Verlo funcionando</a>
+      </div>
+      <p class="micro">Gratis y <b>sin compromiso</b> · te la monto con el nombre de tu negocio · <b>sin permanencia</b></p>
+    </div>
+
+    <div class="chat" aria-hidden="true">
+      <div class="top">
+        <div class="av">🤖</div>
+        <div><b>Vera</b><small>Asistente de TuAsistente24 · en línea</small></div>
+      </div>
+      <div class="body">
+        <div class="msg bot">¡Hola! 👋 Soy Vera, el asistente de TuAsistente24 — sí, uno igual que el que te puedo montar a ti.</div>
+        <div class="msg yo">¿cuánto cuesta?</div>
+        <div class="msg bot">💰 Hay tres planes:<br><b>Básico</b> — 149 € + 19 €/mes<br><b>Profesional</b> — 249 € + 39 €/mes<br><b>Premium</b> — 399 € + 79 €/mes<br><br>Sin permanencia: la cuota la cancelas cuando quieras.</div>
+        <div class="msg yo">vale, quiero una llamada</div>
+        <div class="msg bot">¡Perfecto! 📅 ¿Para qué día?</div>
+      </div>
+      <div class="chips"><span class="chip">💰 ¿Cuánto cuesta?</span><span class="chip">🎁 Mi demo gratis</span><span class="chip">⚡ ¿Cuánto tarda?</span></div>
+      <div class="pie">Esto es el asistente de verdad — el de abajo a la derecha. El tuyo hablaría de lo tuyo.</div>
+    </div>
+  </div>
+</div>
+
+<section class="alt">
   <div class="wrap">
-    <div class="accesos">
+    <div class="cifras">
+      <div class="cifra"><div class="n">24/7</div><div class="t">Contesta también de noche y en festivos</div></div>
+      <div class="cifra"><div class="n">8</div><div class="t">Demos funcionando que puedes probar ahora</div></div>
+      <div class="cifra"><div class="n">0</div><div class="t">Meses de permanencia</div></div>
+      <div class="cifra"><div class="n">15</div><div class="t">Días de prueba gratis</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="como">
+  <div class="wrap">
+    <div class="eyebrow">Cómo funciona</div>
+    <h2>Cuatro pasos, y ya está</h2>
+    <p class="intro">No tienes que aprender nada ni instalar nada: la puesta en marcha la hago yo entera. De la primera charla a tu asistente funcionando, en días.</p>
+    <div class="pasos">
+      <div class="paso"><div class="n">PASO 1</div><b>El cliente escribe</b><span>En tu web, a la hora que sea.</span></div>
+      <div class="paso"><div class="n">PASO 2</div><b>Responde al instante</b><span>Precios, horario, dónde estás, lo de siempre.</span></div>
+      <div class="paso"><div class="n">PASO 3</div><b>Toma la reserva</b><span>Día, hora, nombre y teléfono, sin llamadas.</span></div>
+      <div class="paso"><div class="n">PASO 4</div><b>Te llega al WhatsApp</b><span>Con todos los datos, lista para confirmar.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="planes">
+  <div class="wrap">
+    <div class="eyebrow">Planes</div>
+    <h2>Precios claros, sin letra pequeña</h2>
+    <p class="intro">Un pago único de puesta en marcha y una cuota al mes. La cuota la cancelas cuando quieras.</p>
+
+    <div class="tabla-wrap">
+      <table>
+        <thead>
+          <tr><th>Qué incluye</th><th>Básico</th><th class="mejor">Profesional · el más pedido</th><th>Premium</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>Precio</b></td>
+            <td class="plan"><b>Básico</b><div class="p">149 €</div><div class="m">+ 19 €/mes</div></td>
+            <td class="plan col-mejor"><b>Profesional</b><div class="p">249 €</div><div class="m">+ 39 €/mes</div></td>
+            <td class="plan"><b>Premium</b><div class="p">399 €</div><div class="m">+ 79 €/mes</div></td>
+          </tr>
+          <tr><td>Asistente en tu web</td><td class="si">✓</td><td class="si col-mejor">✓</td><td class="si">✓</td></tr>
+          <tr><td>Preguntas frecuentes 24/7</td><td class="si">✓</td><td class="si col-mejor">✓</td><td class="si">✓</td></tr>
+          <tr><td>Personalizado con tu marca</td><td class="si">✓</td><td class="si col-mejor">✓</td><td class="si">✓</td></tr>
+          <tr><td>Reservas y citas automáticas</td><td class="no">—</td><td class="si col-mejor">✓</td><td class="si">✓</td></tr>
+          <tr><td>Cada reserva a tu WhatsApp</td><td class="no">—</td><td class="si col-mejor">✓</td><td class="si">✓</td></tr>
+          <tr><td>Atención por voz</td><td class="no">—</td><td class="si col-mejor">✓</td><td class="si">✓</td></tr>
+          <tr><td>Contesta el teléfono con IA de voz</td><td class="no">—</td><td class="no col-mejor">—</td><td class="si">✓</td></tr>
+          <tr><td>Reservas tomadas por llamada</td><td class="no">—</td><td class="no col-mejor">—</td><td class="si">✓</td></tr>
+          <tr>
+            <td></td>
+            <td><a class="btn-wa mini" href="https://wa.me/34603621660?text=Hola%20Brayan%2C%20me%20interesa%20el%20plan%20B%C3%A1sico" target="_blank" rel="noopener noreferrer">Lo quiero</a></td>
+            <td class="col-mejor"><a class="btn-wa mini" href="https://wa.me/34603621660?text=Hola%20Brayan%2C%20me%20interesa%20el%20plan%20Profesional" target="_blank" rel="noopener noreferrer">Lo quiero</a></td>
+            <td><a class="btn-wa mini" href="https://wa.me/34603621660?text=Hola%20Brayan%2C%20me%20interesa%20el%20plan%20Premium" target="_blank" rel="noopener noreferrer">Lo quiero</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="intro" style="margin:22px 0 0">⭐ <b>15 días de prueba gratis</b>, sin permanencia. Y los <b>5 primeros negocios de Madrid</b> se llevan la puesta en marcha gratis y el primer mes sin coste.</p>
+  </div>
+</section>
+
+<section id="sectores">
+  <div class="wrap">
+    <div class="eyebrow">Para quién</div>
+    <h2>Si te repiten las mismas preguntas, te sirve</h2>
+    <p class="intro">Estos son los sectores donde más se usa ahora mismo. Si el tuyo no está pero recibes preguntas repetidas o agendas citas, el asistente se adapta.</p>
+    <div class="sectores">
+      <div class="sector">🍽️ Restaurantes y cafés</div>
+      <div class="sector">💈 Barberías y peluquerías</div>
+      <div class="sector">🦷 Clínicas y consultorios</div>
+      <div class="sector">💆 Spas y estética</div>
+      <div class="sector">🛍️ Tiendas y comercios</div>
+      <div class="sector">🏋️ Gimnasios y academias</div>
+      <div class="sector">🐾 Veterinarias</div>
+      <div class="sector">🧘 Pilates y fisioterapia</div>
+      <div class="sector">🚗 Autoescuelas</div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="probar">
+  <div class="wrap">
+    <div class="eyebrow">Pruébalo tú</div>
+    <h2>No te fíes de mí: háblale</h2>
+    <p class="intro">Hay 8 demos funcionando de verdad. Entra, escríbele como escribiría un cliente tuyo y mira qué contesta.</p>
+    <div class="demos">
       <a class="tarjeta" href="demo.html">
         <div class="ic">💬</div>
-        <div class="t">Ver la demo</div>
-        <div class="d">Web de ejemplo con el asistente. Chatea y reserva una mesa.</div>
+        <div class="t">Las 8 demos</div>
+        <div class="d">Restaurante, barbería, clínica, estética, gimnasio, veterinaria, pilates y autoescuela.</div>
         <span class="flecha">Probar ahora →</span>
-      </a>
-      <a class="tarjeta" href="book/book.html">
-        <div class="ic">📕</div>
-        <div class="t">Presentación y planes</div>
-        <div class="d">Beneficios, sectores y precios. Todo lo que incluye.</div>
-        <span class="flecha">Ver el book →</span>
       </a>
       <a class="tarjeta" href="llamada.html">
         <div class="ic">📞</div>
         <div class="t">Asistente telefónico</div>
-        <div class="d">Habla con la IA y ella te responde con voz.</div>
+        <div class="d">Llámalo y háblale con normalidad. Te responde con voz y lo agenda solo.</div>
         <span class="flecha">Probar la llamada →</span>
+      </a>
+      <a class="tarjeta" href="book/book.html">
+        <div class="ic">📕</div>
+        <div class="t">La presentación entera</div>
+        <div class="d">Todo lo que incluye cada plan, los sectores y las preguntas frecuentes.</div>
+        <span class="flecha">Ver el book →</span>
       </a>
     </div>
   </div>
+</section>
 
-  <footer>© 2026 · Asistentes virtuales para restaurantes y negocios · Madrid</footer>
+<section class="faq" id="dudas">
+  <div class="wrap">
+    <div class="eyebrow">Dudas</div>
+    <h2>Lo que me preguntan siempre</h2>
+    <p class="intro">Y si te queda otra, escríbeme por WhatsApp: contesto a cualquier hora.</p>
+
+    <details open>
+      <summary>¿Necesito tener página web?</summary>
+      <p>Idealmente sí. Si no tienes, te hago una página sencilla con el asistente incluido.</p>
+    </details>
+    <details>
+      <summary>¿Puedo cambiar las respuestas después?</summary>
+      <p>Sí. Los ajustes están incluidos en tu cuota mensual: me escribes y lo actualizo.</p>
+    </details>
+    <details>
+      <summary>Mi negocio no es un restaurante, ¿me sirve?</summary>
+      <p>Casi seguro que sí: si recibes preguntas repetidas o agendas citas, el asistente se adapta.</p>
+    </details>
+    <details>
+      <summary>¿Y si el asistente no sabe algo?</summary>
+      <p>Invita al cliente a contactarte por teléfono o WhatsApp, para no perder nunca la venta.</p>
+    </details>
+    <details>
+      <summary>¿Hay permanencia?</summary>
+      <p>No. Cancelas la cuota mensual cuando quieras; la puesta en marcha es un pago único.</p>
+    </details>
+    <details>
+      <summary>¿Cuánto tarda en estar listo?</summary>
+      <p>De la primera charla a tu asistente funcionando, en días. La instalación la hago yo entera.</p>
+    </details>
+    <details>
+      <summary>¿Cómo se paga?</summary>
+      <p>Transferencia, tarjeta o en persona. La puesta en marcha es un pago único y la cuota va mes a mes.</p>
+    </details>
+  </div>
+</section>
+
+<section class="cierre">
+  <div class="wrap">
+    <h2>Te lo monto con <span>el nombre de tu negocio</span></h2>
+    <p>Gratis y sin compromiso. Lo ves funcionando con tus datos y decides después.</p>
+    <a class="btn-wa" href="https://wa.me/34603621660?text=Hola%20Brayan%2C%20quiero%20mi%20demo%20gratis%20con%20el%20nombre%20de%20mi%20negocio" target="_blank" rel="noopener noreferrer">💬 Pídeme tu demo gratis</a>
+    <p class="tel">O llámame al <a href="tel:+34603621660">+34 603 621 660</a> · Brayan Cuadros</p>
+  </div>
+</section>
+
+<footer>© 2026 · tuasistente24 · Asistentes virtuales para restaurantes y negocios · Madrid, para toda España</footer>
+
+<div class="barra">
+  <span class="txt">Demo gratis con el nombre de tu negocio</span>
+  <a class="btn-wa" href="https://wa.me/34603621660?text=Hola%20Brayan%2C%20quiero%20mi%20demo%20gratis%20con%20el%20nombre%20de%20mi%20negocio" target="_blank" rel="noopener noreferrer">💬 Pedir mi demo gratis</a>
+</div>
+
+<link rel="stylesheet" href="widget.css?v=8">
+<script src="config-tuasistente24.js?v=8"></script>
+<script src="widget.js?v=8"></script>
 </body>
 </html>

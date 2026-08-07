@@ -87,10 +87,54 @@
   .garantia{margin-top:22px;color:#22D3A5;font-size:13.5px;font-weight:600}
   footer{text-align:center;color:var(--mut);font-size:13px;padding:26px 22px 40px;border-top:1px solid var(--line)}
 
+  /* CTA del hero */
+  .cta-hero{display:inline-block;margin-top:20px;background:linear-gradient(135deg,#FF6A35,#FFB23A);color:#2A1403;
+    font-weight:800;font-size:16px;padding:15px 30px;border-radius:12px;text-decoration:none;
+    box-shadow:0 10px 28px rgba(255,106,53,.34);transition:transform .18s}
+  .cta-hero:hover{transform:translateY(-2px)}
+  .mini{margin-top:11px;font-size:12.5px;color:#8E99A8}
+
+  /* Banda de confianza */
+  .prueba{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:34px 22px}
+  .prueba .cont{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:20px}
+  .pr{text-align:center}
+  .pr b{display:block;font-family:Georgia,serif;font-size:29px;color:#FFB23A;line-height:1.15}
+  .pr span{display:block;color:#95A0AE;font-size:13px;margin-top:6px}
+
+  /* Precio */
+  .precio{padding:52px 22px;text-align:center}
+  .precio h2{font-family:Georgia,serif;font-size:clamp(23px,4vw,31px);margin-bottom:8px}
+  .precio .sub{color:#8E99A8;font-size:14.5px;max-width:56ch;margin:0 auto 26px}
+  .caja{max-width:430px;margin:0 auto;background:#131A24;border:1px solid rgba(255,178,58,.3);
+    border-radius:18px;padding:28px 24px;text-align:left}
+  .caja .tag{display:inline-block;background:rgba(255,178,58,.14);color:#FFB23A;font-size:11px;font-weight:800;
+    letter-spacing:.13em;text-transform:uppercase;padding:5px 11px;border-radius:99px;margin-bottom:14px}
+  .caja .cif{font-family:Georgia,serif;font-size:40px;line-height:1;color:#fff}
+  .caja .cif small{font-size:16px;color:#8E99A8;font-family:inherit}
+  .caja .alta{color:#95A0AE;font-size:14px;margin-top:8px}
+  .caja ul{list-style:none;margin:20px 0 0;padding:0}
+  .caja li{padding:8px 0 8px 27px;position:relative;font-size:14px;color:#C8D2DD;border-top:1px solid rgba(255,255,255,.06)}
+  .caja li:before{content:"✓";position:absolute;left:0;color:#22D3A5;font-weight:800}
+  .caja li:first-child{border-top:none}
+
+  /* Barra fija */
+  .barra{position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(10,12,16,.96);
+    backdrop-filter:blur(10px);border-top:1px solid var(--line);padding:10px 14px;
+    display:flex;gap:10px;align-items:center;justify-content:center;transform:translateY(110%);transition:transform .3s}
+  .barra.ver{transform:none}
+  .barra a{background:#25D366;color:#04231A;font-weight:800;font-size:14.5px;padding:12px 20px;
+    border-radius:10px;text-decoration:none;white-space:nowrap}
+  .barra span{color:#95A0AE;font-size:13px}
+  @media(max-width:620px){.barra span{display:none}.barra a{flex:1;text-align:center}}
+  body{padding-bottom:0}
+
   .reveal{opacity:0;transform:translateY(26px);transition:opacity .65s cubic-bezier(.2,.7,.2,1),transform .65s cubic-bezier(.2,.7,.2,1)}
   .reveal.in{opacity:1;transform:none}
   @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal,.hin{opacity:1;transform:none}}
 </style>
+  <link rel="stylesheet" href="motion.css?v=8">
+  <style>:root{--mk-primario:#FF6A35;--mk-secundario:#FFB23A;--mk-fondo:#0e0e10;--mk-texto:#f5f2ee}</style>
+  <noscript><style>.mk-reveal,.mk-unveil{opacity:1!important;transform:none!important;clip-path:none!important}.mk-hero>*{opacity:1!important;animation:none!important}</style></noscript>
 </head>
 <body>
 
@@ -108,10 +152,21 @@
     <div class="marca">🤖 <b>tuasistente24</b></div>
     <div class="pill">⚡ PRUÉBALO EN VIVO · 30 SEGUNDOS</div>
     <h1>Mira cómo tu negocio <span class="g">responde y reserva solo</span></h1>
-    <p>Elige tu sector abajo y entra en la web de un negocio como el tuyo. Habla con el asistente, pídele cita y compruébalo tú mismo.</p>
+    <p>Este asistente es el mismo que instalo en tu web. Está aquí abajo, a la derecha: <b>ábrelo y pregúntale el precio</b>. Lo que veas es exactamente lo que verían tus clientes.</p>
+    <a class="cta-hero" href="#" onclick="abrirAsistente(event)">💬 Hablar con el asistente ahora</a>
+    <div class="mini">Sin registro · Sin dar tu correo · Responde al instante</div>
     <div class="flecha">↓</div>
   </div>
 </header>
+
+<section class="prueba">
+  <div class="cont">
+    <div class="pr reveal"><b>24 h</b><span>Contesta también de noche, en festivos y cuando estás atendiendo</span></div>
+    <div class="pr reveal"><b>48 h</b><span>Es lo que tardo en dejártelo funcionando en tu web</span></div>
+    <div class="pr reveal"><b>60%</b><span>De los clientes que no reciben respuesta a la primera no vuelven a intentarlo</span></div>
+    <div class="pr reveal"><b>0 €</b><span>Ver tu asistente montado con el nombre de tu negocio</span></div>
+  </div>
+</section>
 
 <section class="sectores">
   <div class="cont">
@@ -148,6 +203,13 @@
         <div class="foto"><img src="img/autoescuela/hero.jpg" alt="Autoescuela"><span class="ico">🚗</span></div>
         <div class="cd"><h3>Autoescuela</h3><p>Informa de precios y carnés, y agenda clases prácticas.</p><span class="ver">Ver funcionando →</span></div>
       </a>
+      <a class="sec reveal" href="https://wa.me/34603621660?text=Hola%20Brayan%2C%20mi%20negocio%20es%20de%20otro%20sector.%20%C2%BFMe%20montas%20el%20asistente%3F" target="_blank" rel="noopener noreferrer" style="grid-column:1/-1">
+        <div class="cd" style="text-align:center;padding:26px 20px">
+          <h3>¿No ves tu sector aquí?</h3>
+          <p>Talleres, inmobiliarias, academias, reformas, podología, psicología… Sirve para cualquier negocio que dé cita, reserva o presupuesto.</p>
+          <span class="ver">Escríbeme y te lo monto con tu caso →</span>
+        </div>
+      </a>
     </div>
   </div>
 </section>
@@ -165,6 +227,25 @@
   </div>
 </section>
 
+<section class="precio">
+  <div class="cont">
+    <h2 class="reveal">Lo que cuesta, sin rodeos</h2>
+    <p class="sub reveal">Las agencias cobran entre 100 € y 400 € al mes por esto mismo. Yo trabajo con negocios de barrio, y el precio está pensado para un negocio de barrio.</p>
+    <div class="caja reveal">
+      <div class="tag">Todo incluido</div>
+      <div class="cif">39 € <small>/ mes</small></div>
+      <div class="alta">+ 249 € una sola vez por el montaje</div>
+      <ul>
+        <li>Asistente en tu web con tus servicios, precios y horarios</li>
+        <li>Reservas y citas directas a tu WhatsApp, ya ordenadas</li>
+        <li>Modo voz: tus clientes pueden hablarle en vez de escribir</li>
+        <li>Cambios y soporte incluidos, hablando siempre conmigo</li>
+        <li>Sin permanencia y 15 días de garantía de devolución</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 <div class="cierre">
   <h2>¿Lo quieres funcionando en tu negocio?</h2>
   <p>Te lo monto con tu nombre, tus horarios y tus servicios. Te lo enseño gratis y sin compromiso.</p>
@@ -174,6 +255,31 @@
 </div>
 
 <footer>© 2026 · tuasistente24.com · Asistentes virtuales para negocios · Madrid</footer>
+
+<div class="barra" id="barra">
+  <span>¿Lo quieres con el nombre de tu negocio?</span>
+  <a href="https://wa.me/34603621660?text=Hola%20Brayan%2C%20vengo%20de%20tuasistente24.com%20y%20quiero%20mi%20demo%20gratis" target="_blank" rel="noopener noreferrer">💬 Pedir mi demo gratis</a>
+</div>
+
+<link rel="stylesheet" href="widget.css?v=8">
+<script src="config-demo.js?v=8"></script>
+<script src="widget.js?v=8"></script>
+
+<script>
+  // Abre el asistente desde el botón del hero
+  function abrirAsistente(e){
+    if(e) e.preventDefault();
+    var b=document.getElementById("cbn-burbuja");
+    if(b){ b.click(); } else { location.href="https://wa.me/34603621660"; }
+  }
+  // La barra fija aparece al pasar el primer scroll
+  (function(){
+    var barra=document.getElementById("barra");
+    window.addEventListener("scroll",function(){
+      if(window.scrollY>520) barra.classList.add("ver"); else barra.classList.remove("ver");
+    },{passive:true});
+  })();
+</script>
 
 <script>
   if("IntersectionObserver" in window){
@@ -187,5 +293,6 @@
     document.querySelectorAll(".reveal").forEach(function(el){io.observe(el)});
   } else { document.querySelectorAll(".reveal").forEach(function(el){el.classList.add("in")}); }
 </script>
+<script src="motion.js?v=8"></script>
 </body>
 </html>
